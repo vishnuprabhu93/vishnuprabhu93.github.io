@@ -2,9 +2,9 @@
 <div class="wrap">
   <section class="hero">
     <div>
-      <span class="eyebrow">Tenure-Track Assistant Professor &middot; School of Modeling, Simulation, and Training &middot; UCF</span>
       <h1 class="name">{{ .Site.Params.author }}</h1>
-      <p class="role">Director, {{ .Site.Params.labName }} &mdash; extended reality, multimodal biosensing, and adaptive digital twins for healthcare.</p>
+      <p class="role">Director, {{ .Site.Params.labName }}</p>
+      <span class="eyebrow">Tenure Track Assistant Professor<br>School of Modeling, Simulation, and Training<br>University of Central Florida</span>
       <div class="intro">{{ .Content }}</div>
       <div class="quicklinks">
         <a class="qlink primary" href="{{ .Site.Params.cvPath }}">Download CV</a>
@@ -14,9 +14,8 @@
       </div>
     </div>
     <div class="portrait">
-      {{ $photo := resources.Get "images/portrait.jpg" }}
-      {{ if $photo }}
-        <img src="{{ $photo.RelPermalink }}" alt="{{ .Site.Params.author }}">
+      {{ if (os.FileExists "static/images/portrait.jpg") }}
+        <img src="{{ "images/portrait.jpg" | relURL }}" alt="{{ .Site.Params.author }}">
       {{ else }}
         <span>Photo placeholder</span>
       {{ end }}
