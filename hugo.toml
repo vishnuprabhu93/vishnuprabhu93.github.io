@@ -1,0 +1,49 @@
+baseURL = "https://vishnuprabhu93.github.io/"
+languageCode = "en-us"
+title = "V. Girishan Prabhu / XR BioSim Lab"
+
+theme = ""  # placeholder — decide: minimal custom theme vs. PaperMod, per earlier discussion
+
+[params]
+  author = "Vishnunarayan Girishan Prabhu"
+  labName = "XR BioSim Lab"
+  affiliation = "School of Modeling, Simulation, and Training, University of Central Florida"
+  scholarUrl = "https://scholar.google.com/citations?user=3yTyszMAAAAJ&hl=en"
+  linkedinUrl = "http://www.linkedin.com/in/vgirishp"
+  email = "vishnunarayan.girishanprabhu@ucf.edu"
+  cvPath = "/files/Vishnu_CV.pdf"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Publications"
+    url = "/publications/"
+    weight = 2
+  [[menu.main]]
+    name = "Projects & Funding"
+    url = "/projects/"
+    weight = 3
+  [[menu.main]]
+    name = "XR BioSim Lab"
+    url = "/lab/"
+    weight = 4
+  [[menu.main]]
+    name = "Service"
+    url = "/service/"
+    weight = 5
+  [[menu.main]]
+    name = "Teaching"
+    url = "/teaching/"
+    weight = 6
+  [[menu.main]]
+    name = "News"
+    url = "/news/"
+    weight = 7
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
