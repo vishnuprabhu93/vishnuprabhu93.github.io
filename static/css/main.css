@@ -85,10 +85,11 @@ h2.section-title { font-family: var(--font-display); font-weight: 500; font-size
 
 footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13px; color: var(--warm-gray); display: flex; justify-content: space-between; }
 
-.pub-body h3 { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-deep); margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.pub-body h2 { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-deep); margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.pub-body h2:first-child { margin-top: 0; }
 .pub-body ol { list-style: none; counter-reset: pub; }
-.pub-body ol li { counter-increment: pub; display: grid; grid-template-columns: 36px 1fr; gap: 16px; padding: 12px 0; font-size: 14.5px; border-bottom: 1px solid rgba(18,24,27,0.06); }
-.pub-body ol li::before { content: counter(pub, decimal-leading-zero); font-family: var(--font-mono); color: var(--warm-gray); font-size: 13px; }
+.pub-body ol li { counter-increment: pub; position: relative; padding: 12px 0 12px 52px; font-size: 14.5px; border-bottom: 1px solid rgba(18,24,27,0.06); }
+.pub-body ol li::before { content: counter(pub, decimal-leading-zero); position: absolute; left: 0; top: 12px; font-family: var(--font-mono); color: var(--warm-gray); font-size: 13px; }
 .stat-row { display: flex; gap: 32px; margin-bottom: 8px; }
 .stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 500; }
 .stat-label { font-size: 12px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -127,8 +128,8 @@ footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13p
 .equip-item .name { font-weight: 600; margin-bottom: 3px; }
 .equip-item .desc { color: var(--warm-gray); font-size: 12.5px; }
 
-.service-body h3 { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-deep); margin: 30px 0 12px; }
-.service-body h3:first-child { margin-top: 0; }
+.service-body h2 { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-deep); margin: 30px 0 12px; }
+.service-body h2:first-child { margin-top: 0; }
 .service-body ul { list-style: none; }
 .service-body ul li { font-size: 14.5px; padding: 8px 0; border-bottom: 1px solid rgba(18,24,27,0.06); }
 
