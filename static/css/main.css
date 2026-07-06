@@ -90,6 +90,8 @@ footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13p
 .pub-body ol { list-style: none; counter-reset: pub; }
 .pub-body ol li { counter-increment: pub; position: relative; padding: 12px 0 12px 52px; font-size: 14.5px; border-bottom: 1px solid rgba(18,24,27,0.06); }
 .pub-body ol li::before { content: counter(pub, decimal-leading-zero); position: absolute; left: 0; top: 12px; font-family: var(--font-mono); color: var(--warm-gray); font-size: 13px; }
+.pub-body ol li a { color: var(--teal-deep); border-bottom: 1px solid var(--line-strong); }
+.pub-body ol li a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
 .stat-row { display: flex; gap: 32px; margin-bottom: 8px; }
 .stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 500; }
 .stat-label { font-size: 12px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.05em; }

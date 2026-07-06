@@ -5,29 +5,217 @@ hIndex: 14
 retrieved: "2026-04-24"
 ---
 
-<!-- Order is fixed: Book Chapters, then Journals, then Conference Proceedings. Do not reorder. -->
+<!-- Order is fixed: Book Chapters, then Journals, then Conference Proceedings, then Working Papers. Do not reorder. -->
+<!-- Source: Vishnu_CV.docx (Spring '26 CPE submission) + DOIs cross-checked against the old Wix publications page. -->
 
 ## Book chapters
 
-1. Stanley, L., & **Prabhu, V.G.** (2025). Human System Interaction — Interface Design. In A.P. Ambler &
-   J.W. Sheppard (Eds.), *Realizing Complex System Design* (1st ed., pp. 441–459). CRC Press.
-2. **Prabhu, V.G.**, Taaffe, K.M. (2024). Hybrid Modelling Approach Using Reinforcement Learning in Conjunction
-   with Simulation: A Case Study of an Emergency Department. In Fakhimi, M., Mustafee, N. (eds) *Hybrid Modeling
-   and Simulation*. Springer, Cham.
+1. Marston, H.R., **Prabhu, V.G.**, Ivan, L., Freeman, S., & Earle, S. (2025). The Impact on Psychological
+   Wellbeing and Loneliness on People Who Self-Reported to Self-Isolate, Being Disabled and Vulnerable During
+   the COVID-19 Pandemic: Findings from an International, Multi-Centered Project. In H.R. Marston (Ed.),
+   *Society and Technology: Promoting Well-Being in a Digital Age* (Chapter 11). Cognella.
+2. Stanley, L., & **Prabhu, V.G.** (2025). [Human System Interaction — Interface
+   Design](https://doi.org/10.1201/9781003188377-40). In A.P. Ambler & J.W. Sheppard (Eds.), *Realizing Complex
+   System Design* (1st ed., pp. 441–459). CRC Press.
+3. **Prabhu, V.G.**, Taaffe, K.M. (2024). [Hybrid Modelling Approach Using Reinforcement Learning in
+   Conjunction with Simulation: A Case Study of an Emergency
+   Department](https://doi.org/10.1007/978-3-031-59999-6_12). In Fakhimi, M., Mustafee, N. (Eds.), *Hybrid
+   Modeling and Simulation*. Springer, Cham.
 
 ## Journals
 
-1. Hirsh, E.L., Meyer, S.D., Britt, T.W., Vosika, E.C., Rosopa, P.J., **Prabhu, V.G.**, Taaffe, K., & Fowler, L.A.
-   (2025). Hidden Workload of Academic Emergency Physicians: Extra-Clinical Duties and Their Impact on Fatigue and
-   Recovery. *Academic Emergency Medicine (AEM)*.
+1. Hirsh, E.L., Meyer, S.D., Britt, T.W., Vosika, E.C., Rosopa, P.J., **Prabhu, V.G.**, Taaffe, K., & Fowler,
+   L.A. (2025). [Hidden Workload of Academic Emergency Physicians: Extra-Clinical Duties and Their Impact on
+   Fatigue and Recovery](https://doi.org/10.1111/acem.70168). *Academic Emergency Medicine (AEM)*.
+2. Marston, H.R., **Prabhu, V.G.**, & Earle, S. (2025). [Understanding eHealth, Loneliness and Well-Being
+   Experiences During the COVID-19 Pandemic: A UK Insight](https://doi.org/10.1080/28324897.2025.2501490).
+   *Cogent Gerontology*.
+3. Großschädl, F., Marston, H.R., Ivan, L., **Prabhu, V.G.**, & Earle, S. (2025). [Age as an Important
+   Predictor for Digital Health Literacy: Cross-Sectional Evidence of Internet Users from an International
+   Multisite Study in North America and EU Countries](https://doi.org/10.1080/03601277.2025.2505568).
+   *Educational Gerontology*.
+4. Malde, A., **Prabhu, V.G.**, Banga, D., Hsieh, M., Renduchintala, C., & Pirrallo, R. (2025). [A Machine
+   Learning Approach for Predicting Maternal Health Risks in Lower-Middle-Income Countries Using Sparse Data
+   and Vital Signs](https://doi.org/10.3390/fi17050190). *Future Internet*, 17(5), 190.
+5. Swami, V., Tran, U.S., et al. (2025). [Self-Compassion Around the World: Measurement Invariance of the
+   Short Form of the Self-Compassion Scale (SCS-SF) Across 65 Nations, 40 Languages, Gender Identities, and Age
+   Groups](https://doi.org/10.1007/s12671-025-02560-5). *Mindfulness*.
+6. **Prabhu, V.G.**, Pirrallo, R., Taaffe, K., Hegde, S., Foster, S., Jackson, W., Ramsay, M., & Hobbs, J.
+   (2025). [Handoffs in Emergency Departments: A Mixed-Methods Study on Physician Perspectives, Preferences,
+   and Strategies](https://doi.org/10.3390/ecm2020019). *Emergency Care and Medicine*, 2(2), 19.
+7. McDaniel, S., Pines, R., He, E.M., Collins, F., Arshad, F., Menendez, M., **Prabhu, V.G.**, & Caruso, T.J.
+   (2025). [Virtual Reality Therapeutic Art for Adult Hospitalized Patients and Caregivers: A Mixed-Methods
+   Project](https://doi.org/10.1177/23743735251330467). *Journal of Patient Experience*, 12.
+8. Swami, V., Tran, U.S., et al. (2025). [Life Satisfaction Around the World: Measurement Invariance of the
+   Satisfaction with Life Scale (SWLS) Across 65 Nations, 40 Languages, Gender Identities, and Age
+   Groups](https://doi.org/10.1371/journal.pone.0313107). *PLOS ONE*, 20(1), e0313107.
+9. Marston, H.R., **Prabhu, V.G.**, & Ivan, L. (2025). [Understanding Technology Use During the COVID-19
+   Pandemic Through the Lens of Age-Friendly Cities and Communities: An International, Multi-Centre
+   Study](https://doi.org/10.3390/covid5010007). *COVID*.
+10. Ivan, L., Marston, H.R., **Prabhu, V.G.**, Großschädl, F., Silva, P.A., Buttigieg, S.C., Çalıkoğlu, H.Ö.,
+    Bilir-Koca, B., Arslan, H., Kanozia, R., Browning, M.H., Freeman, S., & Earle, S. (2024). [Successful Aging
+    across Middle vs High-Income Countries: An Analysis of the Role of eHealth Literacy Associated with
+    Loneliness and Wellbeing](https://doi.org/10.1093/geront/gnae170). *The Gerontologist*.
+11. Foster, S., Hegde, S., Pirrallo, R., **Prabhu, V.G.**, Taaffe, K., Ramsay, M., & Jackson, B. (2024).
+    [Identifying Emergency Physicians' Strategies for Mitigating Workload Transfers during End-of-Shift Patient
+    Handoffs — A Qualitative Analysis](https://doi.org/10.1016/j.hfh.2024.100088). *Human Factors in Healthcare
+    Journal*.
+12. Swami, V., Tran, U.S., et al. (2024). [Exposure and Connectedness to Natural Environments: An Examination
+    of the Measurement Invariance of the Nature Exposure Scale (NES) and Connectedness to Nature Scale (CNS)
+    Across 65 Nations, 40 Languages, Gender Identities, and Age Groups](https://doi.org/10.1016/j.jenvp.2024.102432).
+    *Journal of Environmental Psychology*.
+13. **Prabhu, V.G.**, Stanley, L., Morgan, R., & Shirley, B. (2024). [Designing and Developing a Nature-Based
+    Virtual Reality with Heart Rate Variability Biofeedback for Surgical Anxiety and Pain Management: Evidence
+    from Total Knee Arthroplasty Patients](https://doi.org/10.1080/13607863.2023.2270442). *Aging & Mental
+    Health*.
+14. **Prabhu, V.G.**, Harper, S., Brignull, C.G., Snider, B., Tanner, S., Adams, K.J., Nisonson, A., Hand, W.,
+    & Epling, J.A. (2023). [The Impact of Virtual Reality on Pain and Anxiety during Ultrasound Guided Breast
+    Biopsies: A Randomized Controlled Clinical Trial](https://doi.org/10.1093/jbi/wbad088). *Journal of Breast
+    Imaging*.
+15. Swami, V., Tran, U.S., et al. (2023). [Body Appreciation Around the World: Measurement Invariance of the
+    Body Appreciation Scale-2 (BAS-2) Across 65 Nations, 40 Languages, Gender Identities, and
+    Age](https://doi.org/10.1016/j.bodyim.2023.07.010). *Body Image*.
+16. **Prabhu, V.G.**, Hand, W., Isik, T., Song, Y., & Taaffe, K. (2023). [Risk-Adjusted Staffing Policies to
+    Minimize Perioperative Staffing Shortages During a Pandemic: An Agent-Based Simulation
+    Study](https://doi.org/10.1017/S0950268823000511). *Epidemiology and Infection*.
+17. Marston, H.R., Ko, P.C., **Prabhu, V.G.**, Freeman, S., Ross, C., Sharaievska, I., Browning, M.H., Earle,
+    S., Ivan, L., Kanozia, R., Çalıkoğlu, H.Ö., Arslan, H., Bilir-Koca, B., Silva, P.A., Buttigieg, S.C.,
+    Großschädl, F., & Schüttengruber, G. (2023). [Digital Practices by Citizens During the COVID-19 Pandemic:
+    Findings from an International Multisite Study](https://doi.org/10.2196/41304). *JMIR Mental Health*.
+18. Browning, M.H.E.M., Shin, S., Drong, G., McAnirlin, O., Gagnon, R.J., Ranganathan, S., Sindelar, K.,
+    Hoptman, D., Bratman, G.N., Yuan, S., **Prabhu, V.G.**, & Heller, W. (2023). [Daily Exposure to Virtual
+    Nature Reduces Symptoms of Anxiety in College Students](https://doi.org/10.1038/s41598-023-28070-9). *Nature
+    Scientific Reports*.
+19. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., Jackson, W., & Ramsay, M. (2022). [Overlapping Shifts to
+    Improve Patient Flow and Patient Safety in Emergency Departments](https://doi.org/10.1177%2F00375497221099547).
+    *SIMULATION*.
+20. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., & Shvorin, D. (2022). [A Data-Driven Policy to Minimize the
+    Tuberculosis Testing Cost Among Healthcare Workers](https://doi.org/10.1002/hpm.3496). *International
+    Journal of Health Planning and Management*.
+21. Joseph, A., Neyens, D., Mihandoust, S., Taaffe, K., **Prabhu, V.G.**, Allison, D., & Reeves, S. (2021).
+    [Impact of Surgical Table Orientation on Flow Disruptions and Movement Patterns During Pediatric Outpatient
+    Surgeries](https://doi.org/10.3390/ijerph18158114). *International Journal of Environmental Research and
+    Public Health*, 18, 8114.
+22. **Prabhu, V.G.**, Stanley, L., & Morgan, R. (2020). [A Biofeedback Enhanced Adaptive Virtual Reality
+    Environment for Managing Surgical Pain and Anxiety](https://doi.org/10.1142/S1793351X20400152).
+    *International Journal of Semantic Computing*, 14(3), 375–393.
+23. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., & Shvorin, D. (2020). [Stress and Burnout among Attendings and
+    Resident Physicians in the ED: A Comparative Study](https://doi.org/10.1080/24725579.2020.1814456). *IISE
+    Transactions on Healthcare Systems Engineering*.
 
 ## Conference proceedings
 
-1. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). An Agent-Based Model for
-   Evaluating Surgical Site Infection Prevention Bundle Policies in Colorectal Surgery. *Annual Modeling and
-   Simulation Conference (ANNSIM) (In Press)*.
+1. **Prabhu, V.G.**, Ramachandran, A., & Alexander, S. (2025). Hybrid Modeling and Simulation for Enhancing
+   Patient Access, Safety and Experience. *Proceedings of the Winter Simulation Conference (WSC)*.
+2. Prasad, A., Bidwai, S.L., Zawar, A.J., Ahuja, D.A., Kalatzis, A., & **Prabhu, V.G.** (2025). [Psychological
+   and Neurophysiological Indicators of Stress and Relaxation in Immersive Virtual Reality Environments: A
+   Multimodal Approach](https://doi.org/10.1145/3716553.3750761). *Proceedings of the International Conference
+   on Multimodal Interaction*.
+3. **Prabhu, V.G.**, Soykan, B., Azevedo, R., Mondesire, S., & Rabadi, G. (2025). [Teaching Simulation with AI:
+   A Faculty-First Framework for Integrating LLMs into
+   Coursework](https://www.fl-falcon.org/teaching-simulation-with-ai-a-faculty-first-framework-for-integrating-llms-into-coursework/).
+   *Florida AI Learning Consortium (FALCON)*.
+4. Haghighi, T., Lim, J.I., Leng, T., Stanley, L., **Prabhu, V.G.**, & Alam, M.N. (2025). [AR-EyeLLAMA:
+   Intelligent Conversational Digital Humans for Ophthalmology](https://iovs.arvojournals.org/article.aspx?articleid=2810478).
+   *Investigative Ophthalmology & Visual Science*, 66(10), PB0094.
+5. Chen, Y., Hasan, T., Gil-Rivas, V., **Prabhu, V.G.**, & Pan, Y. (2025). Examining Heat Stress and Noise in
+   Construction: A Reddit-Based Investigation of Workplace Challenges. *Proceedings of the ASCE International
+   Conference on Computing in Civil Engineering* (In press).
+6. Prabhu, D.F., Gurupur, V., Hadley, D., & **Prabhu, V.G.** (2025). Addressing Data Incompleteness in NHANES
+   2021–2023. *Proceedings of the Innovations in Computational Intelligence and Computer Vision (ICICV)*.
+   University of Calabria, Calabria, Italy.
+7. Kalatzis, A., **Prabhu, V.G.**, & Stanley, L. (2025). [Identifying the Contributors of Intrinsic,
+   Extraneous, and Germane Load in Human-Robot Collaboration Through Interview
+   Questions](http://doi.org/10.54941/ahfe1006374). In A. Medina-Borja & K. Gielo-Perczak (Eds.), *Human
+   Factors in Robots, Drones and Unmanned Systems*. AHFE International Conference.
+8. Prasad, S., **Prabhu, V.G.**, & Hand, W. (2024). [Investigating the Impact of Pandemic on the Perioperative
+   Healthcare Workers Availability: An Agent-Based Approach](https://doi.org/10.1109/WSC63780.2024.10838823).
+   *Proceedings of the Winter Simulation Conference*.
+9. Augustine, P., & **Prabhu, V.G.** (2024). [Integrating Quality 4.0 in a Traditional Continuous Improvement
+   System](https://asq.org/quality-progress/articles/unconventional-wisdom?id=5c08d4c29a4548628aa79add5225885a).
+   *ASQ Quality Progress*.
+10. **Prabhu, V.G.**, Pirrallo, R., Taaffe, K., Jackson, W., & Ramsay, M. (2023). [Forecasting Patient Arrivals
+    and Optimizing Physician Shift Scheduling in Emergency Departments](https://doi.org/10.1109/WSC60868.2023.10407202).
+    *Proceedings of the Winter Simulation Conference*.
+11. Kalatzis, A., Rahman, S., **Prabhu, V.G.**, Stanley, L., & Wittie, M. (2023). [A Multimodal Approach to
+    Investigate the Role of Cognitive Workload and User Interfaces in Human-Robot
+    Collaboration](https://doi.org/10.1145/3577190.3614112). *Proceedings of the International Conference on
+    Multimodal Interaction*.
+12. Foster, S., Hegde, S., Pirrallo, R., **Prabhu, V.G.**, Taaffe, K., Ramsay, M., & Jackson, B. (2023).
+    [Evaluating Physician Stress During Patient Handoffs: Analysis of Physician Heart Rate Variability, Patient
+    Handoff Characteristics, and ED Metrics](https://doi.org/10.1177/21695067231194335). *Proceedings of the
+    Human Factors and Ergonomics Society*.
+13. Kalatzis, A., **Prabhu, V.G.**, Stanley, L., & Wittie, M.P. (2023). [Effect of Augmented Reality User
+    Interface on Task Performance, Cognitive Load, and Situational Awareness in Human-Robot
+    Collaboration](http://dx.doi.org/10.1109/RO-MAN57019.2023.10309468). *Proceedings of the IEEE International
+    Conference on Robot and Human Interactive Communication (RO-MAN)*.
+14. Kalatzis, A., **Prabhu, V.G.**, Rahman, S., Wittie, M., & Stanley, L. (2022). [Emotions Matter: Towards
+    Personalizing Human-System Interactions Using a Two-Layer Multimodal
+    Approach](https://doi.org/10.1145/3536221.3556582). *Proceedings of the International Conference on
+    Multimodal Interaction*.
+15. **Prabhu, V.G.**, Taaffe, K., Shehan, K., Pirrallo, R., Jackson, W., Ramsay, M., & Hobbs, J. (2022). [How
+    Does Imaging Impact Patient Flow in Emergency Departments?](https://doi.org/10.1109/WSC57314.2022.10015455)
+    *Proceedings of the Winter Simulation Conference*.
+16. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., Jackson, W., & Ramsay, M. (2021). [Physician Shift Scheduling
+    to Improve Patient Safety and Patient Flow in the Emergency Department](https://doi.org/10.1109/WSC52266.2021.9715398).
+    *Proceedings of the Winter Simulation Conference*.
+17. Kalatzis, A., Teotia, A., **Prabhu, V.G.**, & Stanley, L. (2021). [Affective State Classification in
+    Virtual Reality Environments Using Electrocardiogram and Respiration Signals](https://doi.org/10.1109/AIVR52153.2021.00037).
+    *Proceedings of the International Conference on Artificial Intelligence and Virtual Reality (AIVR)*.
+18. **Prabhu, V.G.**, Stanley, L., Morgan, R., & Shirley, B. (2021). [Comparing the Efficacy of a Video and
+    Virtual Reality Intervention to Mitigate Surgical Pain and Anxiety](https://doi.org/10.1007/978-3-030-85540-6_133).
+    *Proceedings of the International Conference on Human Interaction & Emerging Technologies*.
+19. Kalatzis, A., Teotia, A., **Prabhu, V.G.**, & Stanley, L. (2021). [A Database for Cognitive Workload
+    Classification Using Electrocardiogram and Respiration Signal](https://doi.org/10.1007/978-3-030-80285-1_58).
+    *Proceedings of the Applied Human Factors and Ergonomics Conference*.
+20. **Prabhu, V.G.**, Taaffe, K., Hand, W., Çağlayan, C., Isik, T., & Song, Y. (2020). [Team-Based
+    Risk-Adjusted Staffing During a Pandemic: An Agent-Based Approach](https://doi.org/10.1109/WSC48552.2020.9384125).
+    *Proceedings of the Winter Simulation Conference (WSC)*.
+21. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., Jackson, W., & Ramsay, M. (2020). [Reducing Handoffs and
+    Improving Patient Flow in the ED](https://informs-sim.org/wsc20papers/364.pdf). *Proceedings of the Winter
+    Simulation Conference (WSC)*.
+22. **Prabhu, V.G.**, Stanley, L., Linder, C., & Morgan, R. (2020). [Analyzing the Efficacy of a Restorative
+    Virtual Reality Environment Using HRV Biofeedback for Pain and Anxiety Management](https://doi.org/10.1109/ICHMS49158.2020.9209432).
+    *Proceedings of the IEEE International Conference on Human-Machine Systems (ICHMS)*, Rome, Italy.
+23. **Prabhu, V.G.**, Taaffe, K., & Pirrallo, R. (2020). [A Multi-Layered LSTM for Predicting Physician Stress
+    during an Emergency Department Shift](https://www.proquest.com/openview/1c7aec94a873dd5740b552878a760d5d/1?pq-origsite=gscholar&cbl=51908).
+    *Proceedings of the Annual IISE Conference*.
+24. **Prabhu, V.G.**, Linder, C., Stanley, L., & Morgan, R. (2019). [An Affective Computing in Virtual Reality
+    Environments for Managing Surgical Pain and Anxiety](https://ieeexplore.ieee.org/document/8942275).
+    *Proceedings of the International Conference on Artificial Intelligence and Virtual Reality (AIVR)*, San
+    Diego, CA.
+25. **Prabhu, V.G.**, Taaffe, K., & Pirrallo, R. (2019). [Patient Care Management for Physicians: Reducing
+    Handoffs in the ED](https://ieeexplore.ieee.org/document/9004784). *Proceedings of the Winter Simulation
+    Conference (WSC)*.
+26. Cull, E., Saha, A., Stanley, L., **Prabhu, V.G.**, & Biro, J. (2019). [Analyzing the Efficacy and Design
+    Considerations of VR Environments to Manage Anxiety & Depression in AYA Cancer
+    Patients](https://ashpublications.org/blood/article/134/Supplement_1/3441/428223/Analyzing-the-Efficacy-and-Design-Considerations).
+    *Blood*, 134(Supplement 1).
 
-<!--
-TODO before publish: replace with full verified list from CV / Google Scholar.
-Full CV extraction available — ask Claude to pull complete list from Vishnu_CV.docx.
--->
+## Working papers
+
+<!-- Forthcoming / in-press manuscripts, per CV. No dollar amounts, no true "under review" pieces with unresolved outcomes — all entries here are accepted or in press. -->
+
+1. **Prabhu, V.G.**, Soykan, B., Prins, C., Takla, H., Rohatgi, N., Morgan, R., Ramamohan, V., & Taaffe, K.
+   (2026). [An Integrated Surgical Digital Twin for Mitigating Healthcare-Associated Infections: Multi-Agent
+   Reinforcement Learning with Adaptive Intervention Optimization](https://doi.org/10.1142/14374). In
+   *Emerging Trends in Analytics and Data Science in Practice: Healthcare Analytics in Practice*. World
+   Scientific. (In press)
+2. **Prabhu, V.G.**, Azevedo, R., Soykan, B., & Rabadi, G. (2026). Scaffolding Graduate Simulation Education
+   Through Structured LLM Integration and Metacognition: A Preliminary Investigation. *ASEE Annual Conference
+   & Exposition*. (In press)
+3. Abrol, S., Pirrallo, R., & **Prabhu, V.G.** (2026). Modeling Emergency Department Physician Burnout and
+   Operational Performance Using Hybrid Simulation. *Annual Modeling and Simulation Conference (ANNSIM)*. (In
+   press)
+4. Abrol, S., Pirrallo, R., Taaffe, K., & **Prabhu, V.G.** (2026). A Hybrid Simulation Approach to Analyze the
+   Impact of Physician Fatigue and Burnout on Emergency Department Performance. *IISE Annual Conference &
+   Expo*. (In press)
+5. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). An Agent-Based Model for
+   Evaluating Surgical Site Infection Prevention Bundle Policies in Colorectal Surgery. *Annual Modeling and
+   Simulation Conference (ANNSIM)*. (In press)
+6. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). Agent-Based Modeling of
+   Healthcare Worker Compliance Effects on Surgical Site Infection Prevention in Colorectal Surgery. *IISE
+   Annual Conference & Expo*. (In press)
+7. Marano, C., Brosnihan, A., Abrol, S., **Prabhu, V.G.**, & Azevedo, R. (2026). Modeling Individual
+   Differences Underlying Human Scientific Reasoning Processes in Game-Based Learning Environments. *Annual
+   Modeling and Simulation Conference (ANNSIM)*. (In press)
