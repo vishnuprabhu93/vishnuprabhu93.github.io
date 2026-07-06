@@ -1,0 +1,15 @@
+<header>
+  <nav class="wrap">
+    <a href="{{ "/" | relURL }}" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{{ .Site.Params.labName }} logo">
+        <path d="M2,15 L8,15 L11,6 L14,24 L17,11 L19,19 L21,15 L28,15"/>
+      </svg>
+      <span class="brand-text">{{ .Site.Params.labName }}</span>
+    </a>
+    <div class="navlinks">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL | relLangURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+  </nav>
+</header>

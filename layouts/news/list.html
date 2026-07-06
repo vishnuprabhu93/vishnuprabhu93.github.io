@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px;">
+    <h2 class="section-title" style="margin-bottom:24px;">News</h2>
+    {{ $news := where .Site.RegularPages "Section" "news" }}
+    {{ $news = $news.ByDate.Reverse }}
+    {{ range $news }}
+    <div class="news-full-item">
+      <div class="news-date">{{ .Date.Format "Jan 2006" }}</div>
+      <div class="news-text">
+        {{ if .Params.category }}<span class="tag-inline">{{ .Params.category }}</span>{{ end }}
+        {{ if .Params.externalUrl }}
+          <a class="news-link" href="{{ .Params.externalUrl }}" target="_blank" rel="noopener">{{ .Title }} <i class="ext-icon">&#8599;</i></a>
+        {{ else if .Params.linkOnly }}
+          {{ .Title }}
+        {{ else }}
+          <a class="news-link" href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

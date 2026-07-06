@@ -12,7 +12,10 @@ used to adjust the difficulty, pacing, or content of a simulation as a learner o
 Rather than a one-size-fits-all training scenario, this approach lets the environment respond to what the
 trainee's own body is telling us.
 
-![A neuroadaptive training loop: biosensor input adjusts simulation difficulty in real time.](figure1.png)
+<figure>
+<img src="figure1.png" alt="Diagram of a neuroadaptive training loop">
+<figcaption>A neuroadaptive training loop: biosensor input adjusts simulation difficulty in real time.</figcaption>
+</figure>
 
 The second chapter, on surgical digital twins, describes work combining agent-based modeling with multi-agent
 reinforcement learning to evaluate infection-prevention policies in colorectal surgery. This builds directly on
@@ -22,5 +25,5 @@ Both chapters went through extensive citation verification and figure developmen
 in connecting the lab's neurophysiological sensing work to broader systems-level modeling questions.
 
 **Related**
-- [Read the surgical digital twin project page](/projects/#surgical-digital-twins-for-infection-prevention)
+- [Read the surgical digital twin project page](/projects/)
 - [View publication details](/publications/)

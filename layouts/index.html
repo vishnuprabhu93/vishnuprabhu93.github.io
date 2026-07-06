@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Tenure-Track Assistant Professor &middot; School of Modeling, Simulation, and Training &middot; UCF</span>
+      <h1 class="name">{{ .Site.Params.author }}</h1>
+      <p class="role">Director, {{ .Site.Params.labName }} &mdash; extended reality, multimodal biosensing, and adaptive digital twins for healthcare.</p>
+      <div class="intro">{{ .Content }}</div>
+      <div class="quicklinks">
+        <a class="qlink primary" href="{{ .Site.Params.cvPath }}">Download CV</a>
+        <a class="qlink" href="{{ .Site.Params.scholarUrl }}" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="qlink" href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="qlink" href="mailto:{{ .Site.Params.email }}">Email</a>
+      </div>
+    </div>
+    <div class="portrait">
+      {{ $photo := resources.Get "images/portrait.jpg" }}
+      {{ if $photo }}
+        <img src="{{ $photo.RelPermalink }}" alt="{{ .Site.Params.author }}">
+      {{ else }}
+        <span>Photo placeholder</span>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="expertise">
+    <div class="expertise-label">Research expertise</div>
+    <div class="tags">
+      <span class="tag">Stochastic modeling &amp; simulation</span>
+      <span class="tag">Biosensing &amp; physiological computing</span>
+      <span class="tag">Health systems modeling</span>
+      <span class="tag">Digital twins</span>
+      <span class="tag">Extended reality (VR/AR/XR)</span>
+      <span class="tag">Reinforcement learning &amp; optimization</span>
+      <span class="tag">Human behavior modeling</span>
+    </div>
+  </section>
+
+  <section class="block" style="border-top:1px solid var(--line);">
+    <div class="section-head">
+      <h2 class="section-title">Recent news</h2>
+      <a class="see-all" href="{{ "/news/" | relURL }}">See all &rarr;</a>
+    </div>
+    {{ $news := where .Site.RegularPages "Section" "news" }}
+    {{ $news = $news.ByDate.Reverse }}
+    {{ range first 3 $news }}
+    <div class="news-item">
+      <div class="news-date">{{ .Date.Format "Jan 2006" }}</div>
+      <div class="news-text">
+        {{ if .Params.category }}<span class="tag-inline">{{ .Params.category }}</span>{{ end }}
+        <a class="news-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

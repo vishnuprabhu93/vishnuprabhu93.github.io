@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px;">
+    <h2 class="section-title" style="margin-bottom:24px;">Projects &amp; funding</h2>
+    <div class="proj-tabs">
+      <button class="proj-tab-btn active" data-tab="active">Active</button>
+      <button class="proj-tab-btn" data-tab="completed">Completed</button>
+      <button class="proj-tab-btn" data-tab="ongoing">Ongoing research</button>
+    </div>
+
+    <div id="tab-active" class="proj-panel">
+      {{ .Params.active | markdownify }}
+    </div>
+    <div id="tab-completed" class="proj-panel" style="display:none;">
+      {{ .Params.completed | markdownify }}
+    </div>
+    <div id="tab-ongoing" class="proj-panel" style="display:none;">
+      {{ .Params.ongoing | markdownify }}
+    </div>
+
+    <h2 class="section-title" style="margin:44px 0 20px; padding-top:32px; border-top:1px solid var(--line);">Sponsors</h2>
+    <div class="sponsor-grid">
+      {{ range .Params.sponsors }}
+      <div class="sponsor-item">{{ . }}</div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.proj-tab-btn');
+  var panels = {
+    active: document.getElementById('tab-active'),
+    completed: document.getElementById('tab-completed'),
+    ongoing: document.getElementById('tab-ongoing')
+  };
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabs.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      Object.keys(panels).forEach(function(k) {
+        panels[k].style.display = (k === btn.dataset.tab) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>
+{{ end }}

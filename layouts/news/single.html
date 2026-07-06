@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px; max-width:720px;">
+    <a class="back-link" href="{{ "/news/" | relURL }}">&larr; Back to news</a>
+    <div class="article-eyebrow">{{ if .Params.category }}{{ .Params.category }} &middot; {{ end }}{{ .Date.Format "January 2006" }}</div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    <p class="article-byline">By {{ .Site.Params.author }}</p>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </section>
+</div>
+{{ end }}

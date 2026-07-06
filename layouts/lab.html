@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px;">
+    <div class="lab-hero">
+      <h2>{{ .Site.Params.labName }}</h2>
+      <p>{{ .Params.mission }}</p>
+    </div>
+
+    <h2 class="section-title" style="margin-bottom:18px;">Current students</h2>
+    <div class="student-grid">
+      {{ range .Params.currentStudents }}
+      <div class="student-card">
+        <div class="student-photo">
+          {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+        </div>
+        <div class="student-name">{{ .name }}</div>
+        <div class="student-role">{{ .role }}</div>
+        <div class="student-diss">{{ .brief }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <h2 class="section-title" style="margin:40px 0 18px;">Committee member students</h2>
+    <div class="committee-list">
+      {{ range .Params.committeeStudents }}
+      <div class="committee-item">
+        <div class="committee-name">{{ .name }} <span class="committee-role">&mdash; {{ .program }}</span></div>
+        <div class="committee-desc">{{ .brief }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <h2 class="section-title" style="margin:40px 0 18px;">Lab alumni</h2>
+    <div class="alumni-list">
+      {{ range .Params.alumni }}
+      <div class="alumni-item">
+        <div class="alumni-name">{{ .name }}</div>
+        <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <h2 class="section-title" style="margin:40px 0 8px;">Lab equipment &amp; facilities</h2>
+    <p style="font-size:13.5px; color:var(--warm-gray); margin-bottom:12px;">Photos and product links for each device to be added.</p>
+    <div class="equip-grid">
+      {{ range .Params.equipment }}
+      <div class="equip-item">
+        <div class="equip-photo">
+          {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+        </div>
+        <div class="name">{{ .name }}</div>
+        <div class="desc">{{ .desc }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px;">
+    <h2 class="section-title" style="margin-bottom:20px;">Publications</h2>
+    <div class="stat-row">
+      {{ if .Params.citations }}
+      <div class="stat"><div class="stat-num">{{ .Params.citations }}</div><div class="stat-label">Citations</div></div>
+      {{ end }}
+      {{ if .Params.hIndex }}
+      <div class="stat"><div class="stat-num">{{ .Params.hIndex }}</div><div class="stat-label">h-index</div></div>
+      {{ end }}
+    </div>
+    {{ if .Params.retrieved }}
+    <p style="font-size:12px; color:var(--warm-gray); font-family:var(--font-mono); margin-top:-8px;">Retrieved {{ .Params.retrieved }} &middot; <a href="{{ .Site.Params.scholarUrl }}" target="_blank" rel="noopener">Google Scholar</a></p>
+    {{ end }}
+  </section>
+
+  <section class="block pub-body">
+    {{ .Content }}
+  </section>
+</div>
+{{ end }}
