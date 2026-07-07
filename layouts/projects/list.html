@@ -21,7 +21,7 @@
     <h2 class="section-title" style="margin:44px 0 20px; padding-top:32px; border-top:1px solid var(--line);">Sponsors</h2>
     <div class="sponsor-grid">
       {{ range .Params.sponsors }}
-      <div class="sponsor-item">{{ . }}</div>
+      <div class="sponsor-item"><img src="{{ .logo | relURL }}" alt="{{ .name }}"></div>
       {{ end }}
     </div>
   </section>

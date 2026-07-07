@@ -36,16 +36,18 @@ ongoing: |
 
   Combining agent-based modeling and multi-agent reinforcement learning to evaluate infection-prevention policies in surgical settings.
 sponsors:
-  - "National Institute for Occupational Safety and Health (NIOSH)"
-  - "Stanford Health Care"
-  - "National Science Foundation (NSF)"
-  - "National Institutes of Health (NIH)"
-  - "Toyota Research Institute"
-  - "Meta Platforms, Inc."
-  - "Epic Games"
-  - "Florida Blue Foundation"
-  - "UCF Space Hospitality Research Awards"
-  - "Montana Department of Commerce"
+  - name: "NIOSH / CDC"
+    logo: "/images/sponsors/CDC_NIOSH.png"
+  - name: "Stanford Health Care"
+    logo: "/images/sponsors/StanfordHealthCare.png"
+  - name: "Prisma Health"
+    logo: "/images/sponsors/PrismaHealth.png"
+  - name: "UNC Charlotte"
+    logo: "/images/sponsors/UNCCharlotte.png"
+  - name: "Atrium Health"
+    logo: "/images/sponsors/AtriumHealth.png"
+  - name: "National Science Foundation (NSF)"
+    logo: "/images/sponsors/NSF.png"
 ---
 
 <!-- RULES: no dollar amounts anywhere on this page. Never list "Under Review" items.
