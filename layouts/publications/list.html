@@ -9,14 +9,60 @@
       {{ if .Params.hIndex }}
       <div class="stat"><div class="stat-num">{{ .Params.hIndex }}</div><div class="stat-label">h-index</div></div>
       {{ end }}
+      {{ if .Params.totalPubs }}
+      <div class="stat"><div class="stat-num">{{ .Params.totalPubs }}</div><div class="stat-label">Peer-reviewed publications</div></div>
+      {{ end }}
     </div>
     {{ if .Params.retrieved }}
     <p style="font-size:12px; color:var(--warm-gray); font-family:var(--font-mono); margin-top:-8px;">Retrieved {{ .Params.retrieved }} &middot; <a href="{{ .Site.Params.scholarUrl }}" target="_blank" rel="noopener">Google Scholar</a></p>
     {{ end }}
-  </section>
 
-  <section class="block pub-body">
-    {{ .Content }}
+    <div class="proj-tabs">
+      <button class="proj-tab-btn active" data-tab="all">All</button>
+      <button class="proj-tab-btn" data-tab="bookChapters">Book Chapters</button>
+      <button class="proj-tab-btn" data-tab="journals">Journals</button>
+      <button class="proj-tab-btn" data-tab="conferenceProceedings">Conference Proceedings</button>
+      <button class="proj-tab-btn" data-tab="workingPapers">Working Papers</button>
+    </div>
+
+    {{ $all := printf "## Book Chapters\n\n%s\n\n## Journals\n\n%s\n\n## Conference Proceedings\n\n%s\n\n## Working Papers\n\n%s" .Params.bookChapters .Params.journals .Params.conferenceProceedings .Params.workingPapers }}
+    <div id="tab-all" class="pub-body">
+      {{ $all | markdownify }}
+    </div>
+    <div id="tab-bookChapters" class="pub-body" style="display:none;">
+      {{ .Params.bookChapters | markdownify }}
+    </div>
+    <div id="tab-journals" class="pub-body" style="display:none;">
+      {{ .Params.journals | markdownify }}
+    </div>
+    <div id="tab-conferenceProceedings" class="pub-body" style="display:none;">
+      {{ .Params.conferenceProceedings | markdownify }}
+    </div>
+    <div id="tab-workingPapers" class="pub-body" style="display:none;">
+      {{ .Params.workingPapers | markdownify }}
+    </div>
   </section>
 </div>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.proj-tabs .proj-tab-btn');
+  var panels = {
+    all: document.getElementById('tab-all'),
+    bookChapters: document.getElementById('tab-bookChapters'),
+    journals: document.getElementById('tab-journals'),
+    conferenceProceedings: document.getElementById('tab-conferenceProceedings'),
+    workingPapers: document.getElementById('tab-workingPapers')
+  };
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabs.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      Object.keys(panels).forEach(function(k) {
+        panels[k].style.display = (k === btn.dataset.tab) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>
 {{ end }}
