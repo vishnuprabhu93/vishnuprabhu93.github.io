@@ -8,6 +8,7 @@ title: "Service"
 - Program Committee, Winter Simulation Conference — Hybrid Modeling and Simulation Track (2024–present)
 - Program Committee, Winter Simulation Conference — Health and Life Sciences Track (2019–present)
 - Session Chair, Winter Simulation Conference — 2020, 2022, 2023, 2024, 2025
+- Program Committee, International Digital Public Health Conference series (DPH) — 2026
 
 ## Grant review & panels
 
@@ -43,3 +44,11 @@ Reviewer for 30+ journals, including JMIR, Sensors, and IEEE venues (100+ peer r
 - TIP (Teaching Incentive Program) Award Committee (2024–present)
 - Technology and AI Implementation Committee — Hosted faculty delegation from Simon Bolivar University (2025)
 - Rosen College of Hospitality Management: AI and Future Workforce Panel Participant (2025)
+
+## Professional affiliations
+
+- Institute of Industrial and Systems Engineers (IISE)
+- Society for Health Systems (SHS)
+- Association for Computing Machinery (ACM)
+- INFORMS
+- Alpha Pi Mu Honor Society — Industrial Engineering Honor Society
