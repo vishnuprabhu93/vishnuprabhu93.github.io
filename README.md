@@ -1,47 +1,61 @@
-# vishnuprabhu93.github.io
+# Vishnunarayan Girishan Prabhu — Faculty Portfolio & XR BioSim Lab
 
-Faculty portfolio + XR BioSim Lab site. Built with Hugo, deployed via GitHub Actions to GitHub Pages.
+Faculty website for Dr. Vishnunarayan Girishan Prabhu, Tenure-Track Assistant Professor in the School of
+Modeling, Simulation, and Training (SMST) at the University of Central Florida, and Director of the XR BioSim
+Lab. The site combines a faculty portfolio — publications, teaching, and service — with the lab's own
+site: current students, alumni, equipment, and research.
 
-## Start here
+**Live site:** https://vishnuprabhu93.github.io
 
-Read `SITE_BRIEF.md` first — it has the full set of structural and content decisions already made, so you
-don't need to re-derive them. This applies whether you're Claude Code or a future human editor.
+## About the lab
 
-## Local development
+The XR BioSim Lab (eXtended Reality, Biosensing and Simulation) studies how extended reality, multimodal
+biosensing, and adaptive digital twins can be combined to improve training, decision-making, and human
+performance in complex systems, with healthcare among the primary application areas.
+
+- Google Scholar: https://scholar.google.com/citations?user=3yTyszMAAAAJ&hl=en
+- LinkedIn: http://www.linkedin.com/in/vgirishp
+- Email: vishnunarayan.girishanprabhu@ucf.edu
+
+## Tech stack
+
+- [Hugo](https://gohugo.io/) static site generator, with a custom theme (no external theme dependency)
+- Hosted on GitHub Pages
+- Deployed automatically via GitHub Actions on every push to `main`
+- Content is plain Markdown with YAML front matter — no CMS, no database
+
+## Running locally
+
+Requires [Hugo (extended)](https://gohugo.io/installation/):
 
 ```
 hugo server -D
 ```
+
 Then open `http://localhost:1313`.
 
-## Structure
+## Site structure
 
 ```
 content/
-  _index.md          Home page
-  publications/       Book chapters, journals, conference proceedings (in that order)
-  projects/           Active / Completed / Ongoing research + Sponsors log
-  lab/                XR BioSim Lab — students, alumni, equipment
-  service/            Community and institutional service
-  teaching/           Course history table
-  news/               News feed + individual article pages
-static/images/        Photos — students, equipment, logo
+  _index.md            Home page
+  publications/        Book chapters, journals, conference proceedings, working papers
+  projects/             Active / Completed / Ongoing research + Sponsors log
+  lab/                  XR BioSim Lab — students, alumni, equipment
+  service/              Community and institutional service
+  teaching/             Course history table
+  news/                 News feed + individual article pages
+static/images/          Photos — portrait, students, equipment, logo
+static/files/           Downloadable files (e.g. CV)
+layouts/                Page templates
+static/css/main.css     Stylesheet
 ```
 
-## Deployment
+## Status
 
-Push to `main` → GitHub Actions (`.github/workflows/hugo.yml`) builds and publishes automatically. No manual
-deploy step. Repo is currently **private** — GitHub Pages on the free tier requires a public repo to actually
-serve the built site, so this needs to flip to public (or the account needs GitHub Pro) before the site goes
-live.
+This site is under active development; some content is still being finalized.
 
-## Outstanding TODOs
+## For maintainers
 
-- [ ] Choose/build the actual Hugo theme (currently unset in `hugo.toml`) — matches the mockup's design system
-      described in `SITE_BRIEF.md` (warm paper background, teal + clay accent, Fraunces/Inter/IBM Plex Mono)
-- [ ] Pull complete, verified publication list from CV / Google Scholar
-- [ ] Verify current funding status of each grant before publishing (Active vs Completed vs excluded)
-- [ ] Add real student photos
-- [ ] Add real equipment photos + product links
-- [ ] Add CV PDF to `static/files/`
-- [ ] Decide on repo visibility / GitHub Pro before going live
+`SITE_BRIEF.md` documents the structural and content decisions behind the site (page layout, design system,
+content rules) for anyone picking up future edits.
