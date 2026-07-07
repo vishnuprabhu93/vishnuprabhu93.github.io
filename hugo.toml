@@ -21,7 +21,7 @@ title = "V. Girishan Prabhu / XR BioSim Lab"
     url = "/publications/"
     weight = 2
   [[menu.main]]
-    name = "Projects & Funding"
+    name = "Projects"
     url = "/projects/"
     weight = 3
   [[menu.main]]

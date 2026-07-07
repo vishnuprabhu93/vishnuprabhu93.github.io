@@ -1,14 +1,19 @@
 {{ define "main" }}
 <div class="wrap">
   <section class="block" style="padding-top:44px;">
-    <h2 class="section-title" style="margin-bottom:24px;">Projects &amp; funding</h2>
+    <h2 class="section-title" style="margin-bottom:24px;">Projects</h2>
     <div class="proj-tabs">
-      <button class="proj-tab-btn active" data-tab="active">Active</button>
+      <button class="proj-tab-btn active" data-tab="all">All</button>
+      <button class="proj-tab-btn" data-tab="active">Active</button>
       <button class="proj-tab-btn" data-tab="completed">Completed</button>
       <button class="proj-tab-btn" data-tab="ongoing">Ongoing research</button>
     </div>
 
-    <div id="tab-active" class="proj-panel">
+    {{ $all := printf "## Ongoing research\n\n%s\n\n## Active\n\n%s\n\n## Completed\n\n%s" .Params.ongoing .Params.active .Params.completed }}
+    <div id="tab-all" class="proj-panel">
+      {{ $all | markdownify }}
+    </div>
+    <div id="tab-active" class="proj-panel" style="display:none;">
       {{ .Params.active | markdownify }}
     </div>
     <div id="tab-completed" class="proj-panel" style="display:none;">
@@ -31,6 +36,7 @@
 (function() {
   var tabs = document.querySelectorAll('.proj-tab-btn');
   var panels = {
+    all: document.getElementById('tab-all'),
     active: document.getElementById('tab-active'),
     completed: document.getElementById('tab-completed'),
     ongoing: document.getElementById('tab-ongoing')

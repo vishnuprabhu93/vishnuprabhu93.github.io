@@ -1,5 +1,5 @@
 ---
-title: "Projects & Funding"
+title: "Projects"
 active: |
   ### ED-SHIFT: redesigning emergency department clinician shift scheduling
   **NIOSH / CDC · Co-Investigator · Oct 2024 – Sep 2026**
