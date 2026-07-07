@@ -4,7 +4,7 @@ title: "News"
 
 <!-- This page lists news entries. Each entry is either:
      1. Plain text, no link (internal update)
-     2. Link to a full article — see content/news/sample-article/ for the pattern
+     2. Link to a full article — see content/news/neocity-summer-camp-2026/ for the pattern
      3. External link with an external-link indicator — for press mentions
 
      The theme/layout should render this list automatically from items in content/news/,
