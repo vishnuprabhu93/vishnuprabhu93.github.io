@@ -7,8 +7,10 @@
     </div>
 
     <h2 class="section-title" style="margin-bottom:18px;">Current students</h2>
-    <div class="student-grid">
-      {{ range .Params.currentStudents }}
+
+    <div class="group-label">Doctoral students</div>
+    <div class="student-grid" style="margin-bottom:28px;">
+      {{ range .Params.currentDoctoral }}
       <div class="student-card">
         <div class="student-photo">
           {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
@@ -20,7 +22,21 @@
       {{ end }}
     </div>
 
-    <h2 class="section-title" style="margin:40px 0 18px;">Committee member students</h2>
+    <div class="group-label">Master's &amp; undergraduate students</div>
+    <div class="student-grid">
+      {{ range .Params.currentMastersUndergrad }}
+      <div class="student-card">
+        <div class="student-photo">
+          {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+        </div>
+        <div class="student-name">{{ .name }}</div>
+        <div class="student-role">{{ .role }}</div>
+        <div class="student-diss">{{ .brief }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <h2 class="section-title" style="margin:40px 0 18px;">As Committee Member</h2>
     <div class="committee-list">
       {{ range .Params.committeeStudents }}
       <div class="committee-item">
@@ -31,8 +47,20 @@
     </div>
 
     <h2 class="section-title" style="margin:40px 0 18px;">Lab alumni</h2>
+
+    <div class="group-label">Doctoral alumni</div>
+    <div class="alumni-list" style="margin-bottom:28px;">
+      {{ range .Params.alumniDoctoral }}
+      <div class="alumni-item">
+        <div class="alumni-name">{{ .name }}</div>
+        <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="group-label">Master's &amp; undergraduate alumni</div>
     <div class="alumni-list">
-      {{ range .Params.alumni }}
+      {{ range .Params.alumniMastersUndergrad }}
       <div class="alumni-item">
         <div class="alumni-name">{{ .name }}</div>
         <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>

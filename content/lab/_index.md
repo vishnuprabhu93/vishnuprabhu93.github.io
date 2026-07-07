@@ -1,7 +1,7 @@
 ---
 title: "XR BioSim Lab"
 mission: "At the XR BioSim Lab (Extended Reality, Biosensing, and Simulation Lab), we study how extended reality, multimodal biosensing, computational modeling, and AI driven adaptive systems can be combined to improve training, human performance, and well-being across complex, high-stakes domains. Our work integrates immersive VR/AR environments with physiological signal streams (e.g., EEG, fNIRS, EDA, HRV, pupillometry) using mathematical modeling, simulation, and machine learning to build digital twins that sense, predict, and respond to human state in real time. Much of our applied work focuses on clinical training and healthcare workforce challenges, but the underlying methods extend to any domain where humans must learn, adapt, and perform under pressure."
-currentStudents:
+currentDoctoral:
   - name: "Franklin Castillo"
     role: "Doctoral student · 2024–present"
     photo: ""
@@ -18,6 +18,7 @@ currentStudents:
     role: "Doctoral student · 2025–present"
     photo: ""
     brief: "Building agent-based models for surgical infection prevention policy evaluation."
+currentMastersUndergrad:
   - name: "Mariana Ramirez"
     role: "Undergraduate senior design student · 2026–present"
     photo: ""
@@ -41,25 +42,26 @@ committeeStudents:
   - name: "Deepa Fernandes Prabhu"
     program: "Doctoral student in Modeling & Simulation"
     brief: "A framework for causal predictive modeling to improve completeness in healthcare data systems, integrating usability-centered design."
-  - name: "Annamarie Brosnihan"
-    program: "Master's student in Modeling & Simulation"
-    brief: "Thesis research in progress."
-alumni:
+alumniDoctoral:
   - name: "Renita Washburn"
-    credit: "Ph.D. Dissertation, Spring 2026"
+    credit: "Ph.D. Dissertation Advisor, Spring 2026"
     thesisTitle: "Dynamics of Household Food Insecurity Vulnerability: Examining Health, Functional Limitations, and Income Stability."
+alumniMastersUndergrad:
+  - name: "Annamarie Brosnihan"
+    credit: "M.S. Thesis committee member, Spring 2026"
+    thesisTitle: "Examining Team Leader Visual Dynamics and Team Performance in Pediatric Emergency Simulations."
   - name: "Ankit Prasad"
-    credit: "M.S. Thesis, Summer 2024"
+    credit: "M.S. Thesis Advisor, Summer 2024"
     thesisTitle: "Unveiling Neurophysiological Signatures of Interaction in Immersive Worlds: A Multimodal Study."
   - name: "Shweta Prasad"
-    credit: "M.S. Thesis, Spring 2024"
+    credit: "M.S. Thesis Advisor, Spring 2024"
     thesisTitle: "Investigating the Impact of Pandemic Scenarios on Anesthesiology Department Healthcare Worker Availability: An Agent-Based Modeling Approach."
   - name: "Shaghayegh Mashinkarjavan"
-    credit: "M.S. Thesis, Spring 2024"
+    credit: "M.S. Thesis Advisor, Spring 2024"
     thesisTitle: "Hourly Forecasting of Emergency Department Arrivals for Different ESI Levels."
   - name: "Shivani Gurunath"
     credit: "M.S. Thesis committee member, Spring 2023"
-    thesisTitle: "Committee member role."
+    thesisTitle: "Managing Warehouse Resource and Transportation Plan Stability Using the Flexible Requirements Profile Technique."
   - name: "Avinash Vankudoth"
     credit: "M.S. Capstone, Spring 2023"
     thesisTitle: "Capstone project in collaboration with Prisma Health, SC."
