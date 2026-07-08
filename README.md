@@ -58,4 +58,5 @@ This site is under active development; some content is still being finalized.
 ## For maintainers
 
 `SITE_BRIEF.md` documents the structural and content decisions behind the site (page layout, design system,
-content rules) for anyone picking up future edits.
+content rules) for anyone picking up future edits. `LAUNCH_CHECKLIST.md` tracks what's still outstanding
+before/as the site goes live.

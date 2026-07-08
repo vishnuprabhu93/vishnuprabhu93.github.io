@@ -140,6 +140,14 @@ footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13p
 .equip-item .name { font-weight: 600; margin-bottom: 3px; }
 .equip-item .desc { color: var(--warm-gray); font-size: 12.5px; }
 
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.demo-item { border: 1px solid var(--line); border-radius: 4px; padding: 18px; }
+.demo-photo { width: 100%; height: 160px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: var(--warm-gray); font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px; overflow: hidden; }
+.demo-photo img { width: 100%; height: 100%; object-fit: cover; }
+.demo-title { font-weight: 600; font-size: 14.5px; margin-bottom: 4px; }
+.demo-category { font-family: var(--font-mono); font-size: 11px; color: var(--clay-deep); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
+.demo-desc { font-size: 13px; color: var(--warm-gray); }
+
 .service-body h2 { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-deep); margin: 30px 0 12px; }
 .service-body h2:first-child { margin-top: 0; }
 .service-body ul { list-style: none; }
