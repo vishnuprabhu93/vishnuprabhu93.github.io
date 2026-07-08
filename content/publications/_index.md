@@ -5,7 +5,7 @@ hIndex: 14
 totalPubs: 52
 retrieved: "2026-07-01"
 bookChapters: |
-  1. Marston, H.R., **Prabhu, V.G.**, Ivan, L., Freeman, S., & Earle, S. (2025). The Impact on Psychological Wellbeing and Loneliness on People Who Self-Reported to Self-Isolate, Being Disabled and Vulnerable During the COVID-19 Pandemic: Findings from an International, Multi-Centered Project. In H.R. Marston (Ed.), *Society and Technology: Promoting Well-Being in a Digital Age* (Chapter 11). Cognella.
+  1. Marston, H.R., **Prabhu, V.G.**, Ivan, L., Freeman, S., & Earle, S. (2025). [The Impact on Psychological Wellbeing and Loneliness on People Who Self-Reported to Self-Isolate, Being Disabled and Vulnerable During the COVID-19 Pandemic: Findings from an International, Multi-Centered Project](https://oro.open.ac.uk/108798/). In H.R. Marston (Ed.), *Society and Technology: Promoting Well-Being in a Digital Age* (Chapter 11). Cognella.
   2. Stanley, L., & **Prabhu, V.G.** (2025). [Human System Interaction — Interface Design](https://doi.org/10.1201/9781003188377-40). In A.P. Ambler & J.W. Sheppard (Eds.), *Realizing Complex System Design* (1st ed., pp. 441–459). CRC Press.
   3. **Prabhu, V.G.**, Taaffe, K.M. (2024). [Hybrid Modelling Approach Using Reinforcement Learning in Conjunction with Simulation: A Case Study of an Emergency Department](https://doi.org/10.1007/978-3-031-59999-6_12). In Fakhimi, M., Mustafee, N. (Eds.), *Hybrid Modeling and Simulation*. Springer, Cham.
 journals: |
