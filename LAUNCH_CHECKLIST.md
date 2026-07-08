@@ -9,8 +9,10 @@ tracking only.
 
 ## Mobile
 - [x] Hamburger nav menu below 720px
-- [ ] Full mobile QA pass across every page (Publications tabs, Projects tabs, Lab grids, News) — only
-      Home has been checked on a narrow viewport so far
+- [x] Full mobile QA pass across every page (Home, Publications, Projects, Lab, Demos, Service, Teaching,
+      News, article page). Found and fixed one real bug: `.proj-tabs` had no `flex-wrap`, so the tab row
+      on Publications/Projects overflowed off-screen on narrow viewports instead of wrapping — some tabs
+      (e.g. "Working Papers") were completely unreachable. Fixed; all grids/tables/nav confirmed clean.
 
 ## Technical SEO / visibility
 - [x] Open Graph + Twitter card meta tags
