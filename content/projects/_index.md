@@ -29,6 +29,8 @@ ongoing: |
 
   Combining agent-based modeling and multi-agent reinforcement learning to evaluate infection-prevention policies in surgical settings, building toward a digital twin that can test policy interventions computationally before deployment in clinical workflows.
 sponsors:
+  - name: "University of Central Florida"
+    logo: "/images/sponsors/UCF.png"
   - name: "NIOSH / CDC"
     logo: "/images/sponsors/CDC_NIOSH.png"
   - name: "Stanford Health Care"
