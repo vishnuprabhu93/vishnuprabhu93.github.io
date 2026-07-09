@@ -20,7 +20,10 @@ tracking only.
 - [x] `sitemap.xml` generates automatically (Hugo default). `robots.txt` did not (404) — added
       `enableRobotsTXT = true` plus a custom `layouts/robots.txt` template with an explicit
       `Sitemap:` directive; verified in a full production build.
-- [ ] Submit site to Google Search Console once public
+- [x] Google Search Console verification file wired in (`static/googlee9479b277ed9efb7.html`, served
+      at the site root, confirmed 200). Verification will only actually succeed once the repo is
+      public — Google can't reach a private repo's Pages site. After going public, click "Verify" in
+      Search Console, then submit `sitemap.xml`.
 - [ ] Cross-link from Google Scholar, ORCID, LinkedIn, and the UCF SMST faculty directory back to this
       domain (backlinks from these sources carry real weight for an academic site)
 - [ ] Consider a dedicated 1200x630px social share image (currently reusing the portrait photo as
