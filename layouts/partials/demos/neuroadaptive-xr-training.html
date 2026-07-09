@@ -1,0 +1,1217 @@
+<div class="nax-widget" role="group" aria-labelledby="nax-title">
+  <style>
+  /* ========================================================================
+     Neuroadaptive Extended Reality for Clinical Training — demo widget
+     All styles scoped under .nax-widget so nothing leaks into the site.
+     ===================================================================== */
+  .nax-widget{
+    --nax-paper:#F7F5F0;
+    --nax-paper-2:#EFEBE2;
+    --nax-ink:#12181B;
+    --nax-teal:#3D5A5C;
+    --nax-teal-deep:#263F41;
+    --nax-clay:#B85C2E;
+    --nax-clay-deep:#8C4520;
+    --nax-warm-gray:#85806F;
+    --nax-line:rgba(18,24,27,0.12);
+    --nax-line-strong:rgba(18,24,27,0.22);
+
+    --nax-serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --nax-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --nax-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+
+    box-sizing:border-box;
+    max-width:960px;
+    margin:0 auto;
+    padding:22px;
+    background:var(--nax-paper);
+    color:var(--nax-ink);
+    border:1px solid var(--nax-line-strong);
+    border-radius:4px;
+    font-family:var(--nax-sans);
+    font-size:15px;
+    line-height:1.55;
+  }
+  .nax-widget *{box-sizing:border-box;}
+
+  .nax-widget .nax-eyebrow{
+    font-family:var(--nax-mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    color:var(--nax-warm-gray);
+    margin:0 0 6px;
+  }
+  .nax-widget #nax-title{
+    font-family:var(--nax-serif);
+    font-weight:500;
+    font-size:26px;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin:0 0 8px;
+    color:var(--nax-ink);
+  }
+  .nax-widget .nax-lede{
+    margin:0 0 18px;
+    max-width:64ch;
+    color:var(--nax-ink);
+  }
+  .nax-widget .nax-lede .nax-soft{color:var(--nax-warm-gray);}
+
+  /* ---- domain tabs ---- */
+  .nax-widget .nax-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    border:1px solid var(--nax-line);
+    border-radius:4px;
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+  .nax-widget .nax-tab{
+    flex:1 1 0;
+    min-width:150px;
+    appearance:none;
+    background:var(--nax-paper);
+    border:0;
+    border-right:1px solid var(--nax-line);
+    padding:10px 12px;
+    font-family:var(--nax-mono);
+    font-size:11px;
+    letter-spacing:0.10em;
+    text-transform:uppercase;
+    color:var(--nax-warm-gray);
+    cursor:pointer;
+    text-align:center;
+    transition:background .18s ease,color .18s ease;
+  }
+  .nax-widget .nax-tab:last-child{border-right:0;}
+  .nax-widget .nax-tab:hover{background:var(--nax-paper-2);color:var(--nax-ink);}
+  .nax-widget .nax-tab[aria-selected="true"]{
+    background:var(--nax-teal-deep);
+    color:var(--nax-paper);
+  }
+
+  /* ---- main grid ---- */
+  .nax-widget .nax-grid{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .nax-widget .nax-panel{
+    background:var(--nax-paper-2);
+    border:1px solid var(--nax-line);
+    border-radius:4px;
+    padding:14px;
+  }
+  .nax-widget .nax-panel-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .nax-widget .nax-panel-title{
+    font-family:var(--nax-mono);
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--nax-warm-gray);
+    margin:0;
+  }
+  .nax-widget .nax-phase{
+    font-family:var(--nax-mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--nax-ink);
+  }
+
+  /* ---- scene canvas ---- */
+  .nax-widget .nax-canvas-wrap{
+    position:relative;
+    border:1px solid var(--nax-line);
+    border-radius:3px;
+    background:var(--nax-ink);
+    overflow:hidden;
+  }
+  .nax-widget canvas{display:block;width:100%;}
+  .nax-widget .nax-scene-canvas{height:196px;}
+  .nax-widget .nax-signal-canvas{height:184px;}
+
+  /* ---- scene readouts row ---- */
+  .nax-widget .nax-scene-meta{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px 14px;
+    margin-top:12px;
+  }
+  .nax-widget .nax-stat{border-left:2px solid var(--nax-line-strong);padding-left:9px;}
+  .nax-widget .nax-stat-label{
+    font-family:var(--nax-mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--nax-warm-gray);
+    display:block;
+  }
+  .nax-widget .nax-stat-value{
+    font-family:var(--nax-mono);
+    font-size:15px;
+    letter-spacing:0.02em;
+    color:var(--nax-ink);
+    display:block;
+    margin-top:2px;
+  }
+
+  /* ---- difficulty meter ---- */
+  .nax-widget .nax-diff{display:flex;gap:4px;margin-top:3px;}
+  .nax-widget .nax-diff-seg{
+    height:7px;
+    flex:1 1 0;
+    background:var(--nax-paper);
+    border:1px solid var(--nax-line-strong);
+    border-radius:2px;
+  }
+  .nax-widget .nax-diff-seg.nax-on{background:var(--nax-teal-deep);border-color:var(--nax-teal-deep);}
+
+  /* ---- scaffolding cue ---- */
+  .nax-widget .nax-scaffold{
+    margin-top:12px;
+    border:1px dashed var(--nax-line-strong);
+    border-radius:3px;
+    padding:9px 11px;
+    font-size:13px;
+    color:var(--nax-warm-gray);
+    min-height:38px;
+  }
+  .nax-widget .nax-scaffold.nax-active{
+    border-style:solid;
+    border-color:var(--nax-teal);
+    color:var(--nax-ink);
+    background:var(--nax-paper);
+  }
+  .nax-widget .nax-scaffold-tag{
+    font-family:var(--nax-mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--nax-teal);
+    display:block;
+    margin-bottom:2px;
+  }
+
+  /* ---- inference rule panel ---- */
+  .nax-widget .nax-sig-row{margin-bottom:11px;}
+  .nax-widget .nax-sig-row:last-of-type{margin-bottom:6px;}
+  .nax-widget .nax-sig-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:8px;
+    margin-bottom:4px;
+  }
+  .nax-widget .nax-sig-name{
+    font-family:var(--nax-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--nax-ink);
+  }
+  .nax-widget .nax-sig-name span{color:var(--nax-warm-gray);}
+  .nax-widget .nax-sig-val{
+    font-family:var(--nax-mono);
+    font-size:12px;
+    color:var(--nax-warm-gray);
+  }
+  .nax-widget .nax-bar{
+    position:relative;
+    height:8px;
+    background:var(--nax-paper);
+    border:1px solid var(--nax-line-strong);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .nax-widget .nax-bar-fill{
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:0%;
+    background:var(--nax-teal);
+  }
+  .nax-widget .nax-rule-line{
+    font-family:var(--nax-mono);
+    font-size:11.5px;
+    letter-spacing:0.02em;
+    color:var(--nax-warm-gray);
+    border-top:1px solid var(--nax-line);
+    padding-top:10px;
+    margin-top:12px;
+    line-height:1.7;
+  }
+  .nax-widget .nax-rule-line b{color:var(--nax-ink);font-weight:500;}
+
+  /* ---- inferred-state pill ---- */
+  .nax-widget .nax-state{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:12px;
+    padding:10px 12px;
+    border:1px solid var(--nax-line-strong);
+    border-radius:3px;
+    background:var(--nax-paper);
+  }
+  .nax-widget .nax-state-idx{
+    font-family:var(--nax-mono);
+    font-size:12px;
+    color:var(--nax-warm-gray);
+  }
+  .nax-widget .nax-state-idx b{color:var(--nax-ink);font-weight:500;}
+  .nax-widget .nax-state-pill{
+    font-family:var(--nax-mono);
+    font-size:12px;
+    letter-spacing:0.10em;
+    text-transform:uppercase;
+    color:#F7F5F0;
+    background:var(--nax-teal);
+    border-radius:3px;
+    padding:4px 10px;
+    white-space:nowrap;
+  }
+
+  /* ---- signals panel spans full width ---- */
+  .nax-widget .nax-signals-panel{grid-column:1 / -1;}
+  .nax-widget .nax-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:9px;
+  }
+  .nax-widget .nax-legend-item{
+    font-family:var(--nax-mono);
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--nax-warm-gray);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .nax-widget .nax-swatch{width:14px;height:3px;display:inline-block;}
+
+  /* ---- controls ---- */
+  .nax-widget .nax-controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin:2px 0 14px;
+  }
+  .nax-widget .nax-btn{
+    appearance:none;
+    font-family:var(--nax-sans);
+    font-size:14px;
+    font-weight:500;
+    color:#F7F5F0;
+    background:var(--nax-teal-deep);
+    border:1px solid var(--nax-teal-deep);
+    border-radius:3px;
+    padding:9px 15px;
+    cursor:pointer;
+    transition:background .16s ease;
+  }
+  .nax-widget .nax-btn:hover{background:var(--nax-teal);}
+  .nax-widget .nax-btn.nax-clay{background:var(--nax-clay-deep);border-color:var(--nax-clay-deep);}
+  .nax-widget .nax-btn.nax-clay:hover{background:var(--nax-clay);}
+  .nax-widget .nax-btn.nax-ghost{
+    background:transparent;
+    color:var(--nax-ink);
+    border:1px solid var(--nax-line-strong);
+  }
+  .nax-widget .nax-btn.nax-ghost:hover{background:var(--nax-paper-2);}
+
+  .nax-widget .nax-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-family:var(--nax-mono);
+    font-size:11px;
+    letter-spacing:0.10em;
+    text-transform:uppercase;
+    color:var(--nax-ink);
+    cursor:pointer;
+    user-select:none;
+    padding:6px 4px;
+  }
+  .nax-widget .nax-switch{
+    position:relative;
+    width:44px;height:24px;
+    border:1px solid var(--nax-line-strong);
+    border-radius:3px;
+    background:var(--nax-paper-2);
+    transition:background .16s ease,border-color .16s ease;
+    flex:0 0 auto;
+  }
+  .nax-widget .nax-switch::after{
+    content:"";
+    position:absolute;
+    top:2px;left:2px;
+    width:18px;height:18px;
+    background:var(--nax-warm-gray);
+    border-radius:2px;
+    transition:transform .16s ease,background .16s ease;
+  }
+  .nax-widget .nax-toggle[aria-pressed="true"] .nax-switch{
+    background:var(--nax-teal);
+    border-color:var(--nax-teal-deep);
+  }
+  .nax-widget .nax-toggle[aria-pressed="true"] .nax-switch::after{
+    transform:translateX(20px);
+    background:#F7F5F0;
+  }
+  .nax-widget .nax-toggle-state{min-width:26px;color:var(--nax-warm-gray);}
+  .nax-widget .nax-toggle[aria-pressed="true"] .nax-toggle-state{color:var(--nax-teal-deep);}
+
+  /* ---- adaptation log ---- */
+  .nax-widget .nax-log-head{
+    font-family:var(--nax-mono);
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--nax-warm-gray);
+    margin:0 0 6px;
+  }
+  .nax-widget .nax-log{
+    border:1px solid var(--nax-line);
+    border-radius:4px;
+    background:var(--nax-paper-2);
+    padding:10px 12px;
+    height:118px;
+    overflow-y:auto;
+    font-family:var(--nax-mono);
+    font-size:12px;
+    line-height:1.7;
+  }
+  .nax-widget .nax-log-entry{color:var(--nax-ink);}
+  .nax-widget .nax-log-entry .nax-t{color:var(--nax-warm-gray);}
+  .nax-widget .nax-log-entry.nax-up{color:var(--nax-clay-deep);}
+  .nax-widget .nax-log-entry.nax-down{color:var(--nax-teal-deep);}
+  .nax-widget .nax-log-empty{color:var(--nax-warm-gray);}
+
+  /* ---- disclaimer ---- */
+  .nax-widget .nax-note{
+    margin-top:16px;
+    padding-top:12px;
+    border-top:1px solid var(--nax-line);
+    font-size:12px;
+    line-height:1.6;
+    color:var(--nax-warm-gray);
+  }
+
+  .nax-widget .nax-sr{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+
+  /* ---- focus visibility ---- */
+  .nax-widget .nax-tab:focus-visible,
+  .nax-widget .nax-btn:focus-visible,
+  .nax-widget .nax-toggle:focus-visible,
+  .nax-widget .nax-canvas-wrap:focus-visible{
+    outline:2px solid var(--nax-teal);
+    outline-offset:2px;
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width:640px){
+    .nax-widget{padding:16px;}
+    .nax-widget .nax-grid{grid-template-columns:1fr;}
+    .nax-widget #nax-title{font-size:22px;}
+    .nax-widget .nax-tab{min-width:0;flex-basis:100%;border-right:0;border-bottom:1px solid var(--nax-line);}
+    .nax-widget .nax-tab:last-child{border-bottom:0;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .nax-widget *{transition:none !important;}
+  }
+  </style>
+
+  <p class="nax-eyebrow">Neuroadaptive XR · Closed-loop clinical training</p>
+  <h3 id="nax-title">Neuroadaptive Extended Reality for Clinical Training</h3>
+  <p class="nax-lede">
+    A VR training scenario reads the trainee's physiological state in real time and
+    adjusts difficulty, pacing, and scaffolding as they work.
+    <span class="nax-soft">Pick a domain, trigger a complication, and toggle adaptation
+    off to see the same scenario run as a fixed script.</span>
+  </p>
+
+  <div class="nax-tabs" role="tablist" aria-label="Training domain">
+    <button class="nax-tab" role="tab" id="nax-tab-em" aria-selected="true" aria-controls="nax-scene-panel" data-domain="em" type="button">Emergency medicine</button>
+    <button class="nax-tab" role="tab" id="nax-tab-peds" aria-selected="false" aria-controls="nax-scene-panel" data-domain="peds" type="button" tabindex="-1">Pediatric readiness</button>
+    <button class="nax-tab" role="tab" id="nax-tab-surg" aria-selected="false" aria-controls="nax-scene-panel" data-domain="surg" type="button" tabindex="-1">Surgical education</button>
+  </div>
+
+  <div class="nax-grid">
+    <!-- SCENE -->
+    <section class="nax-panel" id="nax-scene-panel" role="tabpanel" aria-labelledby="nax-tab-em" tabindex="0">
+      <div class="nax-panel-head">
+        <p class="nax-panel-title">Training scene</p>
+        <span class="nax-phase" data-role="phase">Triage</span>
+      </div>
+      <div class="nax-canvas-wrap">
+        <canvas class="nax-scene-canvas" data-role="scene" role="img"
+          aria-label="Stylized VR training viewport. Ambient tint and on-scene event markers shift with the trainee's inferred state."></canvas>
+      </div>
+      <div class="nax-scene-meta">
+        <div class="nax-stat">
+          <span class="nax-stat-label">Scenario clock</span>
+          <span class="nax-stat-value" data-role="clock">00:00</span>
+        </div>
+        <div class="nax-stat">
+          <span class="nax-stat-label">Next event</span>
+          <span class="nax-stat-value" data-role="next">in 6.0 s</span>
+        </div>
+        <div class="nax-stat" style="grid-column:1 / -1;">
+          <span class="nax-stat-label">Difficulty</span>
+          <div class="nax-diff" data-role="difficulty" aria-hidden="true">
+            <span class="nax-diff-seg"></span><span class="nax-diff-seg"></span>
+            <span class="nax-diff-seg"></span><span class="nax-diff-seg"></span>
+            <span class="nax-diff-seg"></span>
+          </div>
+          <span class="nax-sr" data-role="difficulty-sr">Difficulty level 2 of 5</span>
+        </div>
+      </div>
+      <div class="nax-scaffold" data-role="scaffold">
+        <span class="nax-scaffold-tag">Scaffolding</span>
+        <span data-role="scaffold-text">Inactive — trainee is working within target load.</span>
+      </div>
+    </section>
+
+    <!-- INFERENCE RULE -->
+    <section class="nax-panel" aria-label="Inferred state and the rule behind it">
+      <div class="nax-panel-head">
+        <p class="nax-panel-title">Inference rule</p>
+        <span class="nax-phase">synthetic</span>
+      </div>
+
+      <div class="nax-sig-row">
+        <div class="nax-sig-top">
+          <span class="nax-sig-name">HRV <span>· RMSSD</span></span>
+          <span class="nax-sig-val" data-role="hrv-val">52 ms</span>
+        </div>
+        <div class="nax-bar"><div class="nax-bar-fill" data-role="hrv-bar"></div></div>
+      </div>
+
+      <div class="nax-sig-row">
+        <div class="nax-sig-top">
+          <span class="nax-sig-name">EDA <span>· skin conductance</span></span>
+          <span class="nax-sig-val" data-role="eda-val">4.0 &micro;S</span>
+        </div>
+        <div class="nax-bar"><div class="nax-bar-fill" data-role="eda-bar"></div></div>
+      </div>
+
+      <div class="nax-sig-row">
+        <div class="nax-sig-top">
+          <span class="nax-sig-name">Pupil <span>· diameter</span></span>
+          <span class="nax-sig-val" data-role="pupil-val">3.4 mm</span>
+        </div>
+        <div class="nax-bar"><div class="nax-bar-fill" data-role="pupil-bar"></div></div>
+      </div>
+
+      <p class="nax-rule-line">
+        index = <b>0.40</b>&middot;HRV<sub>n</sub> + <b>0.35</b>&middot;EDA<sub>n</sub> + <b>0.25</b>&middot;Pupil<sub>n</sub><br>
+        bands: &lt;0.30 regulated &middot; 0.30&ndash;0.55 engaged &middot; 0.55&ndash;0.75 elevated &middot; &gt;0.75 overloaded
+      </p>
+
+      <div class="nax-state">
+        <span class="nax-state-idx">load index <b data-role="index">0.24</b></span>
+        <span class="nax-state-pill" data-role="state">Regulated</span>
+      </div>
+    </section>
+
+    <!-- SIGNALS -->
+    <section class="nax-panel nax-signals-panel" aria-label="Live synthetic biosensor traces">
+      <div class="nax-panel-head">
+        <p class="nax-panel-title">Biosensor stream · last 12 s</p>
+        <span class="nax-phase" data-role="mode-tag">Adaptive</span>
+      </div>
+      <div class="nax-canvas-wrap">
+        <canvas class="nax-signal-canvas" data-role="signals" role="img"
+          aria-label="Three scrolling synthetic biosensor traces: heart-rate variability, electrodermal activity, and pupil diameter."></canvas>
+      </div>
+      <div class="nax-legend" aria-hidden="true">
+        <span class="nax-legend-item"><span class="nax-swatch" style="background:#3D5A5C;"></span>HRV</span>
+        <span class="nax-legend-item"><span class="nax-swatch" style="background:#B85C2E;"></span>EDA</span>
+        <span class="nax-legend-item"><span class="nax-swatch" style="background:#85806F;"></span>Pupil</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="nax-controls">
+    <button class="nax-toggle" data-role="adapt-toggle" role="switch" aria-pressed="true" aria-label="Adaptive control" type="button">
+      Adaptive
+      <span class="nax-switch" aria-hidden="true"></span>
+      <span class="nax-toggle-state" data-role="adapt-state">on</span>
+    </button>
+    <button class="nax-btn nax-clay" data-role="inject" type="button">Inject complication</button>
+    <button class="nax-btn nax-ghost" data-role="reset" type="button">Reset run &#8635;</button>
+  </div>
+
+  <p class="nax-log-head">Adaptation log</p>
+  <div class="nax-log" data-role="log" aria-live="polite" aria-label="Adaptation log">
+    <div class="nax-log-entry nax-log-empty">Scenario armed. Adaptation events will appear here.</div>
+  </div>
+
+  <p class="nax-note">
+    Illustrative demo. All biosensor traces, states, and scenario events are
+    synthetic and generated in your browser &mdash; no real sensor, patient, or trainee
+    data is used. The inference rule and adaptation logic are simplified for
+    explanation and are <em>not</em> a validated clinical, educational, or performance tool.
+  </p>
+
+  <script>
+  (function(){
+    "use strict";
+    var root = (document.currentScript && document.currentScript.closest(".nax-widget"));
+    if(!root){ var all = document.querySelectorAll(".nax-widget"); root = all[all.length-1]; }
+    if(!root || root.dataset.naxInit === "1"){ return; }
+    root.dataset.naxInit = "1";
+
+    var q = function(sel){ return root.querySelector(sel); };
+    var role = function(name){ return root.querySelector('[data-role="'+name+'"]'); };
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    try{
+      window.matchMedia("(prefers-reduced-motion:reduce)").addEventListener("change", function(e){ reduceMotion = e.matches; });
+    }catch(err){ /* older browsers: leave as-is */ }
+
+    /* ---------- palette (canvas can't read CSS vars) ---------- */
+    var C = {
+      paper:"#F7F5F0", paper2:"#EFEBE2", ink:"#12181B",
+      teal:"#3D5A5C", tealDeep:"#263F41",
+      clay:"#B85C2E", clayDeep:"#8C4520",
+      warm:"#85806F",
+      line:"rgba(247,245,240,0.10)"
+    };
+    function lerpHex(a,b,t){
+      t = t<0?0:(t>1?1:t);
+      var ai=parseInt(a.slice(1),16), bi=parseInt(b.slice(1),16);
+      var ar=(ai>>16)&255, ag=(ai>>8)&255, ab=ai&255;
+      var br=(bi>>16)&255, bg=(bi>>8)&255, bb=bi&255;
+      var r=Math.round(ar+(br-ar)*t), g=Math.round(ag+(bg-ag)*t), bl=Math.round(ab+(bb-ab)*t);
+      return "rgb("+r+","+g+","+bl+")";
+    }
+
+    /* ---------- domain scenario definitions ---------- */
+    var DOMAINS = {
+      em:{
+        scene:"Resus bay · adult",
+        phases:["Triage","Primary survey","Deterioration","Resuscitation","Stabilization"],
+        scaffold:"Prompt inserted — work airway, breathing, circulation in order before the next task.",
+        events:{
+          easy:["Nurse reports updated vitals","Chart flag: allergy noted","Family question at bedside"],
+          med:["New lab result posted","Rhythm change on monitor","Medication order needs confirmation"],
+          hard:["Blood pressure dropping","Airway concern escalates","Second casualty arrives"]
+        }
+      },
+      peds:{
+        scene:"Peds resus · weight-based",
+        phases:["Intake","Weight-based dosing","Assessment","Escalation","Handoff"],
+        scaffold:"Prompt inserted — confirm the weight-based dose against the tape before proceeding.",
+        events:{
+          easy:["Caregiver adds history","Length tape reading ready","Comfort measure prompt"],
+          med:["Weight-based dose check","Temperature spike noted","IV access attempt"],
+          hard:["Seizure onset","Respiratory distress increases","Dosing discrepancy flagged"]
+        }
+      },
+      surg:{
+        scene:"Laparoscopic trainer",
+        phases:["Setup","Exposure","Dissection","Critical step","Closure"],
+        scaffold:"Prompt inserted — pause, restore the view, and control bleeding before advancing.",
+        events:{
+          easy:["Instrument swap requested","Camera re-centered","Field irrigation prompt"],
+          med:["Bleeding at trocar site","Tissue plane unclear","Assistant asks for retraction"],
+          hard:["Vessel injury","Anatomy obscured","Time pressure — next case waiting"]
+        }
+      }
+    };
+
+    /* ---------- simulation state ---------- */
+    var S;
+    function freshState(domain){
+      return {
+        domain:domain,
+        t:0,
+        load:0.20,          // latent arousal / cognitive load 0..1
+        targetLoad:0.20,
+        eventPressure:0,    // transient pressure added by events / complications
+        difficulty:2,       // 1..5
+        adaptive:true,
+        scaffoldOn:false,
+        scaffoldText:"Inactive — trainee is working within target load.",
+        phaseIdx:0,
+        nextEventIn:6.0,
+        nextEventLabel:"",
+        nextEventTier:"easy",
+        evalIn:2.5,         // adaptation cadence
+        regulatedFor:0,     // sustained low-load timer (for ramp-up)
+        markers:[],         // on-scene event markers {x, life, tier}
+        pulse:0,            // scene flash on event
+        hrv:52, eda:4.0, pupil:3.4,
+        hrvN:0, edaN:0, pupilN:0, index:0.24, band:"Regulated", bandT:0,
+        buf:{hrv:[], eda:[], pupil:[]},
+        started:false
+      };
+    }
+
+    var BUFLEN = 240; // ~12 s at 20 Hz
+    var DT = 1/20;    // model step, seconds
+
+    /* ---------- helpers ---------- */
+    function clamp(v,lo,hi){ return v<lo?lo:(v>hi?hi:v); }
+    function rand(a,b){ return a+Math.random()*(b-a); }
+    function pick(arr){ return arr[(Math.random()*arr.length)|0]; }
+
+    function bandFor(idx){
+      if(idx < 0.30) return "Regulated";
+      if(idx < 0.55) return "Engaged";
+      if(idx < 0.75) return "Elevated";
+      return "Overloaded";
+    }
+    function tierForDifficulty(d){
+      if(d <= 2) return "easy";
+      if(d === 3) return "med";
+      return Math.random() < 0.5 ? "med" : "hard";
+    }
+    function eventInterval(d){
+      // higher difficulty -> events arrive faster
+      return clamp(8.5 - d*1.1 + rand(-0.6,0.6), 2.2, 8.0);
+    }
+
+    /* ---------- logging ---------- */
+    var logEl = role("log");
+    var logInit = false;
+    function fmtClock(sec){
+      var m = Math.floor(sec/60), s = Math.floor(sec%60);
+      return (m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+    }
+    function log(msg, kind){
+      if(!logInit){ logEl.innerHTML = ""; logInit = true; }
+      var div = document.createElement("div");
+      div.className = "nax-log-entry" + (kind ? " nax-"+kind : "");
+      var stamp = document.createElement("span");
+      stamp.className = "nax-t";
+      stamp.textContent = "["+fmtClock(S.t)+"] ";
+      div.appendChild(stamp);
+      div.appendChild(document.createTextNode(msg));
+      logEl.appendChild(div);
+      while(logEl.children.length > 40){ logEl.removeChild(logEl.firstChild); }
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    /* ---------- events ---------- */
+    function scheduleNext(){
+      S.nextEventIn = eventInterval(S.difficulty);
+      S.nextEventTier = tierForDifficulty(S.difficulty);
+      S.nextEventLabel = pick(DOMAINS[S.domain].events[S.nextEventTier]);
+    }
+    function fireEvent(label, tier, pressure){
+      S.eventPressure += pressure;
+      S.pulse = 1;
+      S.markers.push({ x:rand(0.12,0.88), life:1, tier:tier });
+      if(S.markers.length > 6){ S.markers.shift(); }
+      log("Event · "+label+" ("+tier+")");
+    }
+    function injectComplication(){
+      if(!S.started){ startRun(); }
+      var label = pick(DOMAINS[S.domain].events.hard);
+      S.eventPressure += 0.62;
+      S.pulse = 1;
+      S.markers.push({ x:rand(0.2,0.8), life:1.4, tier:"hard" });
+      log("Complication injected · "+label, "up");
+      announce("Complication injected: "+label);
+    }
+
+    /* ---------- adaptation policy ---------- */
+    function adapt(){
+      var band = S.band;
+      if(!S.adaptive){
+        // fixed script: difficulty follows a slow preset ramp, no relief, no scaffolding
+        if(S.scaffoldOn){ S.scaffoldOn = false; S.scaffoldText = "Off — fixed script does not scaffold."; }
+        var ramp = 2 + Math.floor(S.t/18);
+        var newD = clamp(ramp,1,5);
+        if(newD !== S.difficulty){
+          S.difficulty = newD;
+          log("Fixed script · difficulty set to "+newD+" (scheduled, ignores state)");
+        }
+        return;
+      }
+
+      if(band === "Overloaded"){
+        var d1 = clamp(S.difficulty-1,1,5);
+        if(d1 !== S.difficulty){ S.difficulty = d1; log("State overloaded → difficulty reduced to "+d1, "down"); announce("Overloaded. Difficulty reduced to "+d1); }
+        if(!S.scaffoldOn){ S.scaffoldOn = true; S.scaffoldText = DOMAINS[S.domain].scaffold; log("Scaffolding enabled → guidance prompt shown", "down"); }
+        S.nextEventIn = Math.max(S.nextEventIn, 5.0); // slow pacing
+        S.eventPressure *= 0.6; // defer accumulated pressure
+        S.regulatedFor = 0;
+      } else if(band === "Elevated"){
+        if(!S.scaffoldOn){ S.scaffoldOn = true; S.scaffoldText = DOMAINS[S.domain].scaffold; log("State elevated → light scaffolding enabled", "down"); }
+        S.nextEventIn = Math.max(S.nextEventIn, 3.4);
+        S.regulatedFor = 0;
+      } else if(band === "Regulated"){
+        S.regulatedFor += S.evalIn;
+        if(S.scaffoldOn){ S.scaffoldOn = false; S.scaffoldText = "Withdrawn — trainee re-regulated, guidance removed."; log("State regulated → scaffolding withdrawn", "up"); }
+        if(S.regulatedFor >= 5){
+          var d2 = clamp(S.difficulty+1,1,5);
+          if(d2 !== S.difficulty){ S.difficulty = d2; log("Sustained regulated → difficulty raised to "+d2, "up"); announce("Regulated. Difficulty raised to "+d2); }
+          S.nextEventIn = Math.min(S.nextEventIn, 3.2); // pull next event sooner
+          S.regulatedFor = 0;
+        }
+      } else { // Engaged — target zone
+        if(S.scaffoldOn){ S.scaffoldOn = false; S.scaffoldText = "Withdrawn — trainee in target zone."; }
+        S.regulatedFor = 0;
+      }
+    }
+
+    /* ---------- model step ---------- */
+    function step(dt){
+      S.t += dt;
+
+      // phase advances on a fixed cadence through the scenario
+      var phaseLen = 16;
+      var pIdx = Math.min(DOMAINS[S.domain].phases.length-1, Math.floor(S.t/phaseLen));
+      if(pIdx !== S.phaseIdx){ S.phaseIdx = pIdx; }
+
+      // event scheduling
+      S.nextEventIn -= dt;
+      if(S.nextEventIn <= 0){
+        var pressure = S.nextEventTier === "hard" ? 0.24 : (S.nextEventTier === "med" ? 0.13 : 0.05);
+        fireEvent(S.nextEventLabel, S.nextEventTier, pressure);
+        scheduleNext();
+      }
+
+      // adaptation evaluation cadence
+      S.evalIn -= dt;
+      if(S.evalIn <= 0){ adapt(); S.evalIn = 2.5; }
+
+      // event pressure is a slow-decaying reservoir (half-life ~6 s) so a
+      // complication has time to drive the trainee up into elevated/overloaded
+      S.eventPressure *= Math.pow(0.5, dt/6);
+      if(S.eventPressure < 0.001){ S.eventPressure = 0; }
+
+      // scaffolding relief lowers the load target
+      var relief = S.scaffoldOn ? 0.16 : 0;
+
+      // latent load target from difficulty, event pressure, scaffolding
+      S.targetLoad = clamp(0.12 + 0.11*S.difficulty + S.eventPressure - relief, 0.05, 1.0);
+
+      // sluggish physiological response toward target
+      var tau = 3.2;
+      S.load += (S.targetLoad - S.load) * (dt/tau);
+      S.load = clamp(S.load + rand(-0.004,0.004), 0, 1);
+
+      // ---- synthetic signals from load ----
+      var noise = reduceMotion ? 0.3 : 1.0;
+      S.hrv   = clamp(70 - 52*S.load + rand(-2.4,2.4)*noise, 14, 78);
+      var phasic = S.pulse>0 ? S.pulse*3.4 : 0;
+      S.eda   = clamp(2 + 13*S.load + phasic + rand(-0.35,0.35)*noise, 1.5, 22);
+      S.pupil = clamp(3.0 + 2.3*S.load + rand(-0.05,0.05)*noise, 2.8, 5.6);
+
+      if(S.pulse>0){ S.pulse = Math.max(0, S.pulse - dt*1.3); }
+
+      // ---- normalize against fixed physiological ranges (inspectable rule) ----
+      S.hrvN   = clamp((70 - S.hrv)/(70-18), 0, 1);
+      S.edaN   = clamp((S.eda - 2)/(20 - 2), 0, 1);
+      S.pupilN = clamp((S.pupil - 3.0)/(5.5 - 3.0), 0, 1);
+
+      var idx = 0.40*S.hrvN + 0.35*S.edaN + 0.25*S.pupilN;
+      S.index = idx;
+      var newBand = bandFor(idx);
+      if(newBand !== S.band){
+        S.band = newBand;
+        announce("Inferred state: "+newBand);
+      }
+      // smooth the pill color target
+      S.bandT += (idx - S.bandT) * 0.2;
+
+      // push to ring buffers
+      pushBuf(S.buf.hrv, S.hrv);
+      pushBuf(S.buf.eda, S.eda);
+      pushBuf(S.buf.pupil, S.pupil);
+
+      // decay markers
+      for(var i=S.markers.length-1;i>=0;i--){
+        S.markers[i].life -= dt*0.28;
+        if(S.markers[i].life <= 0){ S.markers.splice(i,1); }
+      }
+    }
+    function pushBuf(b,v){ b.push(v); if(b.length>BUFLEN){ b.shift(); } }
+
+    /* ---------- ARIA announcements ---------- */
+    var liveEl = document.createElement("div");
+    liveEl.className = "nax-sr";
+    liveEl.setAttribute("aria-live","assertive");
+    root.appendChild(liveEl);
+    var lastAnnounce = "";
+    function announce(msg){
+      if(msg === lastAnnounce){ return; }
+      lastAnnounce = msg;
+      liveEl.textContent = msg;
+    }
+
+    /* ---------- canvas setup (DPR-aware) ---------- */
+    function makeCanvas(canvas){
+      var ctx = canvas.getContext("2d");
+      var dpr = 1, cssW = 0, cssH = 0;
+      function fit(){
+        dpr = Math.max(1, Math.min(window.devicePixelRatio||1, 2));
+        cssW = canvas.clientWidth || canvas.parentElement.clientWidth;
+        cssH = canvas.clientHeight;
+        canvas.width = Math.round(cssW*dpr);
+        canvas.height = Math.round(cssH*dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      return { ctx:ctx, fit:fit, w:function(){return cssW;}, h:function(){return cssH;} };
+    }
+    var sceneC = makeCanvas(role("scene"));
+    var sigC   = makeCanvas(role("signals"));
+
+    function fitAll(){ sceneC.fit(); sigC.fit(); }
+
+    /* ---------- scene render ---------- */
+    function drawScene(){
+      var ctx = sceneC.ctx, w = sceneC.w(), h = sceneC.h();
+      if(!w || !h){ return; }
+      var tint = lerpHex(C.tealDeep, C.clayDeep, clamp(S.bandT,0,1));
+      // base
+      ctx.fillStyle = "#0E1417";
+      ctx.fillRect(0,0,w,h);
+
+      // perspective floor grid converging to a horizon (VR viewport metaphor)
+      var horizon = h*0.44, vpx = w*0.5;
+      ctx.strokeStyle = "rgba(247,245,240,0.10)";
+      ctx.lineWidth = 1;
+      // horizon
+      ctx.beginPath(); ctx.moveTo(0,horizon); ctx.lineTo(w,horizon); ctx.stroke();
+      // verticals converging
+      var cols = 9;
+      for(var i=0;i<=cols;i++){
+        var fx = i/cols;
+        var baseX = fx*w;
+        ctx.beginPath();
+        ctx.moveTo(baseX, h);
+        ctx.lineTo(vpx + (baseX-vpx)*0.12, horizon);
+        ctx.stroke();
+      }
+      // depth lines
+      var rows = 6;
+      for(var r=1;r<=rows;r++){
+        var t = r/rows;
+        var y = horizon + Math.pow(t,1.8)*(h-horizon);
+        ctx.globalAlpha = 0.10 + 0.10*(1-t);
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      // ambient tint wash (state color) above horizon
+      var grad = ctx.createLinearGradient(0,0,0,horizon);
+      grad.addColorStop(0, hexToRgba(tint,0.42));
+      grad.addColorStop(1, hexToRgba(tint,0.06));
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,w,horizon);
+
+      // difficulty as abstract standing markers along the horizon
+      var nMarks = S.difficulty + 1;
+      for(var m=0;m<nMarks;m++){
+        var mx = w*(0.12 + 0.76*(m/(nMarks-1||1)));
+        var mh = 10 + 5*S.difficulty + (m%2)*6;
+        ctx.fillStyle = hexToRgba(tint,0.9);
+        ctx.fillRect(mx-2, horizon-mh, 4, mh);
+        ctx.fillStyle = hexToRgba(tint,0.28);
+        ctx.fillRect(mx-2, horizon, 4, mh*0.5);
+      }
+
+      // event markers (recent + injected) pulsing
+      for(var e=0;e<S.markers.length;e++){
+        var mk = S.markers[e];
+        var col = mk.tier==="hard"?C.clay:(mk.tier==="med"?"#C98A54":C.teal);
+        var mkx = mk.x*w, mky = horizon - 8;
+        var a = clamp(mk.life,0,1);
+        var pr = reduceMotion ? 4 : 4 + (1-Math.min(1,mk.life%1))*8;
+        ctx.strokeStyle = hexToRgba(col, a*0.8);
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(mkx,mky,pr,0,Math.PI*2); ctx.stroke();
+        ctx.fillStyle = hexToRgba(col, a);
+        ctx.beginPath(); ctx.arc(mkx,mky,2.2,0,Math.PI*2); ctx.fill();
+      }
+
+      // scaffolding overlay frame + prompt
+      if(S.scaffoldOn){
+        var pad = 10;
+        ctx.strokeStyle = hexToRgba(C.teal,0.9);
+        ctx.setLineDash(reduceMotion?[]:[5,4]);
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(pad+0.5, pad+0.5, w-pad*2-1, h-pad*2-1);
+        ctx.setLineDash([]);
+        ctx.fillStyle = hexToRgba("#12181B",0.62);
+        ctx.fillRect(pad, h-pad-30, w-pad*2, 30);
+        ctx.fillStyle = "#F7F5F0";
+        ctx.font = '11px "IBM Plex Mono", ui-monospace, monospace';
+        ctx.textBaseline = "middle";
+        ctx.fillText("GUIDANCE ACTIVE — pacing eased, next step prompted", pad+8, h-pad-15);
+      }
+
+      // pulse flash on event
+      if(S.pulse>0 && !reduceMotion){
+        ctx.fillStyle = hexToRgba(C.paper, S.pulse*0.10);
+        ctx.fillRect(0,0,w,h);
+      }
+
+      // phase label bottom-left
+      ctx.fillStyle = hexToRgba(C.paper,0.72);
+      ctx.font = '10px "IBM Plex Mono", ui-monospace, monospace';
+      ctx.textBaseline = "alphabetic";
+      ctx.fillText(DOMAINS[S.domain].scene.toUpperCase(), 12, h-12);
+    }
+
+    function hexToRgba(c,a){
+      if(c.charAt(0) === "#"){
+        var n = parseInt(c.slice(1),16);
+        return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";
+      }
+      // rgb(...) -> rgba
+      return c.replace("rgb(","rgba(").replace(")",","+a+")");
+    }
+
+    /* ---------- signals render ---------- */
+    function drawSignals(){
+      var ctx = sigC.ctx, w = sigC.w(), h = sigC.h();
+      if(!w || !h){ return; }
+      ctx.fillStyle = "#0E1417";
+      ctx.fillRect(0,0,w,h);
+
+      var lanes = 3, pad = 10;
+      var laneH = (h - pad*2)/lanes;
+
+      // gridlines
+      ctx.strokeStyle = "rgba(247,245,240,0.08)";
+      ctx.lineWidth = 1;
+      for(var l=0;l<=lanes;l++){
+        var y = pad + l*laneH;
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
+      }
+
+      drawTrace(ctx, S.buf.hrv,   14, 78,  pad+laneH*0,   laneH, C.teal, w, true);
+      drawTrace(ctx, S.buf.eda,   1.5, 22, pad+laneH*1,   laneH, C.clay, w, false);
+      drawTrace(ctx, S.buf.pupil, 2.8, 5.6,pad+laneH*2,   laneH, C.warm, w, false);
+
+      // lane labels
+      ctx.font = '9px "IBM Plex Mono", ui-monospace, monospace';
+      ctx.fillStyle = "rgba(247,245,240,0.55)";
+      ctx.textBaseline = "top";
+      ctx.fillText("HRV", 8, pad+laneH*0+4);
+      ctx.fillText("EDA", 8, pad+laneH*1+4);
+      ctx.fillText("PUPIL", 8, pad+laneH*2+4);
+    }
+    function drawTrace(ctx, buf, lo, hi, top, laneH, color, w, invert){
+      if(buf.length < 2){ return; }
+      var pad = 6;
+      var innerTop = top + pad, innerH = laneH - pad*2;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      var n = buf.length;
+      for(var i=0;i<n;i++){
+        var x = (i/(BUFLEN-1))*w;
+        var norm = (buf[i]-lo)/(hi-lo);
+        norm = norm<0?0:(norm>1?1:norm);
+        var yv = invert ? norm : (1-norm); // draw so "higher physiological arousal" trends the same way visually
+        var y = innerTop + yv*innerH;
+        if(i===0){ ctx.moveTo(x,y); } else { ctx.lineTo(x,y); }
+      }
+      ctx.stroke();
+      // leading dot
+      var lx = ((n-1)/(BUFLEN-1))*w;
+      var ln = (buf[n-1]-lo)/(hi-lo); ln = ln<0?0:(ln>1?1:ln);
+      var lyv = invert?ln:(1-ln);
+      var ly = innerTop + lyv*innerH;
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(lx,ly,2.4,0,Math.PI*2); ctx.fill();
+    }
+
+    /* ---------- DOM readout sync ---------- */
+    var lastPhase="", lastDiff=-1, lastState="", lastScaffold="", lastMode=null;
+    function syncDOM(){
+      role("clock").textContent = fmtClock(S.t);
+      role("next").textContent = "in "+Math.max(0,S.nextEventIn).toFixed(1)+" s";
+
+      var phase = DOMAINS[S.domain].phases[S.phaseIdx];
+      if(phase !== lastPhase){ role("phase").textContent = phase; lastPhase = phase; }
+
+      if(S.difficulty !== lastDiff){
+        var segs = role("difficulty").children;
+        for(var i=0;i<segs.length;i++){
+          segs[i].classList.toggle("nax-on", i < S.difficulty);
+        }
+        role("difficulty-sr").textContent = "Difficulty level "+S.difficulty+" of 5";
+        lastDiff = S.difficulty;
+      }
+
+      role("hrv-val").textContent = S.hrv.toFixed(0)+" ms";
+      role("eda-val").textContent = S.eda.toFixed(1)+" \u00B5S";
+      role("pupil-val").textContent = S.pupil.toFixed(1)+" mm";
+      role("hrv-bar").style.width = (S.hrvN*100).toFixed(0)+"%";
+      role("eda-bar").style.width = (S.edaN*100).toFixed(0)+"%";
+      role("pupil-bar").style.width = (S.pupilN*100).toFixed(0)+"%";
+      // bar tint follows contribution weight visually (teal->clay by value)
+      role("hrv-bar").style.background = lerpHex(C.teal,C.clay,S.hrvN);
+      role("eda-bar").style.background = lerpHex(C.teal,C.clay,S.edaN);
+      role("pupil-bar").style.background = lerpHex(C.teal,C.clay,S.pupilN);
+
+      role("index").textContent = S.index.toFixed(2);
+      var pill = role("state");
+      if(S.band !== lastState){
+        pill.textContent = S.band;
+        lastState = S.band;
+      }
+      pill.style.background = lerpHex(C.teal,C.clayDeep,clamp(S.bandT,0,1));
+
+      var scaffoldEl = role("scaffold");
+      var wantActive = S.scaffoldOn;
+      scaffoldEl.classList.toggle("nax-active", wantActive);
+      if(S.scaffoldText !== lastScaffold){ role("scaffold-text").textContent = S.scaffoldText; lastScaffold = S.scaffoldText; }
+
+      if(S.adaptive !== lastMode){
+        role("mode-tag").textContent = S.adaptive ? "Adaptive" : "Fixed script";
+        lastMode = S.adaptive;
+      }
+    }
+
+    /* ---------- main loop (fixed-timestep accumulator) ---------- */
+    var running = true, acc = 0, last = 0, rafId = null;
+    function frame(ts){
+      if(!running){ return; }
+      if(!last){ last = ts; }
+      var elapsed = (ts - last)/1000;
+      last = ts;
+      if(elapsed > 0.5){ elapsed = 0.5; } // clamp after tab-away
+      acc += elapsed;
+      var guard = 0;
+      while(acc >= DT && guard < 8){
+        if(S.started){ step(DT); }
+        acc -= DT; guard++;
+      }
+      drawScene();
+      drawSignals();
+      syncDOM();
+      rafId = window.requestAnimationFrame(frame);
+    }
+    function startLoop(){
+      if(rafId !== null){ return; }
+      running = true; last = 0;
+      rafId = window.requestAnimationFrame(frame);
+    }
+    function stopLoop(){
+      running = false;
+      if(rafId !== null){ window.cancelAnimationFrame(rafId); rafId = null; }
+    }
+
+    /* ---------- run control ---------- */
+    function startRun(){
+      if(S.started){ return; }
+      S.started = true;
+      scheduleNext();
+      log("Run started · "+DOMAINS[S.domain].scene, "");
+    }
+
+    function resetRun(keepDomain){
+      var dom = keepDomain ? S.domain : "em";
+      S = freshState(dom);
+      // prime buffers so traces don't start empty
+      for(var i=0;i<BUFLEN;i++){ S.buf.hrv.push(52); S.buf.eda.push(4.0); S.buf.pupil.push(3.4); }
+      logInit = false;
+      logEl.innerHTML = '<div class="nax-log-entry nax-log-empty">Scenario armed. Adaptation events will appear here.</div>';
+      lastPhase=""; lastDiff=-1; lastState=""; lastScaffold=""; lastMode=null;
+      syncToggle();
+      startRun();
+      announce("Run reset. Domain "+DOMAINS[S.domain].scene);
+    }
+
+    /* ---------- controls wiring ---------- */
+    var tabs = root.querySelectorAll(".nax-tab");
+    function selectDomain(dom, focusTab){
+      tabs.forEach(function(t){
+        var on = t.dataset.domain === dom;
+        t.setAttribute("aria-selected", on ? "true":"false");
+        t.tabIndex = on ? 0 : -1;
+        if(on && focusTab){ t.focus(); }
+      });
+      var carryAdaptive = S ? S.adaptive : true;
+      S = freshState(dom);
+      S.adaptive = carryAdaptive;
+      for(var i=0;i<BUFLEN;i++){ S.buf.hrv.push(52); S.buf.eda.push(4.0); S.buf.pupil.push(3.4); }
+      logInit = false;
+      logEl.innerHTML = '<div class="nax-log-entry nax-log-empty">Scenario armed. Adaptation events will appear here.</div>';
+      lastPhase=""; lastDiff=-1; lastState=""; lastScaffold=""; lastMode=null;
+      q("#nax-scene-panel").setAttribute("aria-labelledby","nax-tab-"+dom);
+      syncToggle();
+      startRun();
+      announce("Domain: "+DOMAINS[dom].scene);
+    }
+    tabs.forEach(function(t){
+      t.addEventListener("click", function(){ selectDomain(t.dataset.domain, false); });
+      t.addEventListener("keydown", function(e){
+        var order = ["em","peds","surg"];
+        var cur = order.indexOf(t.dataset.domain);
+        if(e.key === "ArrowRight" || e.key === "ArrowDown"){ e.preventDefault(); selectDomain(order[(cur+1)%order.length], true); }
+        else if(e.key === "ArrowLeft" || e.key === "ArrowUp"){ e.preventDefault(); selectDomain(order[(cur+order.length-1)%order.length], true); }
+        else if(e.key === "Home"){ e.preventDefault(); selectDomain(order[0], true); }
+        else if(e.key === "End"){ e.preventDefault(); selectDomain(order[order.length-1], true); }
+      });
+    });
+
+    var adaptBtn = role("adapt-toggle");
+    function syncToggle(){
+      adaptBtn.setAttribute("aria-pressed", S.adaptive ? "true":"false");
+      role("adapt-state").textContent = S.adaptive ? "on":"off";
+    }
+    adaptBtn.addEventListener("click", function(){
+      S.adaptive = !S.adaptive;
+      syncToggle();
+      if(!S.started){ startRun(); }
+      if(S.adaptive){ log("Adaptive control ON — scenario now responds to inferred state", "down"); announce("Adaptive control on"); }
+      else { log("Adaptive control OFF — scenario runs as a fixed script", "up"); announce("Adaptive control off. Fixed script."); }
+    });
+
+    role("inject").addEventListener("click", injectComplication);
+    role("reset").addEventListener("click", function(){ resetRun(true); });
+
+    /* ---------- visibility + resize ---------- */
+    document.addEventListener("visibilitychange", function(){
+      if(document.hidden){ stopLoop(); }
+      else { startLoop(); }
+    });
+
+    var resizeT = null;
+    function onResize(){
+      if(resizeT){ window.clearTimeout(resizeT); }
+      resizeT = window.setTimeout(function(){ fitAll(); }, 120);
+    }
+    if(window.ResizeObserver){
+      var ro = new ResizeObserver(onResize);
+      ro.observe(root);
+    } else {
+      window.addEventListener("resize", onResize);
+    }
+
+    /* ---------- boot ---------- */
+    S = freshState("em");
+    for(var b=0;b<BUFLEN;b++){ S.buf.hrv.push(52); S.buf.eda.push(4.0); S.buf.pupil.push(3.4); }
+    syncToggle();
+    fitAll();
+    startRun();
+    startLoop();
+  })();
+  </script>
+</div>

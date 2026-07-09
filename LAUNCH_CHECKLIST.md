@@ -33,8 +33,8 @@ tracking only.
       Glove for VR Training Simulation); moved from Current/Undergraduate to As Committee Member since
       Dr. Prabhu is committee member, not primary advisor, on that project
 - [ ] Real equipment photos + product links (EmotiBit, Muse 2, fNIRS, XR headsets)
-- [ ] Real photos/video for the 2 remaining placeholder Demos tiles (Neuroadaptive XR, Surgical digital
-      twins) — the Closed-Loop Biosensing demo is now a real interactive page, not a placeholder
+- [ ] Real photos/video for the 1 remaining placeholder Demos tile (Surgical digital twins) — both
+      Closed-Loop Biosensing and Neuroadaptive XR for Clinical Training are now real interactive pages
 - [ ] 11 publications still missing a DOI/URL link (ask for the list again if needed — changes as new
       links come in)
 - [ ] More interactive demos, if there are others like the closed-loop biosensing one — that pattern
