@@ -1,6 +1,7 @@
 baseURL = "https://vishnuprabhu93.github.io/"
 locale = "en-us"
 title = "V. Girishan Prabhu / XR BioSim Lab"
+enableRobotsTXT = true
 
 [params]
   author = "Vishnunarayan Girishan Prabhu"

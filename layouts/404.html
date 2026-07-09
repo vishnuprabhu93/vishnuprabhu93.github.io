@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:80px; padding-bottom:80px; text-align:center;">
+    <div class="eyebrow" style="display:block; margin-bottom:18px;">Error 404 &middot; Signal lost</div>
+    <h1 class="name" style="margin-bottom:16px;">Page not found</h1>
+    <p style="font-size:16px; color:var(--warm-gray); max-width:520px; margin:0 auto 32px;">
+      The page you're looking for doesn't exist, or may have moved. Try one of the links below, or
+      head back to the homepage.
+    </p>
+    <div class="quicklinks" style="justify-content:center;">
+      <a class="qlink primary" href="{{ "/" | relURL }}">Back to Home</a>
+      <a class="qlink" href="{{ "/publications/" | relURL }}">Publications</a>
+      <a class="qlink" href="{{ "/projects/" | relURL }}">Projects</a>
+      <a class="qlink" href="{{ "/lab/" | relURL }}">XR BioSim Lab</a>
+    </div>
+  </section>
+</div>
+{{ end }}
