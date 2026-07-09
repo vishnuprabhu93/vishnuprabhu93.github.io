@@ -175,7 +175,7 @@ a.demo-item:hover { border-color: var(--clay-deep); }
 @media (max-width: 720px) {
   .wrap { padding: 0 20px; }
   .hero { grid-template-columns: 1fr; }
-  .portrait { display: none; }
+  .portrait { width: 160px; height: 190px; margin: 0 auto 28px; order: -1; }
   .nav-toggle { display: flex; }
   .navlinks {
     display: none;

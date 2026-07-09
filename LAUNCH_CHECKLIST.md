@@ -13,6 +13,12 @@ tracking only.
       News, article page). Found and fixed one real bug: `.proj-tabs` had no `flex-wrap`, so the tab row
       on Publications/Projects overflowed off-screen on narrow viewports instead of wrapping — some tabs
       (e.g. "Working Papers") were completely unreachable. Fixed; all grids/tables/nav confirmed clean.
+- [x] Fixed two more bugs user caught in the wild: (1) Home page portrait had `display: none` below
+      720px, hiding the photo entirely on mobile — now shows centered above the name at 160x190. (2) The
+      closed-loop biosensing demo's intro block used a bare `<header>` tag, which inherited the site's
+      global `header { position: sticky; top: 0; }` nav rule and pinned it to the viewport top while
+      scrolling, on both desktop and mobile. Changed to a `<div>`; scrolls normally now, matching the
+      neuroadaptive-xr-training demo.
 
 ## Technical SEO / visibility
 - [x] Open Graph + Twitter card meta tags
@@ -27,8 +33,9 @@ tracking only.
       into further if it's still failing after ~48 hours.
 - [x] Cross-linked from Google Scholar, ORCID, and LinkedIn back to the site. UCF SMST faculty
       directory still outstanding (likely needs a request through department staff, not self-service).
-- [ ] Consider a dedicated 1200x630px social share image (currently reusing the portrait photo as
-      `og:image`)
+- [x] Dedicated 1200x630px social share image (`static/images/social-share.jpg`) using the site's
+      brand mark + name/role/affiliation/research tags, wired as `og:image`/`twitter:image`. Person
+      schema `image` still points at the real portrait photo (kept separate intentionally).
 - [x] Custom 404 page — on-brand, links back to Home/Publications/Projects/Lab, verified returns a
       real HTTP 404 status
 

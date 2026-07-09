@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{ $pageTitle := cond .IsHome .Site.Title (printf "%s · %s" .Title .Site.Title) }}
 {{ $pageDesc := cond (ne .Description "") .Description .Site.Params.affiliation }}
-{{ $ogImage := "images/portrait.jpg" | absURL }}
+{{ $ogImage := "images/social-share.jpg" | absURL }}
+{{ $personImage := "images/portrait.jpg" | absURL }}
 <title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ $pageDesc }}">
 <link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}">
@@ -37,7 +38,7 @@
     "name": "{{ .Site.Params.labName }}"
   },
   "url": "{{ .Site.BaseURL }}",
-  "image": "{{ $ogImage }}",
+  "image": "{{ $personImage }}",
   "email": "mailto:{{ .Site.Params.email }}",
   "sameAs": [
     "{{ .Site.Params.scholarUrl }}",
