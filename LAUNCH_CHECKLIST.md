@@ -20,10 +20,11 @@ tracking only.
 - [x] `sitemap.xml` generates automatically (Hugo default). `robots.txt` did not (404) — added
       `enableRobotsTXT = true` plus a custom `layouts/robots.txt` template with an explicit
       `Sitemap:` directive; verified in a full production build.
-- [x] Google Search Console verification file wired in (`static/googlee9479b277ed9efb7.html`, served
-      at the site root, confirmed 200). Verification will only actually succeed once the repo is
-      public — Google can't reach a private repo's Pages site. After going public, click "Verify" in
-      Search Console, then submit `sitemap.xml`.
+- [x] Google Search Console ownership verified (HTML file method) now that the site is public.
+- [ ] Sitemap submitted to Search Console (Jul 9, 2026), currently shows "Couldn't fetch." The file
+      itself is confirmed valid and fetchable directly — this is very likely just Google's normal
+      processing delay after a fresh public deploy. Check back in a day or two; only worth digging
+      into further if it's still failing after ~48 hours.
 - [ ] Cross-link from Google Scholar, ORCID, LinkedIn, and the UCF SMST faculty directory back to this
       domain (backlinks from these sources carry real weight for an academic site)
 - [ ] Consider a dedicated 1200x630px social share image (currently reusing the portrait photo as
@@ -46,4 +47,5 @@ tracking only.
       (partial + shortcode + dedicated /demos/<slug>/ page + linked card) is now in place and reusable
 
 ## Before going live
-- [ ] Flip repo to public (or upgrade to GitHub Pro) — GitHub Pages free tier requires a public repo
+- [x] Repo flipped to public, Pages source set to GitHub Actions, workflow run manually triggered.
+      **Site is live at https://vishnuprabhu93.github.io/** — confirmed loading real content.
