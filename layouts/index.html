@@ -3,7 +3,7 @@
   <section class="hero">
     <div>
       <h1 class="name">{{ .Site.Params.author }}</h1>
-      <p class="role">Director, {{ .Site.Params.labName }}</p>
+      <p class="role">Director, <a class="news-link" href="{{ "/lab/" | relURL }}">{{ .Site.Params.labName }}</a></p>
       <span class="eyebrow">Tenure Track Assistant Professor<br>School of Modeling, Simulation, and Training<br>University of Central Florida</span>
       <div class="intro">{{ .Content }}</div>
       <div class="quicklinks">
