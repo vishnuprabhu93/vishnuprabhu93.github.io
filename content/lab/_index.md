@@ -2,6 +2,10 @@
 title: "XR BioSim Lab"
 mission: "At the XR BioSim Lab (Extended Reality, Biosensing, and Simulation Lab), we study how extended reality, multimodal biosensing, computational modeling, and AI driven adaptive systems can be combined to improve training, human performance, and well-being across complex, high-stakes domains. Our work integrates immersive VR/AR environments with physiological signal streams (e.g., EEG, fNIRS, EDA, HRV, pupillometry) using mathematical modeling, simulation, and machine learning to build digital twins that sense, predict, and respond to human state in real time. Much of our applied work focuses on clinical training and healthcare workforce challenges, but the underlying methods extend to any domain where humans must learn, adapt, and perform under pressure."
 currentGraduate:
+  - name: "Ishita Pathuri"
+    role: "Master's student · 2026–present"
+    photo: "/images/students/ishita-pathuri.jpg"
+    brief: "I'm Ishita Pathuri, a graduate student in Computer Science at University of Central Florida and a Research Assistant working in XR BioSim Lab. My research interests include artificial intelligence, machine learning, augmented reality, computer vision, and healthcare-focused AI applications. I am currently contributing to the SMART project, which explores AI-enhanced adaptive pediatric emergency training using AR, multimodal biosensing, and real-time personalized feedback. My broader experience includes generative AI, retrieval-augmented generation, deep learning, and medical imaging applications."
   - name: "Franklin Castillo"
     role: "Doctoral student · 2024–present"
     photo: "/images/students/franklin-castillo.jpg"
