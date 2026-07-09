@@ -11,15 +11,30 @@ active: |
 
   Applying data analytics, operations research, and simulation methods to improve patient access and experience across Stanford Health Care's contact center and clinical network. The project spans both contact center operations and broader access-to-care challenges across Stanford's clinical network.
 
-  ### AIRE: AI-enhanced service careers through robotics and entrepreneurship
-  **National Science Foundation · Co-Principal Investigator · Apr 2026 – Mar 2027**
+  ### AI, Robotics, and Industry 5.0 Summer Camp & AI, Robotics, and Entrepreneurship (AIRE) Summer Institute
+  **National Science Foundation & VentureWell · Co-Principal Investigator · Apr 2026 – Mar 2027**
 
-  A hands-on robotics and entrepreneurship summer program preparing high school students for AI-enhanced service careers, run through UCF's AIRE Summer Institute using a Sphero BOLT+ curriculum. Students work in small teams to learn AI and robotics fundamentals, systems design, and entrepreneurial thinking, culminating in a mock business plan and a UCF completion certificate.
+  Hands-on summer programs preparing high school students for AI-enhanced service careers through robotics and entrepreneurial thinking, run through UCF's AIRE Summer Institute. Students work in small teams across a range of platforms — including Sphero BOLT+, Lego robotics, robot dogs, drones, Raspberry Pi, and VEX — to learn AI and robotics fundamentals, systems design, and entrepreneurial thinking, culminating in a mock business plan and a UCF completion certificate.
+
+  ### Space Habitat Hospitality: a VR-biosensing framework for crew interaction, environment design, and guest well-being
+  **Rosen College of Hospitality Management · Co-Principal Investigator · Jan 2026 – Sep 2026**
+
+  Developing an integrated VR-biosensing research framework examining how space-habitat design and crew-guest interactions shape psychological, emotional, and physiological well-being during simulated orbital stays, in collaboration with PI Dr. Arthur Huang. The study uses a multi-user VR platform with paired "crew" and "guest" roles alongside HRV, EDA, and pupillometry measures to build a foundational theoretical model of space habitat hospitality, informing next-generation habitat design and crew training protocols for commercial spaceflight.
 completed: |
   ### Epic Games MegaGrant-supported XR research
   **Epic Games · 2020 – 2021**
 
-  Supported development of immersive VR interventions for clinical pain and anxiety management.
+  Developed an HRV biofeedback game in Unreal Engine, supporting immersive VR interventions for clinical pain and anxiety management.
+
+  ### Various XR + biofeedback projects (pain, anxiety, and substance use)
+  **UNC Charlotte**
+
+  A series of internally and seed-funded projects exploring XR and biofeedback interventions for pain, anxiety, and substance use, supported by the UNCC SDS Seed Grant (Co-Principal Investigator, 2023–2024), UNCC Faculty Research Grant (Principal Investigator, 2023–2024), UNCC ArtXSci Award (Principal Investigator, 2022–2024), and UNCC College of Engineering Seed Grant (Principal Investigator, 2023).
+
+  ### SBIR Phase I: An AI-inspired computing application for detecting the early onset of pneumonia (COVID-19)
+  **National Science Foundation · Co-Founder · 2021 – 2022**
+
+  Developed a human-AI computing application for early detection of pneumonia, a common COVID-19 complication, using remote physiological and symptomatic monitoring streamed to a cloud-based predictive analytics engine. The system's adaptive classifier expanded model dimensionality in real time by interactively requesting patient symptom input as needed, alerting healthcare providers when a pneumonia-onset pattern was detected.
 ongoing: |
   ### Neuroadaptive extended reality for clinical training
 
