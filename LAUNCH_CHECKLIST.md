@@ -25,8 +25,8 @@ tracking only.
       itself is confirmed valid and fetchable directly — this is very likely just Google's normal
       processing delay after a fresh public deploy. Check back in a day or two; only worth digging
       into further if it's still failing after ~48 hours.
-- [ ] Cross-link from Google Scholar, ORCID, LinkedIn, and the UCF SMST faculty directory back to this
-      domain (backlinks from these sources carry real weight for an academic site)
+- [x] Cross-linked from Google Scholar, ORCID, and LinkedIn back to the site. UCF SMST faculty
+      directory still outstanding (likely needs a request through department staff, not self-service).
 - [ ] Consider a dedicated 1200x630px social share image (currently reusing the portrait photo as
       `og:image`)
 - [x] Custom 404 page — on-brand, links back to Home/Publications/Projects/Lab, verified returns a
@@ -39,6 +39,8 @@ tracking only.
       Glove for VR Training Simulation); moved from Current/Undergraduate to As Committee Member since
       Dr. Prabhu is committee member, not primary advisor, on that project
 - [ ] Real equipment photos + product links (EmotiBit, Muse 2, fNIRS, XR headsets)
+- [ ] Current graduate student photos: Sayed Dariush Sajjadi added; Franklin Castillo and Siddharth
+      Abrol still placeholder
 - [ ] Real photos/video for the 1 remaining placeholder Demos tile (Surgical digital twins) — both
       Closed-Loop Biosensing and Neuroadaptive XR for Clinical Training are now real interactive pages
 - [x] 11 working papers will not get a DOI/URL for now (confirmed) — left unlinked intentionally,

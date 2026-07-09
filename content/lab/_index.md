@@ -12,7 +12,7 @@ currentGraduate:
     brief: "Studying physician fatigue and recovery patterns in emergency medicine using diary-based methods."
   - name: "Sayed Dariush Sajjadi"
     role: "Doctoral student · 2025–present"
-    photo: ""
+    photo: "/images/students/dariush-sajjadi.jpg"
     brief: "Building agent-based models for surgical infection prevention policy evaluation."
 committeeStudents:
   - name: "Md Zahidul Islam"
