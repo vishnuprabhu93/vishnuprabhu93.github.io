@@ -2,6 +2,11 @@
 title: "Demos"
 intro: "Photos, videos, and prototype walkthroughs from the lab's ongoing work. Media below is placeholder pending real photos/video — see the note in layouts/demos/list.html."
 demos:
+  - title: "Closed-Loop Biosensing-Adaptive Intervention"
+    category: "Interactive demo"
+    photo: ""
+    desc: "Try it live: a synthetic-data illustration of the sense → infer → adapt loop. Inject a stress event and toggle adaptive control to watch arousal regulate back to baseline."
+    link: "/demos/closed-loop-biosensing/"
   - title: "Neuroadaptive extended reality for clinical training"
     category: "XR BioSim Lab"
     photo: ""

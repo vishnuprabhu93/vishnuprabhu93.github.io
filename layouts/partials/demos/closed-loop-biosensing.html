@@ -1,0 +1,675 @@
+<!-- ===================================================================
+     Closed-Loop Biosensing-Adaptive Intervention — illustrative demo
+     Self-contained: scoped CSS + vanilla JS + hand-rolled canvas/SVG.
+     No external JS/CSS. Synthetic data only. Safe on GitHub Pages subpath.
+     Colors/type/radius are wired directly to this site's tokens (see :root
+     in static/css/main.css). Signal & control parameters live in the
+     CLB_PARAMS block in the JS.
+     =================================================================== -->
+<div class="clb" data-clb-root role="group"
+     aria-label="Closed-Loop Biosensing-Adaptive Intervention, illustrative simulation">
+
+  <style>
+  /* ---- Design tokens — wired to this site's real theme variables -------- */
+  .clb{
+    --clb-paper:        var(--paper);
+    --clb-raised:       var(--paper-2);
+    --clb-ink:          var(--ink);
+    --clb-ink-soft:     var(--warm-gray);
+    --clb-line:         var(--line);
+    --clb-line-strong:  var(--line-strong);
+    --clb-accent:       var(--clay-deep);
+    --clb-hrv:          var(--teal);      /* HRV / IBI trace */
+    --clb-eda:          #C0862B;          /* ochre — EDA / skin conductance, kept distinct from accent */
+    --clb-arousal:      var(--clb-accent);
+    --clb-calm:         var(--teal-deep); /* cool = calm state */
+    --clb-elevated:     var(--clay-deep); /* warm = elevated arousal */
+    --clb-radius:       4px;
+    --clb-radius-sm:    3px;
+    --clb-gap:          clamp(12px, 2.2vw, 20px);
+    --clb-font:         var(--font-body);
+    --clb-mono:         var(--font-mono);
+    --clb-shadow:       none;
+
+    color: var(--clb-ink);
+    font-family: var(--clb-font);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    container-type: inline-size;
+  }
+  .clb *,.clb *::before,.clb *::after{ box-sizing:border-box; }
+
+  .clb__shell{
+    background: var(--clb-paper);
+    border: 1px solid var(--clb-line);
+    border-radius: var(--clb-radius);
+    box-shadow: var(--clb-shadow);
+    overflow: clip;
+  }
+
+  /* Header + waveform motif divider */
+  .clb__head{ padding: clamp(16px,3vw,26px) clamp(16px,3vw,26px) 0; }
+  .clb__eyebrow{
+    font-family: var(--clb-mono);
+    font-size: .68rem; letter-spacing:.16em; text-transform:uppercase;
+    color: var(--clb-accent); margin:0 0 .35em;
+  }
+  .clb__title{
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2.6vw, 1.5rem); font-weight:500;
+    letter-spacing:-.01em; margin:0; line-height:1.2;
+  }
+  .clb__title small{ font-weight:400; color:var(--clb-ink-soft); font-size:.62em; letter-spacing:0; }
+  .clb .clb__lede{ color:var(--clb-ink-soft); font-size:.92rem; max-width:64ch; margin:.7em 0 0; }
+  .clb__wave{ display:block; width:100%; height:22px; margin-top:14px; color:var(--clb-accent); opacity:.5; }
+
+  /* Loop stepper — encodes the real sense→infer→adapt sequence */
+  .clb__loop{
+    display:flex; flex-wrap:wrap; gap:6px 4px; align-items:center;
+    padding: 12px clamp(16px,3vw,26px); border-top:1px solid var(--clb-line);
+    margin-top:6px; font-family:var(--clb-mono); font-size:.72rem;
+    color:var(--clb-ink-soft);
+  }
+  .clb__loop b{ color:var(--clb-ink); font-weight:600; }
+  .clb__loop .step{ display:inline-flex; align-items:center; gap:.5ch; padding:2px 8px;
+    border:1px solid var(--clb-line); border-radius:999px; background:var(--clb-raised);
+    transition: border-color .2s, color .2s, background .2s; }
+  .clb__loop .step.lit{ border-color:var(--clb-accent); color:var(--clb-ink); background:var(--clb-paper); }
+  .clb__loop .arw{ opacity:.5; }
+
+  /* Controls */
+  .clb__controls{
+    display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center;
+    padding: 14px clamp(16px,3vw,26px);
+    background: var(--clb-raised); border-top:1px solid var(--clb-line);
+    border-bottom:1px solid var(--clb-line);
+  }
+  .clb__btn{
+    font: inherit; font-size:.86rem; font-weight:500;
+    color: var(--clb-ink); background: var(--clb-paper);
+    border:1px solid var(--clb-line-strong); border-radius: var(--clb-radius-sm);
+    padding:8px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:.55ch;
+    transition: transform .06s ease, background .15s, border-color .15s;
+  }
+  .clb__btn:hover{ border-color:var(--clb-accent); }
+  .clb__btn:active{ transform: translateY(1px); }
+  .clb__btn--primary{ background:var(--clb-accent); border-color:var(--clb-accent); color:var(--clb-paper); }
+  .clb__btn--primary:hover{ filter:brightness(1.08); }
+  .clb__toggle{
+    display:inline-flex; align-items:stretch; border:1px solid var(--clb-line-strong);
+    border-radius:var(--clb-radius-sm); overflow:hidden; background:var(--clb-paper);
+  }
+  .clb__toggle button{ font:inherit; font-size:.82rem; font-weight:600; border:0; cursor:pointer;
+    padding:8px 13px; background:transparent; color:var(--clb-ink-soft); }
+  .clb__toggle button[aria-pressed="true"]{ background:var(--clb-accent); color:var(--clb-paper); }
+  .clb__toggle button:first-child[aria-pressed="true"]{ background:var(--clb-calm); }
+  .clb__field{ display:inline-flex; align-items:center; gap:.6ch; font-size:.8rem; color:var(--clb-ink-soft); }
+  .clb__field input[type=range]{ accent-color:var(--clb-accent); width:112px; }
+  .clb__spacer{ flex:1 1 auto; }
+
+  /* Layout grid */
+  .clb__grid{ display:grid; grid-template-columns: 1.6fr 1fr; gap:var(--clb-gap);
+    padding: clamp(16px,3vw,26px); }
+  @container (max-width: 720px){ .clb__grid{ grid-template-columns:1fr; } }
+  @media (max-width: 720px){ .clb__grid{ grid-template-columns:1fr; } }
+  @media (max-width: 480px){ .clb__intv{ grid-template-columns:1fr; } }
+
+  .clb__panel{ background:var(--clb-raised); border:1px solid var(--clb-line);
+    border-radius:var(--clb-radius); padding:14px 16px; min-width:0; }
+  .clb__panel h3{ margin:0 0 2px; font-size:.82rem; font-weight:600; letter-spacing:.01em; }
+  .clb__panel .hint{ margin:0 0 10px; font-size:.72rem; color:var(--clb-ink-soft); }
+
+  .clb__legend{ display:flex; flex-wrap:wrap; gap:10px 16px; font-size:.72rem;
+    font-family:var(--clb-mono); color:var(--clb-ink-soft); margin-bottom:8px; }
+  .clb__legend span{ display:inline-flex; align-items:center; gap:.5ch; }
+  .clb__swatch{ width:14px; height:3px; border-radius:2px; display:inline-block; }
+
+  .clb__canvasWrap{ position:relative; width:100%; }
+  .clb canvas{ display:block; width:100%; height:auto; border-radius:var(--clb-radius-sm); }
+
+  /* State gauge */
+  .clb__gauge{ text-align:center; }
+  .clb__gaugeArc{ width:100%; max-width:230px; height:auto; margin:2px auto 0; display:block; }
+  .clb__idx{ font-family:var(--clb-mono); font-size:2.1rem; font-weight:600; line-height:1;
+    letter-spacing:-.02em; }
+  .clb__idxLbl{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--clb-ink-soft); }
+  .clb__stateWord{ font-weight:600; font-size:.9rem; }
+
+  .clb__rule{ font-family:var(--clb-mono); font-size:.72rem; color:var(--clb-ink-soft);
+    background:var(--clb-paper); border:1px dashed var(--clb-line-strong);
+    border-radius:var(--clb-radius-sm); padding:9px 11px; margin-top:12px; line-height:1.5; }
+  .clb__rule b{ color:var(--clb-ink); }
+
+  /* Intervention area */
+  .clb__intv{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @container (max-width: 460px){ .clb__intv{ grid-template-columns:1fr; } }
+  .clb__breath{ grid-column:1 / -1; display:flex; align-items:center; gap:14px; }
+  .clb__breathViz{ position:relative; width:96px; height:96px; flex:0 0 auto; }
+  .clb__breathViz svg{ width:100%; height:100%; display:block; }
+  .clb__ring{ transition: none; }
+  .clb__breathTxt{ min-width:0; }
+  .clb__breathTxt .phase{ font-weight:600; font-size:1rem; }
+  .clb__breathTxt .rate{ font-family:var(--clb-mono); font-size:.74rem; color:var(--clb-ink-soft); }
+
+  .clb__field-viz{ height:78px; border-radius:var(--clb-radius-sm); overflow:hidden; position:relative;
+    border:1px solid var(--clb-line); background:var(--clb-paper); }
+  .clb__field-viz canvas{ height:100%; border-radius:0; }
+  .clb__meta{ font-size:.68rem; color:var(--clb-ink-soft); margin-top:5px; font-family:var(--clb-mono); }
+
+  .clb__sound{ display:flex; flex-direction:column; gap:6px; }
+  .clb__bar{ height:78px; border:1px solid var(--clb-line); border-radius:var(--clb-radius-sm);
+    background:var(--clb-paper); position:relative; overflow:hidden; }
+  .clb__barFill{ position:absolute; left:0; right:0; bottom:0;
+    background: linear-gradient(0deg, var(--clb-calm), var(--clb-elevated));
+    transition: height .12s linear; }
+
+  .clb__banner{ display:flex; align-items:center; gap:.6ch; font-size:.78rem; font-weight:600;
+    padding:8px 14px; border-top:1px solid var(--clb-line); }
+  .clb__banner[data-mode="on"]{ color:var(--clb-calm); background:#263F4114; }
+  .clb__banner[data-mode="off"]{ color:var(--clb-accent); background:#8C452012; }
+  .clb__dot{ width:8px; height:8px; border-radius:50%; background:currentColor; }
+
+  .clb__foot{ padding: 4px clamp(16px,3vw,26px) clamp(16px,3vw,22px); }
+  .clb__foot p{ font-size:.78rem; color:var(--clb-ink-soft); margin:.6em 0 0; max-width:74ch; }
+  .clb__foot .disc{ font-style:italic; }
+
+  .clb__sr{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+
+  .clb :focus-visible{ outline:2px solid var(--clb-accent); outline-offset:2px; border-radius:4px; }
+
+  @media (prefers-reduced-motion: reduce){
+    .clb__loop .step{ transition:none; }
+  }
+  </style>
+
+  <div class="clb__shell">
+    <header class="clb__head">
+      <p class="clb__eyebrow">XR + Multimodal Biosensing · Adaptive Systems</p>
+      <h2 class="clb__title">Closed-Loop Biosensing-Adaptive Intervention
+        <small>(illustrative simulation)</small></h2>
+      <p class="clb__lede">A conceptual, synthetic-data illustration of the
+        <b>sense → infer → adapt → sense</b> loop central to my work in XR and multimodal
+        biosensing for non-pharmacological pain and anxiety intervention. No real sensor
+        or patient data is used.</p>
+      <!-- waveform motif -->
+      <svg class="clb__wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 20 Q 30 20 45 20 T 90 20 q 12 -16 24 0 q 12 16 24 0 q 8 -22 16 0 q 8 22 16 0
+                 T 260 20 q 12 -18 24 0 q 12 18 24 0 q 9 -24 18 0 q 9 24 18 0 T 460 20
+                 q 12 -15 24 0 q 12 15 24 0 q 8 -22 16 0 q 8 22 16 0 T 660 20
+                 q 12 -18 24 0 q 12 18 24 0 q 9 -24 18 0 q 9 24 18 0 T 860 20
+                 q 12 -15 24 0 q 12 15 24 0 q 8 -22 16 0 q 8 22 16 0 T 1060 20
+                 q 12 -18 24 0 q 12 18 24 0 T 1200 20"
+              fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </header>
+
+    <div class="clb__loop" aria-hidden="true">
+      <b>The loop:</b>
+      <span class="step" data-step="sense">sense</span><span class="arw">→</span>
+      <span class="step" data-step="infer">infer state</span><span class="arw">→</span>
+      <span class="step" data-step="adapt">adapt intervention</span><span class="arw">↺</span>
+    </div>
+
+    <div class="clb__controls">
+      <button class="clb__btn clb__btn--primary" data-act="stress" type="button">
+        Inject stress event</button>
+      <span class="clb__field">
+        <label for="clb-intensity">intensity</label>
+        <input id="clb-intensity" type="range" min="0.3" max="1.4" step="0.05" value="0.95">
+      </span>
+      <span class="clb__spacer"></span>
+      <span class="clb__field" style="gap:.8ch">
+        <span>Adaptive</span>
+        <span class="clb__toggle" role="group" aria-label="Adaptive control mode">
+          <button data-mode="on"  aria-pressed="true"  type="button">ON</button>
+          <button data-mode="off" aria-pressed="false" type="button">OFF · open loop</button>
+        </span>
+      </span>
+      <span class="clb__field">
+        <label for="clb-speed">speed</label>
+        <input id="clb-speed" type="range" min="0.5" max="3" step="0.1" value="1">
+      </span>
+      <button class="clb__btn" data-act="reset" type="button">Reset</button>
+    </div>
+
+    <div class="clb__grid">
+      <!-- SIGNALS -->
+      <section class="clb__panel" aria-label="Live synthetic biosignals">
+        <h3>Signals <span style="font-weight:400;color:var(--clb-ink-soft)">— synthetic, scrolling</span></h3>
+        <p class="hint">Generated in-browser from a latent arousal state; axes plausible but illustrative.</p>
+        <div class="clb__legend">
+          <span><i class="clb__swatch" style="background:var(--clb-hrv)"></i>HRV — IBI (ms) · RMSSD proxy</span>
+          <span><i class="clb__swatch" style="background:var(--clb-eda)"></i>EDA (µS) · tonic + phasic</span>
+          <span><i class="clb__swatch" style="background:var(--clb-arousal)"></i>Arousal index (0–100)</span>
+        </div>
+        <div class="clb__canvasWrap">
+          <canvas data-clb-traces role="img"
+            aria-label="Three scrolling traces: heart-rate variability, skin conductance, and a derived arousal index."></canvas>
+        </div>
+      </section>
+
+      <!-- STATE INFERENCE -->
+      <section class="clb__panel clb__gauge" aria-label="Inferred state">
+        <h3>State inference</h3>
+        <p class="hint">Transparent rule — no black box.</p>
+        <svg class="clb__gaugeArc" viewBox="0 0 200 118" aria-hidden="true">
+          <path d="M18 108 A 82 82 0 0 1 182 108" fill="none"
+                stroke="var(--clb-line)" stroke-width="14" stroke-linecap="round"/>
+          <path data-clb-arc d="M18 108 A 82 82 0 0 1 182 108" fill="none"
+                stroke="var(--clb-arousal)" stroke-width="14" stroke-linecap="round"
+                stroke-dasharray="1 999"/>
+          <line data-clb-target x1="56.2" y1="61.3" x2="43.9" y2="48.2"
+                stroke="var(--clb-ink-soft)" stroke-width="2" opacity=".7"/>
+          <text x="30" y="44" font-size="8" fill="var(--clb-ink-soft)"
+                font-family="ui-monospace,monospace">target</text>
+        </svg>
+        <div><span class="clb__idx" data-clb-index>22</span><span
+             style="font-size:1rem;color:var(--clb-ink-soft)"> / 100</span></div>
+        <div class="clb__idxLbl">arousal index</div>
+        <div class="clb__stateWord" data-clb-state style="color:var(--clb-calm)">calm</div>
+        <div class="clb__rule">
+          index = <b>0.55·ẼDA</b> + <b>0.45·(1−R̃MSSD)</b><br>
+          <span data-clb-ruleval>ẼDA 0.00 · R̃MSSD 1.00</span><br>
+          state = elevated when index &gt; <b>50</b>; target ≈ 26
+        </div>
+      </section>
+
+      <!-- ADAPTIVE INTERVENTION -->
+      <section class="clb__panel" style="grid-column:1 / -1" aria-label="Adaptive intervention">
+        <h3>Adaptive intervention <span style="font-weight:400;color:var(--clb-ink-soft)">— reacts to inferred state</span></h3>
+        <p class="hint">When arousal climbs the intervention responds; the index then trends back toward baseline — closing the loop.</p>
+        <div class="clb__intv">
+          <div class="clb__breath">
+            <div class="clb__breathViz">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--clb-line)" stroke-width="2"/>
+                <circle data-clb-ring class="clb__ring" cx="50" cy="50" r="20"
+                        fill="var(--clb-calm)" fill-opacity=".18"
+                        stroke="var(--clb-calm)" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <div class="clb__breathTxt">
+              <div class="phase" data-clb-breath>Breathe in</div>
+              <div class="rate" data-clb-rate>pacer · 5.5 s cycle</div>
+              <div class="clb__meta">Guided pacer slows &amp; deepens as arousal rises, coaching down-regulation.</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="clb__field-viz"><canvas data-clb-field role="img"
+                 aria-label="Calm visual field whose motion and color intensity adapt to arousal."></canvas></div>
+            <div class="clb__meta">Calm visual field · motion &amp; color intensity adapt</div>
+          </div>
+
+          <div class="clb__sound">
+            <div class="clb__bar"><div class="clb__barFill" data-clb-sound style="height:22%"></div></div>
+            <div class="clb__meta" style="display:flex;justify-content:space-between;align-items:center">
+              <span>Soundscape intensity</span>
+              <button class="clb__btn" data-act="sound" type="button"
+                      style="padding:3px 9px;font-size:.72rem" aria-pressed="false">Sound off</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="clb__banner" data-clb-banner data-mode="on">
+      <span class="clb__dot"></span>
+      <span data-clb-bannertxt>Adaptive control ON — the loop is regulating toward baseline.</span>
+      <span class="clb__spacer"></span>
+      <span style="font-family:var(--clb-mono);font-weight:500;font-size:.72rem;color:var(--clb-ink-soft)">
+        time in elevated band: <span data-clb-abovetime>0.0</span>s</span>
+    </div>
+
+    <footer class="clb__foot">
+      <p class="disc">Illustrative only. All signals are synthetically generated in the browser
+        from a simple latent-state model; this does not represent a real device, clinical output,
+        or validated performance. Units (ms, µS) are shown for plausibility and are not calibrated.</p>
+    </footer>
+
+    <div class="clb__sr" aria-live="polite" data-clb-live></div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    // Support multiple instances on one page; init each un-initialised root.
+    var roots = document.querySelectorAll('[data-clb-root]:not([data-clb-ready])');
+    roots.forEach(initCLB);
+
+    function initCLB(root){
+      root.setAttribute('data-clb-ready','1');
+      var $ = function(s){ return root.querySelector(s); };
+
+      // ---- CLB_PARAMS — signal & control model (retune freely) -------------
+      var P = {
+        dt: 0.05,          // sim seconds per fixed step
+        A0: 0.22,          // homeostatic baseline arousal (0..1)
+        kRelax: 0.08,      // natural relaxation rate toward A0 (low => open loop lingers)
+        Kp: 1.4,           // proportional gain of the adaptive controller
+        target: 0.26,      // controller target on the INFERRED index
+        maxReg: 1.2,       // clamp on regulation effort
+        openReg: 0.03,     // constant (non-adaptive) effort when OFF
+        stressDecay: 0.5,  // decay rate of an injected stress impulse
+        noise: 0.012,      // process noise on arousal
+        rmssdMax: 75, rmssdMin: 18,   // ms  (HRV proxy: high when calm)
+        ibiBase: 950, ibiSpan: 320,   // ms  (mean inter-beat interval shrinks with arousal)
+        edaBase: 3.5, edaSpan: 8.0,   // µS  (tonic skin conductance rises with arousal)
+        wEda: 0.55, wHrv: 0.45,       // inference weights (shown on screen)
+        elevatedThresh: 0.50          // index>50 => "elevated"
+      };
+      var TRACE_SECONDS = 18;         // visible window per trace
+
+      var reduced = window.matchMedia &&
+                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ---- State ----------------------------------------------------------
+      var S = {
+        arousal: P.A0, stress: 0, inferred: P.A0,
+        edaNorm: 0, rmssdNorm: 1, phasic: 0,
+        adaptive: true, speed: 1, intensity: 0.95,
+        aboveTime: 0, breathPhase: 0, sound: false,
+        ibi: P.ibiBase, beatClock: 0, lastReg: 0
+      };
+
+      // trace ring buffers (value already normalised 0..1 for plotting)
+      var cap = Math.round(TRACE_SECONDS / P.dt);
+      var buf = { hrv:new Float32Array(cap), eda:new Float32Array(cap),
+                  ar:new Float32Array(cap), i:0, filled:0 };
+
+      // ---- DOM refs -------------------------------------------------------
+      var traces = $('[data-clb-traces]'), tctx = traces.getContext('2d');
+      var field  = $('[data-clb-field]'),  fctx  = field.getContext('2d');
+      var arc    = $('[data-clb-arc]'),     targetTick = $('[data-clb-target]');
+      var idxEl  = $('[data-clb-index]'),   stateEl = $('[data-clb-state]');
+      var ruleEl = $('[data-clb-ruleval]'), ringEl = $('[data-clb-ring]');
+      var breathEl=$('[data-clb-breath]'),  rateEl = $('[data-clb-rate]');
+      var soundEl= $('[data-clb-sound]'),   bannerEl=$('[data-clb-banner]');
+      var bTxt   = $('[data-clb-bannertxt]'),aboveEl=$('[data-clb-abovetime]');
+      var liveEl = $('[data-clb-live]');
+      var loopSteps = root.querySelectorAll('.clb__loop .step');
+
+      // arc geometry (semicircle path length ~ pi*82 = 257.6)
+      var ARC_LEN = Math.PI * 82;
+
+      // ---- Field particles ------------------------------------------------
+      var parts = [];
+      for(var i=0;i<26;i++){ parts.push({x:Math.random(), y:Math.random(),
+        vx:(Math.random()-0.5), vy:(Math.random()-0.5)}); }
+
+      // ---- Canvas sizing (DPR-aware, responsive) --------------------------
+      function fit(canvas, h){
+        var dpr = Math.min(window.devicePixelRatio||1, 2);
+        var w = canvas.clientWidth || canvas.parentNode.clientWidth || 320;
+        canvas.width = Math.round(w*dpr); canvas.height = Math.round(h*dpr);
+        canvas.style.height = h+'px';
+        var c = canvas.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0);
+        return {w:w,h:h};
+      }
+      var TR={}, FL={};
+      function resize(){
+        var tw = traces.clientWidth || 480;
+        TR = fit(traces, Math.max(150, Math.min(230, tw*0.42)));
+        FL = fit(field, 76);
+      }
+      window.addEventListener('resize', debounce(resize, 120));
+
+      // ---- Simulation step (fixed dt) ------------------------------------
+      function step(dt){
+        S.stress *= Math.exp(-P.stressDecay*dt);
+        // signals from latent arousal
+        var edaTonic = P.edaBase + P.edaSpan*S.arousal;
+        var rmssd    = P.rmssdMin + (P.rmssdMax-P.rmssdMin)*(1-S.arousal);
+        S.phasic     = Math.max(0, S.phasic*Math.exp(-2.2*dt) + S.stress*0.9*dt*8);
+        S.edaNorm    = clamp((edaTonic-P.edaBase)/P.edaSpan + S.phasic*0.05, 0, 1);
+        S.rmssdNorm  = clamp((rmssd-P.rmssdMin)/(P.rmssdMax-P.rmssdMin), 0, 1);
+        // INFER (transparent rule) — controller only sees this
+        S.inferred = clamp(P.wEda*S.edaNorm + P.wHrv*(1-S.rmssdNorm), 0, 1);
+        // ADAPT
+        var err = S.inferred - P.target;
+        var reg = S.adaptive ? clamp(P.Kp*Math.max(0,err), 0, P.maxReg) : P.openReg;
+        S.lastReg = reg;
+        // latent dynamics
+        var noise = (Math.random()-0.5)*P.noise;
+        var dA = P.kRelax*(P.A0 - S.arousal) + S.stress - reg + noise;
+        S.arousal = clamp(S.arousal + dA*dt, 0, 1);
+
+        // beat-to-beat IBI for a lively tachogram
+        var ibiMean = P.ibiBase - P.ibiSpan*S.arousal;
+        var vAmp = 8 + 46*(1-S.arousal);               // HRV shrinks with arousal
+        S.ibi = ibiMean + Math.sin(S.beatClock*6.28)*vAmp + (Math.random()-0.5)*vAmp*0.5;
+        S.beatClock += dt*0.9;
+
+        // metrics
+        if(S.inferred > P.elevatedThresh) S.aboveTime += dt;
+
+        // push to ring buffers (normalised for plotting)
+        var hrvPlot = clamp((S.ibi - (P.ibiBase-P.ibiSpan)) / (P.ibiSpan+120), 0, 1);
+        buf.hrv[buf.i] = hrvPlot;
+        buf.eda[buf.i] = S.edaNorm;
+        buf.ar[buf.i]  = S.inferred;
+        buf.i = (buf.i+1)%cap; if(buf.filled<cap) buf.filled++;
+      }
+
+      // ---- Drawing --------------------------------------------------------
+      function lane(y0, h, color, get, label){
+        var w = TR.w, n = buf.filled; if(n<2) return;
+        tctx.save();
+        // baseline
+        tctx.strokeStyle = 'rgba(0,0,0,.06)'; tctx.lineWidth=1;
+        tctx.beginPath(); tctx.moveTo(0,y0+h); tctx.lineTo(w,y0+h); tctx.stroke();
+        tctx.beginPath();
+        tctx.lineWidth = 1.8; tctx.strokeStyle = color;
+        tctx.lineJoin='round'; tctx.lineCap='round';
+        for(var k=0;k<n;k++){
+          var idx = (buf.i - n + k + cap*2)%cap;
+          var x = (k/(cap-1))*w;
+          var v = get(idx);
+          var y = y0 + h - v*h*0.92 - h*0.04;
+          if(k===0) tctx.moveTo(x,y); else tctx.lineTo(x,y);
+        }
+        tctx.stroke();
+        // label
+        tctx.fillStyle = 'rgba(18,24,27,.55)';
+        tctx.font = '600 10px ui-monospace, monospace';
+        tctx.fillText(label, 6, y0+12);
+        tctx.restore();
+      }
+      function drawTraces(){
+        var w=TR.w,h=TR.h; tctx.clearRect(0,0,w,h);
+        var laneH=(h-14)/3, pad=4;
+        // elevated band on arousal lane
+        var y2=pad+2*(laneH);
+        tctx.fillStyle='rgba(140,69,32,.06)';
+        tctx.fillRect(0,y2, w, laneH*(1-P.elevatedThresh)*0.92);
+        lane(pad,            laneH, cssv('--clb-hrv','#3D5A5C'), function(i){return buf.hrv[i];}, 'HRV · IBI (ms, illustrative)');
+        lane(pad+laneH,      laneH, cssv('--clb-eda','#C0862B'), function(i){return buf.eda[i];}, 'EDA (µS, illustrative)');
+        lane(pad+2*laneH,    laneH, cssv('--clb-arousal','#8C4520'), function(i){return buf.ar[i];}, 'Arousal index (0–100, illustrative)');
+      }
+
+      function drawField(){
+        var w=FL.w,h=FL.h; fctx.clearRect(0,0,w,h);
+        var a = S.inferred;                       // agitation
+        // background wash: cool(calm) -> warm(elevated)
+        var g = fctx.createLinearGradient(0,0,w,h);
+        g.addColorStop(0, mix('#263F41','#8C4520', a*0.85));
+        g.addColorStop(1, mix('#dfeeea','#f0d9cf', a*0.85));
+        fctx.globalAlpha = 0.5 + 0.35*a; fctx.fillStyle=g; fctx.fillRect(0,0,w,h);
+        fctx.globalAlpha = 1;
+        var spd = reduced ? 0 : (0.15 + a*1.4);
+        for(var p=0;p<parts.length;p++){
+          var d=parts[p];
+          if(!reduced){
+            d.x += d.vx*spd*0.006; d.y += d.vy*spd*0.006;
+            if(d.x<0)d.x+=1; if(d.x>1)d.x-=1; if(d.y<0)d.y+=1; if(d.y>1)d.y-=1;
+          }
+          fctx.beginPath();
+          fctx.arc(d.x*w, d.y*h, 1.4+2.2*a, 0, 6.28);
+          fctx.fillStyle = 'rgba(255,255,255,'+(0.25+0.4*a)+')';
+          fctx.fill();
+        }
+      }
+
+      // ---- Per-frame UI update -------------------------------------------
+      function updateUI(){
+        var idx = Math.round(S.inferred*100);
+        idxEl.textContent = idx;
+        // arc
+        var dash = (S.inferred*ARC_LEN);
+        arc.setAttribute('stroke-dasharray', dash+' 999');
+        arc.setAttribute('stroke', mix('#263F41','#8C4520', S.inferred));
+        idxEl.style.color = mix('#263F41','#8C4520', S.inferred);
+        // state word
+        var elevated = idx > P.elevatedThresh*100;
+        stateEl.textContent = idx>66?'elevated arousal':(idx>P.elevatedThresh*100?'rising':(idx>34?'settling':'calm'));
+        stateEl.style.color = mix('#263F41','#8C4520', S.inferred);
+        // rule readout
+        ruleEl.textContent = 'ẼDA '+S.edaNorm.toFixed(2)+' · R̃MSSD '+S.rmssdNorm.toFixed(2);
+        // soundscape
+        var sIntensity = Math.round(S.inferred*100);
+        soundEl.style.height = (14 + sIntensity*0.82)+'%';
+        if(S.sound && audio) audio.set(S.inferred);
+        // above-band metric
+        aboveEl.textContent = S.aboveTime.toFixed(1);
+        // loop step lighting (sense->infer->adapt cycling)
+        var lit = Math.floor((performance.now()/700)%3);
+        loopSteps.forEach(function(s,i){ s.classList.toggle('lit', i===lit); });
+      }
+
+      // ---- Breathing pacer (guided) --------------------------------------
+      function updateBreath(dtReal){
+        // slower & deeper when arousal high (coach down-regulation); neutral when OFF
+        var period = S.adaptive ? (5.5 + 5.5*S.inferred) : 5.5;   // seconds
+        rateEl.textContent = 'pacer · '+period.toFixed(1)+' s cycle · '
+                             + (60/period*1).toFixed(0)+' breaths/min';
+        S.breathPhase += dtReal/period;
+        if(S.breathPhase>1) S.breathPhase-=1;
+        // asymmetric: 40% inhale, 60% exhale
+        var ph=S.breathPhase, scale, inhale;
+        if(ph<0.4){ inhale=true; scale=ease(ph/0.4); }
+        else      { inhale=false; scale=1-ease((ph-0.4)/0.6); }
+        var r = 16 + scale*26;
+        if(reduced) r = 30;                     // static ring under reduced motion
+        ringEl.setAttribute('r', r.toFixed(1));
+        var col = mix('#263F41','#8C4520', S.inferred);
+        ringEl.setAttribute('stroke', col);
+        ringEl.setAttribute('fill', col);
+        breathEl.textContent = reduced ? (inhale?'Breathe in':'Breathe out')
+                                       : (inhale?'Breathe in…':'Breathe out…');
+        breathEl.style.color = col;
+      }
+
+      // ---- Main loop (throttled, visibility-aware) ------------------------
+      var acc=0, last=0, TARGET_FPS = reduced?12:30, frameMin=1000/TARGET_FPS, running=true;
+      function frame(ts){
+        if(!running){ return; }
+        if(!last) last=ts;
+        var elapsed = ts-last;
+        if(elapsed < frameMin){ raf(); return; }
+        last = ts;
+        var dtReal = Math.min(elapsed/1000, 0.1) * S.speed;
+        acc += dtReal;
+        // fixed-step sim
+        var guard=0;
+        while(acc >= P.dt && guard<20){ step(P.dt); acc-=P.dt; guard++; }
+        drawTraces(); drawField(); updateBreath(dtReal); updateUI();
+        raf();
+      }
+      var _rid;
+      function raf(){ _rid = requestAnimationFrame(frame); }
+
+      document.addEventListener('visibilitychange', function(){
+        if(document.hidden){ running=false; if(_rid) cancelAnimationFrame(_rid); }
+        else if(!running){ running=true; last=0; raf(); }
+      });
+
+      // ---- Controls -------------------------------------------------------
+      root.querySelector('[data-act="stress"]').addEventListener('click', function(){
+        S.stress += S.intensity; S.phasic += 2.2;
+        announce('Stress event injected.');
+        flash('stress');
+      });
+      $('#clb-intensity').addEventListener('input', function(e){ S.intensity=+e.target.value; });
+      $('#clb-speed').addEventListener('input', function(e){ S.speed=+e.target.value; });
+      root.querySelector('[data-act="reset"]').addEventListener('click', function(){
+        S.arousal=P.A0; S.stress=0; S.inferred=P.A0; S.phasic=0; S.aboveTime=0; S.beatClock=0;
+        buf.i=0; buf.filled=0; buf.hrv.fill(0); buf.eda.fill(0); buf.ar.fill(0);
+        announce('Simulation reset.');
+      });
+      // adaptive toggle
+      var tog = root.querySelectorAll('.clb__toggle button');
+      tog.forEach(function(b){ b.addEventListener('click', function(){
+        setMode(b.getAttribute('data-mode')==='on');
+      }); });
+      function setMode(on){
+        S.adaptive = on;
+        tog.forEach(function(b){ b.setAttribute('aria-pressed',
+          String((b.getAttribute('data-mode')==='on')===on)); });
+        bannerEl.setAttribute('data-mode', on?'on':'off');
+        bTxt.textContent = on
+          ? 'Adaptive control ON — the loop is regulating toward baseline.'
+          : 'Adaptive OFF (open loop) — no response; a perturbation lingers and decays only naturally.';
+        announce(on?'Adaptive control on. The loop will regulate.'
+                   :'Adaptive control off. Open loop — the system will not respond.');
+      }
+
+      // optional soundscape (off by default; gentle filtered noise)
+      var audio=null;
+      root.querySelector('[data-act="sound"]').addEventListener('click', function(){
+        var btn=this;
+        if(!S.sound){
+          audio = audio || makeAudio();
+          if(!audio){ btn.textContent='Sound n/a'; return; }
+          audio.start(); S.sound=true;
+          btn.setAttribute('aria-pressed','true'); btn.textContent='Sound on';
+        } else {
+          if(audio) audio.stop(); S.sound=false;
+          btn.setAttribute('aria-pressed','false'); btn.textContent='Sound off';
+        }
+      });
+
+      // ---- helpers --------------------------------------------------------
+      function announce(m){ liveEl.textContent=''; setTimeout(function(){ liveEl.textContent=m; },30); }
+      function flash(){ /* visual cue handled by index rising */ }
+      function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+      function ease(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+      function debounce(fn,ms){ var h; return function(){ clearTimeout(h); h=setTimeout(fn,ms); }; }
+      function cssv(name,fb){ var v=getComputedStyle(root).getPropertyValue(name).trim(); return v||fb; }
+      function hex2rgb(h){ h=h.replace('#',''); if(h.length===3) h=h.replace(/./g,'$&$&');
+        return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
+      function mix(a,b,t){ t=clamp(t,0,1); var A=hex2rgb(a),B=hex2rgb(b);
+        return 'rgb('+Math.round(A[0]+(B[0]-A[0])*t)+','+Math.round(A[1]+(B[1]-A[1])*t)+','+Math.round(A[2]+(B[2]-A[2])*t)+')'; }
+      function makeAudio(){
+        var AC = window.AudioContext||window.webkitAudioContext; if(!AC) return null;
+        var ctx=new AC(); var buffer=ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate);
+        var d=buffer.getChannelData(0); for(var i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*0.5;
+        var src=ctx.createBufferSource(); src.buffer=buffer; src.loop=true;
+        var filt=ctx.createBiquadFilter(); filt.type='lowpass'; filt.frequency.value=500;
+        var gain=ctx.createGain(); gain.gain.value=0.0;
+        src.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+        return {
+          start:function(){ if(ctx.state==='suspended') ctx.resume(); try{src.start();}catch(e){} },
+          set:function(a){ gain.gain.setTargetAtTime(0.02+a*0.10, ctx.currentTime, 0.2);
+                           filt.frequency.setTargetAtTime(300+a*1400, ctx.currentTime, 0.2); },
+          stop:function(){ gain.gain.setTargetAtTime(0, ctx.currentTime, 0.1); }
+        };
+      }
+
+      // ---- go -------------------------------------------------------------
+      resize(); setMode(true);
+      // position the dashed target tick at the controller target on the arc
+      // (center 100,108; radius 82; index t maps to angle = pi*(1 - t))
+      (function placeTarget(){
+        if(!targetTick) return;
+        var ang = Math.PI*(1 - P.target);
+        var ox = 100 + 82*Math.cos(ang), oy = 108 - 82*Math.sin(ang);
+        var ix = 100 + 60*Math.cos(ang), iy = 108 - 60*Math.sin(ang);
+        targetTick.setAttribute('x1', ix.toFixed(1)); targetTick.setAttribute('y1', iy.toFixed(1));
+        targetTick.setAttribute('x2', ox.toFixed(1)); targetTick.setAttribute('y2', oy.toFixed(1));
+      })();
+      raf();
+    }
+  })();
+  </script>
+</div>

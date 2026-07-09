@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="block" style="padding-top:44px;">
+    <a class="back-link" href="{{ "/demos/" | relURL }}">&larr; Back to demos</a>
+    <div class="article-eyebrow">{{ .Date.Format "January 2006" }}</div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    <div class="article-body" style="max-width:900px;">
+      {{ .Content }}
+    </div>
+  </section>
+</div>
+{{ end }}

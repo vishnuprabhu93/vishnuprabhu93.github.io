@@ -33,9 +33,12 @@ tracking only.
 - [ ] Project briefs for 4 current UCF senior design students (Mariana Ramirez, Brett Labo, Daniel
       Bakos, William Bland) — currently placeholder text
 - [ ] Real equipment photos + product links (EmotiBit, Muse 2, fNIRS, XR headsets)
-- [ ] Real demo photos/video for the Demos page (currently placeholder tiles)
-- [ ] 12 publications still missing a DOI/URL link (ask for the list again if needed — changes as new
+- [ ] Real photos/video for the 2 remaining placeholder Demos tiles (Neuroadaptive XR, Surgical digital
+      twins) — the Closed-Loop Biosensing demo is now a real interactive page, not a placeholder
+- [ ] 11 publications still missing a DOI/URL link (ask for the list again if needed — changes as new
       links come in)
+- [ ] More interactive demos, if there are others like the closed-loop biosensing one — that pattern
+      (partial + shortcode + dedicated /demos/<slug>/ page + linked card) is now in place and reusable
 
 ## Before going live
 - [ ] Flip repo to public (or upgrade to GitHub Pro) — GitHub Pages free tier requires a public repo

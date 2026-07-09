@@ -7,6 +7,17 @@
     {{ end }}
     <div class="demo-grid">
       {{ range .Params.demos }}
+      {{ if .link }}
+      <a class="demo-item" href="{{ .link | relURL }}">
+        <div class="demo-photo">
+          {{ if .photo }}<img src="{{ .photo | relURL }}" alt="{{ .title }}">{{ else }}Photo{{ end }}
+        </div>
+        <div class="demo-title">{{ .title }}</div>
+        {{ if .category }}<div class="demo-category">{{ .category }}</div>{{ end }}
+        <div class="demo-desc">{{ .desc }}</div>
+        <div class="demo-link">Try the interactive demo &rarr;</div>
+      </a>
+      {{ else }}
       <div class="demo-item">
         <div class="demo-photo">
           {{ if .photo }}<img src="{{ .photo | relURL }}" alt="{{ .title }}">{{ else }}Photo{{ end }}
@@ -15,6 +26,7 @@
         {{ if .category }}<div class="demo-category">{{ .category }}</div>{{ end }}
         <div class="demo-desc">{{ .desc }}</div>
       </div>
+      {{ end }}
       {{ end }}
     </div>
   </section>
