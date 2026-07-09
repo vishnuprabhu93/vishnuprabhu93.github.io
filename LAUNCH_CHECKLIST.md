@@ -4,8 +4,11 @@ Running list of items to work through before/as the site goes live. Not for publ
 tracking only.
 
 ## Analytics
-- [ ] Pick a tool once the site is public (Cloudflare Web Analytics recommended: free, no cookie banner
-      needed) and wire up the tracking snippet
+- [x] Tool chosen: Cloudflare Web Analytics. Plumbing is in place — the beacon script in
+      layouts/_default/baseof.html only renders if `cloudflareAnalyticsToken` is set in hugo.toml
+      [params], so it's currently inert (no broken script tag) until a real token is pasted in.
+- [ ] Sign up at Cloudflare (free), add the site under Web Analytics as a JS-snippet site (no DNS/
+      nameserver change needed), copy the token, paste it into `cloudflareAnalyticsToken` in hugo.toml
 
 ## Mobile
 - [x] Hamburger nav menu below 720px
@@ -27,11 +30,11 @@ tracking only.
 - [ ] Custom 404 page (currently Hugo's bare default)
 
 ## Content still pending
-- [ ] Verify current status of every grant on Projects (Active/Completed/Ongoing) — some may need to
-      move or be excluded
+- [x] Verify current status of every grant on Projects (Active/Completed/Ongoing) — confirmed correct
 - [ ] Add CV PDF to `static/files/Vishnu_CV.pdf` (Download CV button currently 404s)
-- [ ] Project briefs for 4 current UCF senior design students (Mariana Ramirez, Brett Labo, Daniel
-      Bakos, William Bland) — currently placeholder text
+- [x] Project brief for the 4 UCF senior design students — all 4 share one project (Wearable Haptic
+      Glove for VR Training Simulation); moved from Current/Undergraduate to As Committee Member since
+      Dr. Prabhu is committee member, not primary advisor, on that project
 - [ ] Real equipment photos + product links (EmotiBit, Muse 2, fNIRS, XR headsets)
 - [ ] Real photos/video for the 2 remaining placeholder Demos tiles (Neuroadaptive XR, Surgical digital
       twins) — the Closed-Loop Biosensing demo is now a real interactive page, not a placeholder
