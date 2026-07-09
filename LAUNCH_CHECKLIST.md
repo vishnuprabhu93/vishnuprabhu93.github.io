@@ -39,8 +39,10 @@ tracking only.
       Glove for VR Training Simulation); moved from Current/Undergraduate to As Committee Member since
       Dr. Prabhu is committee member, not primary advisor, on that project
 - [ ] Real equipment photos + product links (EmotiBit, Muse 2, fNIRS, XR headsets)
-- [ ] Current graduate student photos: Sayed Dariush Sajjadi added; Franklin Castillo and Siddharth
-      Abrol still placeholder
+- [x] Current graduate student photos: all 3 added (Sayed Dariush Sajjadi, Franklin Castillo,
+      Siddharth Abrol). Franklin's and Siddharth's cards now use full-paragraph bios instead of the
+      one-line brief the other cards use (confirmed intentional — cards are visibly taller than
+      neighbors as a result).
 - [ ] Real photos/video for the 1 remaining placeholder Demos tile (Surgical digital twins) — both
       Closed-Loop Biosensing and Neuroadaptive XR for Clinical Training are now real interactive pages
 - [x] 11 working papers will not get a DOI/URL for now (confirmed) — left unlinked intentionally,
