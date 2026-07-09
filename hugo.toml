@@ -10,7 +10,7 @@ title = "V. Girishan Prabhu / XR BioSim Lab"
   linkedinUrl = "http://www.linkedin.com/in/vgirishp"
   email = "vishnunarayan.girishanprabhu@ucf.edu"
   cvPath = "/files/Vishnu_CV.pdf"
-  cloudflareAnalyticsToken = ""  # paste your Cloudflare Web Analytics site token here to enable tracking
+  cloudflareAnalyticsToken = "37fdbde649404861bed6bae320671380"
 
 [menu]
   [[menu.main]]

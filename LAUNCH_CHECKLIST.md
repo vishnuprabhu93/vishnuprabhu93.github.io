@@ -4,11 +4,8 @@ Running list of items to work through before/as the site goes live. Not for publ
 tracking only.
 
 ## Analytics
-- [x] Tool chosen: Cloudflare Web Analytics. Plumbing is in place — the beacon script in
-      layouts/_default/baseof.html only renders if `cloudflareAnalyticsToken` is set in hugo.toml
-      [params], so it's currently inert (no broken script tag) until a real token is pasted in.
-- [ ] Sign up at Cloudflare (free), add the site under Web Analytics as a JS-snippet site (no DNS/
-      nameserver change needed), copy the token, paste it into `cloudflareAnalyticsToken` in hugo.toml
+- [x] Cloudflare Web Analytics live site-wide (token set in hugo.toml, beacon confirmed rendering on
+      every page). Won't show real traffic data until the site is actually public.
 
 ## Mobile
 - [x] Hamburger nav menu below 720px
