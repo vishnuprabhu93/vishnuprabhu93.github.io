@@ -6,78 +6,115 @@
       <p>{{ .Params.mission }}</p>
     </div>
 
-    <h2 class="section-title" style="margin-bottom:18px;">Current students</h2>
+    <div class="proj-tabs">
+      <button class="proj-tab-btn active" data-tab="people">People</button>
+      <button class="proj-tab-btn" data-tab="facilities">Facilities</button>
+    </div>
 
-    <div class="group-label">Graduate students</div>
-    <div class="student-grid" style="margin-bottom:28px;">
-      {{ range .Params.currentGraduate }}
-      <div class="student-card">
-        <div class="student-photo">
-          {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+    <div id="tab-people">
+      <h2 class="section-title" style="margin-bottom:18px;">Current students</h2>
+
+      <div class="group-label">Graduate students</div>
+      <div class="student-grid" style="margin-bottom:28px;">
+        {{ range .Params.currentGraduate }}
+        <div class="student-card">
+          <div class="student-photo">
+            {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+          </div>
+          <div class="student-name">{{ .name }}</div>
+          <div class="student-role">{{ .role }}</div>
+          <div class="student-diss">{{ .brief }}</div>
         </div>
-        <div class="student-name">{{ .name }}</div>
-        <div class="student-role">{{ .role }}</div>
-        <div class="student-diss">{{ .brief }}</div>
+        {{ end }}
       </div>
-      {{ end }}
-    </div>
 
-    {{ if .Params.currentUndergrad }}
-    <div class="group-label">Undergraduate students</div>
-    <div class="committee-list">
-      {{ range .Params.currentUndergrad }}
-      <div class="committee-item">
-        <div class="committee-name">{{ . }}</div>
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-
-    <h2 class="section-title" style="margin:40px 0 18px;">As Committee Member</h2>
-    <div class="committee-list">
-      {{ range .Params.committeeStudents }}
-      <div class="committee-item">
-        <div class="committee-name">{{ .name }} <span class="committee-role">&mdash; {{ .program }}</span></div>
-        <div class="committee-desc">{{ .brief }}</div>
-      </div>
-      {{ end }}
-    </div>
-
-    <h2 class="section-title" style="margin:40px 0 18px;">Lab alumni</h2>
-
-    <div class="group-label">Graduate students</div>
-    <div class="alumni-list" style="margin-bottom:28px;">
-      {{ range .Params.alumniGraduate }}
-      <div class="alumni-item">
-        <div class="alumni-name">{{ .name }}</div>
-        <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
-      </div>
-      {{ end }}
-    </div>
-
-    <div class="group-label">Undergraduate</div>
-    <div class="alumni-list">
-      {{ range .Params.alumniUndergrad }}
-      <div class="alumni-item">
-        <div class="alumni-name">{{ .name }}</div>
-        <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
-      </div>
-      {{ end }}
-    </div>
-
-    <h2 class="section-title" style="margin:40px 0 8px;">Lab equipment &amp; facilities</h2>
-    <p style="font-size:13.5px; color:var(--warm-gray); margin-bottom:12px;">Photos and product links for each device to be added.</p>
-    <div class="equip-grid">
-      {{ range .Params.equipment }}
-      <div class="equip-item">
-        <div class="equip-photo">
-          {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+      {{ if .Params.currentUndergrad }}
+      <div class="group-label">Undergraduate students</div>
+      <div class="committee-list">
+        {{ range .Params.currentUndergrad }}
+        <div class="committee-item">
+          <div class="committee-name">{{ . }}</div>
         </div>
-        <div class="name">{{ .name }}</div>
-        <div class="desc">{{ .desc }}</div>
+        {{ end }}
       </div>
       {{ end }}
+
+      <h2 class="section-title" style="margin:40px 0 18px;">As Committee Member</h2>
+      <div class="committee-list">
+        {{ range .Params.committeeStudents }}
+        <div class="committee-item">
+          <div class="committee-name">{{ .name }} <span class="committee-role">&mdash; {{ .program }}</span></div>
+          <div class="committee-desc">{{ .brief }}</div>
+        </div>
+        {{ end }}
+      </div>
+
+      <h2 class="section-title" style="margin:40px 0 18px;">Lab alumni</h2>
+
+      <div class="group-label">As Primary Advisor</div>
+      <div class="alumni-list" style="margin-bottom:28px;">
+        {{ range .Params.alumniPrimaryAdvisor }}
+        <div class="alumni-item">
+          <div class="alumni-name">{{ .name }}</div>
+          <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="group-label">As Committee Member</div>
+      <div class="alumni-list" style="margin-bottom:28px;">
+        {{ range .Params.alumniCommitteeMember }}
+        <div class="alumni-item">
+          <div class="alumni-name">{{ .name }}</div>
+          <div class="alumni-title">{{ .credit }} &mdash; {{ .thesisTitle }}</div>
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="group-label">M.S. Capstone</div>
+      <div class="committee-list">
+        {{ range .Params.alumniCapstone }}
+        <div class="committee-item">
+          <div class="committee-name">{{ .name }} <span class="committee-role">&mdash; {{ .year }}</span></div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div id="tab-facilities" style="display:none;">
+      <h2 class="section-title" style="margin-bottom:8px;">Lab Facilities</h2>
+      <p style="font-size:13.5px; color:var(--warm-gray); margin-bottom:12px;">Photos and product links for each device to be added.</p>
+      <div class="equip-grid">
+        {{ range .Params.equipment }}
+        <div class="equip-item">
+          <div class="equip-photo">
+            {{ if .photo }}<img src="{{ .photo }}" alt="{{ .name }}">{{ else }}Photo{{ end }}
+          </div>
+          <div class="name">{{ .name }}</div>
+          <div class="desc">{{ .desc }}</div>
+        </div>
+        {{ end }}
+      </div>
     </div>
   </section>
 </div>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.proj-tabs .proj-tab-btn');
+  var panels = {
+    people: document.getElementById('tab-people'),
+    facilities: document.getElementById('tab-facilities')
+  };
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabs.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      Object.keys(panels).forEach(function(k) {
+        panels[k].style.display = (k === btn.dataset.tab) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>
 {{ end }}
