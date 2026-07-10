@@ -1,6 +1,6 @@
 ---
 title: "Demos"
-intro: "Photos, videos, and prototype walkthroughs from the lab's ongoing work. Media below is placeholder pending real photos/video — see the note in layouts/demos/list.html."
+intro: "Photos, videos, and prototype walkthroughs from the lab's ongoing work."
 demos:
   - title: "Closed-Loop Biosensing-Adaptive Intervention"
     category: "Interactive demo"
