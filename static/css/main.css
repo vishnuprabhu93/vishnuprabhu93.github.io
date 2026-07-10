@@ -146,7 +146,7 @@ footer { border-top: 1px solid var(--line); padding: 32px 0 40px; font-size: 13p
 a.demo-item:hover { border-color: var(--clay-deep); }
 .demo-link { font-size: 12.5px; font-weight: 500; color: var(--clay-deep); margin-top: 10px; }
 .demo-photo { width: 100%; height: 160px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: var(--warm-gray); font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px; overflow: hidden; }
-.demo-photo img { width: 100%; height: 100%; object-fit: cover; }
+.demo-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .demo-title { font-weight: 600; font-size: 14.5px; margin-bottom: 4px; }
 .demo-category { font-family: var(--font-mono); font-size: 11px; color: var(--clay-deep); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
 .demo-desc { font-size: 13px; color: var(--warm-gray); }

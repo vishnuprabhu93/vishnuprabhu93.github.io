@@ -10,8 +10,9 @@ gallery:
     src: "healthy-aging-fair.jpg"
     caption: "Siddharth Abrol (left) and Sayed Mohammad (Dariush) Sajjadi (right) presenting XR and biosensing demos at the UCF Healthy Aging Fair."
   - type: "video"
-    src: "https://www.youtube.com/watch?v=TsPpI8UHa3E&t=87s"
-    caption: "Dr. Prabhu demos Meta smart glasses at the UCF Healthy Aging Fair (1:27–1:38)."
+    src: "https://www.youtube.com/watch?v=TsPpI8UHa3E&t=88s"
+    photo: "meta-glasses-demo.jpg"
+    caption: "Dr. Prabhu demos Meta smart glasses at the UCF Healthy Aging Fair (1:28–1:38)."
 ---
 
 The XR BioSim Lab was invited to present at the [UCF Healthy Aging Fair](https://events.ucf.edu/event/4050868/ucf-healthy-aging-fair/),
@@ -22,7 +23,7 @@ Healthcare* to fair attendees. Ph.D. students Siddharth Abrol and Sayed Mohammad
 staffed the table with hands-on XR and biosensing demos, while Dr. Prabhu demoed Meta's smart glasses
 as an emerging, everyday platform for augmented reality and biosensing.
 
-Dr. Prabhu's Meta glasses demo appears in the event's recap video at the 1:27–1:38 mark:
-[watch the clip →](https://www.youtube.com/watch?v=TsPpI8UHa3E&t=87s)
+Dr. Prabhu's Meta glasses demo appears in the event's recap video at the 1:28–1:38 mark:
+[watch the clip →](https://www.youtube.com/watch?v=TsPpI8UHa3E&t=88s)
 
 ![Siddharth Abrol (left, green polo) and Sayed Mohammad (Dariush) Sajjadi (right, grey polo) presenting XR and biosensing demos at the UCF Healthy Aging Fair.](healthy-aging-fair.jpg)
