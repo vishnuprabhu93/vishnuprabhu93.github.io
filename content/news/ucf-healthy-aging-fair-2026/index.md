@@ -2,6 +2,16 @@
 title: "XR BioSim Lab presents at the UCF Healthy Aging Fair"
 date: 2026-03-06
 category: "Outreach"
+relatedDemo:
+  title: "Closed-Loop Biosensing-Adaptive Intervention"
+  link: "/demos/closed-loop-biosensing/"
+gallery:
+  - type: "image"
+    src: "healthy-aging-fair.jpg"
+    caption: "Siddharth Abrol (left) and Sayed Mohammad (Dariush) Sajjadi (right) presenting XR and biosensing demos at the UCF Healthy Aging Fair."
+  - type: "video"
+    src: "https://www.youtube.com/watch?v=TsPpI8UHa3E&t=87s"
+    caption: "Dr. Prabhu demos Meta smart glasses at the UCF Healthy Aging Fair (1:27–1:38)."
 ---
 
 The XR BioSim Lab was invited to present at the [UCF Healthy Aging Fair](https://events.ucf.edu/event/4050868/ucf-healthy-aging-fair/),

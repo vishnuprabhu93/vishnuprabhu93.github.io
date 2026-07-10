@@ -29,6 +29,52 @@
       {{ end }}
       {{ end }}
     </div>
+
+    {{ $galleryPages := where .Site.RegularPages "Section" "news" }}
+    {{ $galleryPages = where $galleryPages "Params.gallery" "!=" nil }}
+    {{ $galleryPages = $galleryPages.ByDate.Reverse }}
+    {{ if $galleryPages }}
+    <div style="border-top:1px solid var(--line); margin-top:40px; padding-top:44px;">
+      <div class="section-head">
+        <h2 class="section-title">From the field</h2>
+        <a class="see-all" href="{{ "/news/" | relURL }}">See all news &rarr;</a>
+      </div>
+      <p style="font-size:14px; color:var(--warm-gray); max-width:700px; margin-bottom:28px;">
+        Real-world photos and video of these demos being presented, pulled from lab news and outreach.
+      </p>
+      <div class="demo-grid">
+        {{ range $galleryPages }}
+        {{ $story := . }}
+        {{ range .Params.gallery }}
+        <div class="demo-item">
+          <div class="demo-photo">
+            {{ if eq .type "video" }}
+            <a href="{{ .src }}" target="_blank" rel="noopener" aria-label="Watch video: {{ .caption }}" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%;">
+              <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+                <circle cx="23" cy="23" r="21" fill="none" stroke="var(--clay-deep)" stroke-width="1.6"/>
+                <path d="M19,15 L32,23 L19,31 Z" fill="var(--clay-deep)"/>
+              </svg>
+            </a>
+            {{ else }}
+            <img src="{{ $story.RelPermalink }}{{ .src }}" alt="{{ .caption }}">
+            {{ end }}
+          </div>
+          <div class="demo-title">{{ $story.Title }}</div>
+          {{ with $story.Params.relatedDemo }}<div class="demo-category"><a href="{{ .link | relURL }}" style="color:inherit;">{{ .title }}</a></div>{{ end }}
+          <div class="demo-desc">{{ .caption }}</div>
+          <div class="demo-link">
+            {{ if eq .type "video" }}
+            <a href="{{ .src }}" target="_blank" rel="noopener">Watch the clip &rarr;</a>
+            {{ else }}
+            <a href="{{ $story.RelPermalink }}">Read the story &rarr;</a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
   </section>
 </div>
 {{ end }}
