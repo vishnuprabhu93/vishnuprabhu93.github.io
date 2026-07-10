@@ -17,4 +17,7 @@ human AI co creation, across individual, team, and societal contexts.
 Dr. Arthur Huang served as Principal Investigator, with Dr. Vishnunarayan Girishan Prabhu and
 Dr. Mehmet Altin as Co-Principal Investigators.
 
-![Students and families gather for a session during the AI, Robotics, and Industry 5.0 Summer Camp at NeoCity Academy.](neocity-summer-camp.jpg)
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+<div style="flex:1 1 260px;"><img src="neocity-summer-camp.jpg" alt="Students and families gather for a session during the AI, Robotics, and Industry 5.0 Summer Camp at NeoCity Academy."></div>
+<div style="flex:1 1 260px;"><img src="neocity-lego-models.jpg" alt="Students prototype and program AI-guided robots on laptops during a NeoCity Academy lab session."></div>
+</div>
