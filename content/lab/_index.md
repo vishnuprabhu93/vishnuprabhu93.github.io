@@ -17,7 +17,7 @@ currentGraduate:
   - name: "Ishita Pathuri"
     role: "Master's student · 2026–present"
     photo: "/images/students/ishita-pathuri.jpg"
-    brief: "I'm Ishita Pathuri, a graduate student in Computer Science at University of Central Florida and a Research Assistant working in XR BioSim Lab. My research interests include artificial intelligence, machine learning, augmented reality, computer vision, and healthcare-focused AI applications. I am currently contributing to the SMART project, which explores AI-enhanced adaptive pediatric emergency training using AR, multimodal biosensing, and real-time personalized feedback. My broader experience includes generative AI, retrieval-augmented generation, deep learning, and medical imaging applications."
+    brief: "Ishita Pathuri is a graduate student in Computer Science at the University of Central Florida and a Research Assistant in the XR BioSim Lab. Her research interests include artificial intelligence, machine learning, augmented reality, computer vision, and healthcare-focused AI applications. She is currently contributing to the SMART project, which explores AI-enhanced adaptive pediatric emergency training using AR, multimodal biosensing, and real-time personalized feedback. Her broader experience includes generative AI, retrieval-augmented generation, deep learning, and medical imaging applications."
 committeeStudents:
   - name: "Md Zahidul Islam"
     program: "Doctoral student in Industrial Engineering"
