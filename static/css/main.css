@@ -169,6 +169,8 @@ a.demo-item:hover { border-color: var(--clay-deep); }
 .article-title { font-family: var(--font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
 .article-byline { font-size: 13.5px; color: var(--warm-gray); margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .article-body p { font-size: 16.5px; line-height: 1.75; color: #2C3335; margin-bottom: 20px; }
+.article-body a { color: var(--teal-deep); font-weight: 500; border-bottom: 1px solid var(--line-strong); }
+.article-body a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
 .article-body img { width: 100%; border-radius: 4px; border: 1px solid var(--line); margin: 8px 0; }
 .article-body figcaption { font-size: 12.5px; color: var(--warm-gray); line-height: 1.5; margin-top: -4px; margin-bottom: 20px; }
 
