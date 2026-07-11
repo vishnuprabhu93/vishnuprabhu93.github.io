@@ -34,7 +34,7 @@
     {{ $galleryPages = where $galleryPages "Params.gallery" "!=" nil }}
     {{ $galleryPages = $galleryPages.ByDate.Reverse }}
     {{ if $galleryPages }}
-    <div style="border-top:1px solid var(--line); margin-top:40px; padding-top:44px;">
+    <div id="field-gallery" style="border-top:1px solid var(--line); margin-top:40px; padding-top:44px;">
       <div class="section-head">
         <h2 class="section-title">From the field</h2>
         <a class="see-all" href="{{ "/news/" | relURL }}">See all news &rarr;</a>
@@ -42,17 +42,29 @@
       <p style="font-size:14px; color:var(--warm-gray); max-width:700px; margin-bottom:28px;">
         Real-world photos and video of these demos being presented
       </p>
-      <div class="demo-grid">
-        {{ range $galleryPages }}
-        {{ $story := . }}
-        {{ range .Params.gallery }}
-        <div class="demo-item">
-          <div class="demo-photo" style="position:relative;">
+
+      <div class="proj-tabs">
+        {{ range $i, $story := $galleryPages }}
+        {{ $tabKey := $story.File.ContentBaseName }}
+        <button class="proj-tab-btn{{ if eq $i 0 }} active{{ end }}" data-tab="{{ $tabKey }}">{{ or $story.Params.galleryLabel $story.Title }}</button>
+        {{ end }}
+      </div>
+
+      {{ range $i, $story := $galleryPages }}
+      {{ $tabKey := $story.File.ContentBaseName }}
+      <div class="field-panel" data-panel="{{ $tabKey }}" style="{{ if ne $i 0 }}display:none;{{ end }}">
+        <p class="field-panel-meta">
+          {{ with $story.Params.relatedDemo }}Related demo: <a href="{{ .link | relURL }}">{{ .title }}</a> &middot; {{ end }}
+          <a href="{{ $story.RelPermalink }}">Read the story &rarr;</a>
+        </p>
+        <div class="field-grid">
+          {{ range $story.Params.gallery }}
+          <div class="field-photo">
             {{ if eq .type "video" }}
             <a href="{{ .src }}" target="_blank" rel="noopener" aria-label="Watch video: {{ .caption }}" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; position:relative;">
               {{ if .photo }}<img src="{{ $story.RelPermalink }}{{ .photo }}" alt="{{ .caption }}">{{ end }}
               <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(18,24,27,{{ if .photo }}0.28{{ else }}0{{ end }});">
-                <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 46 46" aria-hidden="true">
                   <circle cx="23" cy="23" r="21" fill="{{ if .photo }}rgba(247,245,240,0.9){{ else }}none{{ end }}" stroke="{{ if .photo }}none{{ else }}var(--clay-deep){{ end }}" stroke-width="1.6"/>
                   <path d="M19,15 L32,23 L19,31 Z" fill="var(--clay-deep)"/>
                 </svg>
@@ -61,23 +73,32 @@
             {{ else }}
             <img src="{{ $story.RelPermalink }}{{ .src }}" alt="{{ .caption }}">
             {{ end }}
+            <div class="field-caption">{{ .caption }}</div>
           </div>
-          <div class="demo-title">{{ $story.Title }}</div>
-          {{ with $story.Params.relatedDemo }}<div class="demo-category"><a href="{{ .link | relURL }}" style="color:inherit;">{{ .title }}</a></div>{{ end }}
-          <div class="demo-desc">{{ .caption }}</div>
-          <div class="demo-link">
-            {{ if eq .type "video" }}
-            <a href="{{ .src }}" target="_blank" rel="noopener">Watch the clip &rarr;</a>
-            {{ else }}
-            <a href="{{ $story.RelPermalink }}">Read the story &rarr;</a>
-            {{ end }}
-          </div>
+          {{ end }}
         </div>
-        {{ end }}
-        {{ end }}
       </div>
+      {{ end }}
     </div>
     {{ end }}
   </section>
 </div>
+
+<script>
+(function() {
+  var root = document.getElementById('field-gallery');
+  if (!root) return;
+  var tabs = root.querySelectorAll('.proj-tab-btn');
+  var panels = root.querySelectorAll('.field-panel');
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabs.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      panels.forEach(function(p) {
+        p.style.display = (p.dataset.panel === btn.dataset.tab) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>
 {{ end }}

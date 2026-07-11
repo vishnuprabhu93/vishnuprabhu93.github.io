@@ -2,6 +2,26 @@
 title: "AI, Robotics, and Industry 5.0: A Summer Camp at NeoCity Academy"
 date: 2026-07-06
 category: "Outreach"
+galleryLabel: "NeoCity Summer Camp"
+gallery:
+  - type: "image"
+    src: "neocity-summer-camp.jpg"
+    caption: "Students and families gather for a session during the Summer Camp."
+  - type: "image"
+    src: "neocity-lego-models.jpg"
+    caption: "Students prototype and program AI-guided robots on laptops."
+  - type: "image"
+    src: "neocity-pitch-problems.jpg"
+    caption: "A student team pitches a restaurant-efficiency AI concept to the group."
+  - type: "image"
+    src: "neocity-pitch-agriscan.jpg"
+    caption: "Students present next steps for Agriscan, an AI-powered agricultural drone concept."
+  - type: "image"
+    src: "neocity-robot-building.jpg"
+    caption: "Students build and test small robots at a work table."
+  - type: "image"
+    src: "neocity-farmland-lab.jpg"
+    caption: "A student tests an AI-guided robot prototype in the lab."
 ---
 
 The NSF funded AI, Robotics, and Industry 5.0 Summer Camp extended the same five day summit model to

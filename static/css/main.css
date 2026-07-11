@@ -151,6 +151,14 @@ a.demo-item:hover { border-color: var(--clay-deep); }
 .demo-category { font-family: var(--font-mono); font-size: 11px; color: var(--clay-deep); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
 .demo-desc { font-size: 13px; color: var(--warm-gray); }
 
+.field-panel-meta { font-size: 12.5px; color: var(--warm-gray); margin-bottom: 16px; }
+.field-panel-meta a { color: var(--teal-deep); font-weight: 500; border-bottom: 1px solid var(--line-strong); }
+.field-panel-meta a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
+.field-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.field-photo { position: relative; }
+.field-photo img { width: 100%; height: 150px; object-fit: cover; object-position: center 20%; border-radius: 4px; border: 1px solid var(--line); display: block; }
+.field-caption { font-size: 11.5px; color: var(--warm-gray); margin-top: 6px; line-height: 1.4; }
+
 .service-body h2 { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-deep); margin: 30px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .service-body h2:first-child { margin-top: 0; }
 .service-body ul { list-style: none; }

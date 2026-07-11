@@ -2,6 +2,26 @@
 title: "AI, Robotics, and Entrepreneurship: A Summer Institute at Rosen College"
 date: 2026-06-08
 category: "Outreach"
+galleryLabel: "Rosen Summer Institute"
+gallery:
+  - type: "image"
+    src: "rosen-summer-institute.jpg"
+    caption: "Students and faculty test an AI-guided robot navigating a mock infrastructure-inspection course."
+  - type: "image"
+    src: "rosen-podium-demo.jpg"
+    caption: "Dr. Prabhu demos an AI-guided quadruped robot to students at the podium."
+  - type: "image"
+    src: "rosen-instructor-demo.jpg"
+    caption: "An instructor demonstrates gyroscope-driven stabilization with a remote-controlled robot."
+  - type: "image"
+    src: "rosen-podium-wide.jpg"
+    caption: "Students watch a robot navigation demo during a full-group session."
+  - type: "image"
+    src: "rosen-robot-closeup.jpg"
+    caption: "A quadruped robot platform used in the robotics labs."
+  - type: "image"
+    src: "rosen-rc-car-closeup.jpg"
+    caption: "A Raspberry Pi-powered robotics platform built during the Institute."
 ---
 
 The NSF and VentureWell funded AI, Robotics, and Entrepreneurship Summer Institute brought Central
