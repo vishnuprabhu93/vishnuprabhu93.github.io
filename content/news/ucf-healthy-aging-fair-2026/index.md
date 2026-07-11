@@ -25,5 +25,3 @@ as an emerging, everyday platform for augmented reality and biosensing.
 
 Dr. Prabhu's Meta glasses demo appears in the event's recap video at the 1:28–1:38 mark:
 [watch the clip →](https://www.youtube.com/watch?v=TsPpI8UHa3E&t=88s)
-
-![Siddharth Abrol (left, green polo) and Sayed Mohammad (Dariush) Sajjadi (right, grey polo) presenting XR and biosensing demos at the UCF Healthy Aging Fair.](healthy-aging-fair.jpg)

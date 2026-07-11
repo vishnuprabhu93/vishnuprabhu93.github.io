@@ -36,8 +36,3 @@ application, and human AI co creation, spanning individual, team, and societal l
 
 Dr. Arthur Huang served as Principal Investigator, with Dr. Vishnunarayan Girishan Prabhu and
 Dr. Mehmet Altin as Co-Principal Investigators.
-
-<div style="display:flex; gap:12px; flex-wrap:wrap;">
-<div style="flex:1 1 260px;"><img src="rosen-summer-institute.jpg" alt="Students and faculty test an AI-guided robot navigating a mock infrastructure-inspection course during the Summer Institute at Rosen College."></div>
-<div style="flex:1 1 260px;"><img src="rosen-podium-demo.jpg" alt="Dr. Prabhu demos an AI-guided quadruped robot to students at the podium during the Summer Institute."></div>
-</div>
