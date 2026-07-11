@@ -1,4 +1,4 @@
-# Vishnunarayan Girishan Prabhu — Faculty Portfolio & XR BioSim Lab
+# Vishnunarayan Girishan Prabhu - Faculty Portfolio & XR BioSim Lab
 
 Faculty website for Dr. Vishnunarayan Girishan Prabhu, Tenure-Track Assistant Professor in the School of
 Modeling, Simulation, and Training (SMST) at the University of Central Florida, and Director of the XR BioSim
