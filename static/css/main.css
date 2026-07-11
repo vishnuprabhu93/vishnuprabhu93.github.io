@@ -151,6 +151,15 @@ a.demo-item:hover { border-color: var(--clay-deep); }
 .demo-category { font-family: var(--font-mono); font-size: 11px; color: var(--clay-deep); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
 .demo-desc { font-size: 13px; color: var(--warm-gray); }
 
+.field-group { margin-bottom: 36px; }
+.field-group:last-child { margin-bottom: 0; }
+.field-group-title { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin-bottom: 14px; }
+.field-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-bottom: 14px; }
+.field-photo { position: relative; }
+.field-photo img { width: 100%; height: 150px; object-fit: cover; object-position: center 20%; border-radius: 4px; border: 1px solid var(--line); display: block; }
+.field-caption { font-size: 11.5px; color: var(--warm-gray); margin-top: 6px; line-height: 1.4; }
+.field-group-link { font-size: 12.5px; font-weight: 500; color: var(--clay-deep); }
+
 .service-body h2 { font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-deep); margin: 30px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .service-body h2:first-child { margin-top: 0; }
 .service-body ul { list-style: none; }

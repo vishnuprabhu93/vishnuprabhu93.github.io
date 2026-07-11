@@ -42,23 +42,33 @@
       <p style="font-size:14px; color:var(--warm-gray); max-width:700px; margin-bottom:28px;">
         Real-world photos and video of these demos being presented
       </p>
-      <div class="demo-grid">
-        {{ range $galleryPages }}
-        {{ $story := . }}
-        {{ $cover := index $story.Params.gallery 0 }}
-        {{ $coverSrc := $cover.src }}
-        {{ if eq $cover.type "video" }}{{ $coverSrc = $cover.photo }}{{ end }}
-        <a class="demo-item" href="{{ $story.RelPermalink }}">
-          <div class="demo-photo">
-            <img src="{{ $story.RelPermalink }}{{ $coverSrc }}" alt="{{ $story.Title }}">
+      {{ range $galleryPages }}
+      {{ $story := . }}
+      <div class="field-group">
+        <h3 class="field-group-title">{{ $story.Title }}</h3>
+        <div class="field-grid">
+          {{ range $story.Params.gallery }}
+          <div class="field-photo">
+            {{ if eq .type "video" }}
+            <a href="{{ .src }}" target="_blank" rel="noopener" aria-label="Watch video: {{ .caption }}" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; position:relative;">
+              {{ if .photo }}<img src="{{ $story.RelPermalink }}{{ .photo }}" alt="{{ .caption }}">{{ end }}
+              <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(18,24,27,{{ if .photo }}0.28{{ else }}0{{ end }});">
+                <svg width="40" height="40" viewBox="0 0 46 46" aria-hidden="true">
+                  <circle cx="23" cy="23" r="21" fill="{{ if .photo }}rgba(247,245,240,0.9){{ else }}none{{ end }}" stroke="{{ if .photo }}none{{ else }}var(--clay-deep){{ end }}" stroke-width="1.6"/>
+                  <path d="M19,15 L32,23 L19,31 Z" fill="var(--clay-deep)"/>
+                </svg>
+              </span>
+            </a>
+            {{ else }}
+            <img src="{{ $story.RelPermalink }}{{ .src }}" alt="{{ .caption }}">
+            {{ end }}
+            <div class="field-caption">{{ .caption }}</div>
           </div>
-          <div class="demo-title">{{ $story.Title }}</div>
-          {{ if $story.Params.category }}<div class="demo-category">{{ $story.Params.category }}</div>{{ end }}
-          <div class="demo-desc">{{ $cover.caption }}</div>
-          <div class="demo-link">Read the story &rarr;</div>
-        </a>
-        {{ end }}
+          {{ end }}
+        </div>
+        <a class="field-group-link" href="{{ $story.RelPermalink }}">Read the story &rarr;</a>
       </div>
+      {{ end }}
     </div>
     {{ end }}
   </section>
