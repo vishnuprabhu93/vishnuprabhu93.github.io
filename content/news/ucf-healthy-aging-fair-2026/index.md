@@ -5,7 +5,6 @@ category: "Outreach"
 relatedDemo:
   title: "Closed-Loop Biosensing-Adaptive Intervention"
   link: "/demos/closed-loop-biosensing/"
-galleryLabel: "Healthy Aging Fair"
 gallery:
   - type: "image"
     src: "healthy-aging-fair.jpg"

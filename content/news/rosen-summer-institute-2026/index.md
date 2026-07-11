@@ -2,7 +2,6 @@
 title: "AI, Robotics, and Entrepreneurship: A Summer Institute at Rosen College"
 date: 2026-06-08
 category: "Outreach"
-galleryLabel: "Rosen Summer Institute"
 gallery:
   - type: "image"
     src: "rosen-summer-institute.jpg"

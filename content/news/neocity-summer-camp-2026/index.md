@@ -2,7 +2,6 @@
 title: "AI, Robotics, and Industry 5.0: A Summer Camp at NeoCity Academy"
 date: 2026-07-06
 category: "Outreach"
-galleryLabel: "NeoCity Summer Camp"
 gallery:
   - type: "image"
     src: "neocity-summer-camp.jpg"
