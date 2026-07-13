@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="wrap">
-  <section class="block" style="padding-top:44px; max-width:720px;">
+  <section class="block" style="padding-top:44px; padding-bottom:44px; max-width:720px;">
     <a class="back-link" href="{{ "/news/" | relURL }}">&larr; Back to news</a>
     <div class="article-eyebrow">{{ if .Params.category }}{{ .Params.category }} &middot; {{ end }}{{ .Date.Format "January 2006" }}</div>
     <h1 class="article-title">{{ .Title }}</h1>
