@@ -50,7 +50,7 @@
           {{ range $story.Params.gallery }}
           <div class="field-photo">
             {{ if eq .type "video" }}
-            <a href="{{ .src }}" target="_blank" rel="noopener" aria-label="Watch video: {{ .caption }}" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%; position:relative;">
+            <a href="{{ .src }}" target="_blank" rel="noopener" aria-label="Watch video: {{ .caption }}" style="display:block; position:relative;">
               {{ if .photo }}<img src="{{ $story.RelPermalink }}{{ .photo }}" alt="{{ .caption }}">{{ end }}
               <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(18,24,27,{{ if .photo }}0.28{{ else }}0{{ end }});">
                 <svg width="40" height="40" viewBox="0 0 46 46" aria-hidden="true">
