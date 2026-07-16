@@ -72,6 +72,7 @@ workingPapers: |
   9. Marston, H.R., Ivan, L., **Prabhu, V.G.**, & Earle, S. (2026). Loneliness, Well-Being, and Digital Use during Lockdown in the UK and Romania. *Journal of Media Research*. (In press)
   10. **Prabhu, V.G.**, & Azevedo, R. (2026). Neuroadaptive Systems in Human-AI Collaboration: Physiological Sensing, Metacognitive Modeling, and Bidirectional Learning. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   11. **Prabhu, V.G.**, Takla, H., & Azevedo, R. (2026). A Detailed Application Focusing on Robotic Surgery as a Practical Implementation of Hybrid Intelligence Principles. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
+  12. Foster, S., Hegde, S., Ramsay, M., **Prabhu, V.G.**, Taaffe, K., Hobbs, J., Gaafary, C., Jackson, W., & Pirrallo, R. (2026). A Measure of Emergency Physician Workload: Development and Validation of the Disposition Mapping for Physician Sign-Out (D-MAPS). *Annals of Emergency Medicine*. (Under review)
 ---
 
 <!-- Order is fixed: Book Chapters, then Journals, then Conference Proceedings, then Working Papers. Do not reorder. -->
