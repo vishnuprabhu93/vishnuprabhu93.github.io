@@ -69,7 +69,7 @@ workingPapers: |
   6. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). Agent-Based Modeling of Healthcare Worker Compliance Effects on Surgical Site Infection Prevention in Colorectal Surgery. *IISE Annual Conference & Expo*. (In press)
   7. Marano, C., Brosnihan, A., Abrol, S., **Prabhu, V.G.**, & Azevedo, R. (2026). Modeling Individual Differences Underlying Human Scientific Reasoning Processes in Game-Based Learning Environments. *Annual Modeling and Simulation Conference (ANNSIM)*. (In press)
   8. Abrol, S., Taaffe, K., Pirrallo, R., & **Prabhu, V.G.** (2026). Hybrid Modeling and Simulation for Improving Emergency Physician Recovery and ED Performance. *Winter Simulation Conference (WSC)*. (Under review)
-  9. Marston, H.R., Ivan, L., **Prabhu, V.G.**, & Earle, S. (2026). Loneliness, Well-Being, and Digital Use during Lockdown in the UK and Romania. *Journal of Media Research*. (Under review)
+  9. Marston, H.R., Ivan, L., **Prabhu, V.G.**, & Earle, S. (2026). Loneliness, Well-Being, and Digital Use during Lockdown in the UK and Romania. *Journal of Media Research*. (In press)
   10. **Prabhu, V.G.**, & Azevedo, R. (2026). Neuroadaptive Systems in Human-AI Collaboration: Physiological Sensing, Metacognitive Modeling, and Bidirectional Learning. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   11. **Prabhu, V.G.**, Takla, H., & Azevedo, R. (2026). A Detailed Application Focusing on Robotic Surgery as a Practical Implementation of Hybrid Intelligence Principles. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
 ---
