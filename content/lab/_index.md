@@ -28,6 +28,9 @@ committeeStudents:
   - name: "Mariana Ramirez, Brett Labo, Daniel Bakos, William Bland"
     program: "Undergraduate Senior Design"
     brief: "Design and Implementation of a Wearable Haptic Glove for Immersive Virtual Reality (VR) Training Simulation."
+  - name: "Jamila Carpentieri"
+    program: "Honors Undergraduate Thesis"
+    brief: "Examining Differences in Gaze Behaviors between Pediatric Residents with Varying Levels of Clinical Experience During Pediatric Emergency Simulations."
 alumniPrimaryAdvisor:
   - name: "Renita Washburn"
     credit: "Ph.D. Dissertation Advisor, Spring 2026"
