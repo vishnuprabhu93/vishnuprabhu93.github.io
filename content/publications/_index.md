@@ -73,6 +73,7 @@ workingPapers: |
   10. **Prabhu, V.G.**, & Azevedo, R. (2026). Neuroadaptive Systems in Human-AI Collaboration: Physiological Sensing, Metacognitive Modeling, and Bidirectional Learning. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   11. **Prabhu, V.G.**, Takla, H., & Azevedo, R. (2026). A Detailed Application Focusing on Robotic Surgery as a Practical Implementation of Hybrid Intelligence Principles. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   12. Foster, S., Hegde, S., Ramsay, M., **Prabhu, V.G.**, Taaffe, K., Hobbs, J., Gaafary, C., Jackson, W., & Pirrallo, R. (2026). A Measure of Emergency Physician Workload: Development and Validation of the Disposition Mapping for Physician Sign-Out (D-MAPS). *Annals of Emergency Medicine*. (Under review)
+  13. **Prabhu, V.G.**, Azevedo, R., Pecheny, Y., Dietrich, A., Pirrallo, R., Rozenblit, J., & Kalidindi, S. (2026). Adaptive Technologies for Pediatric Emergency Readiness: Cognitive State Sensing, Augmented Reality Guidance, and the Evidence Gap. *Current Emergency and Hospital Medicine Reports*. (Under review)
 ---
 
 <!-- Order is fixed: Book Chapters, then Journals, then Conference Proceedings, then Working Papers. Do not reorder. -->
