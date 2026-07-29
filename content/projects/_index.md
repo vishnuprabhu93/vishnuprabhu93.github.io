@@ -14,7 +14,7 @@ active: |
   ### AI, Robotics, and Industry 5.0 Summer Camp & AI, Robotics, and Entrepreneurship (AIRE) Summer Institute
   **National Science Foundation & VentureWell · Co-Principal Investigator · Apr 2026 – Mar 2027**
 
-  Hands-on summer programs preparing high school students for AI-enhanced service careers through robotics and entrepreneurial thinking, run through UCF's AIRE Summer Institute. Students work in small teams across a range of platforms — including Sphero BOLT+, Lego robotics, robot dogs, drones, Raspberry Pi, and VEX — to learn AI and robotics fundamentals, systems design, and entrepreneurial thinking, culminating in a mock business plan and a UCF completion certificate.
+  Hands-on summer programs preparing high school students for AI-enhanced service careers through robotics and entrepreneurial thinking, run through UCF's [AIRE Summer Institute](/news/rosen-summer-institute-2026/) and [Summer Camp at NeoCity Academy](/news/neocity-summer-camp-2026/). Students work in small teams across a range of platforms, including Sphero BOLT+, Lego robotics, robot dogs, drones, Raspberry Pi, and VEX, learning AI and robotics fundamentals, systems design, and entrepreneurial thinking, and culminating in a mock business plan and a UCF completion certificate.
 
   ### Space Habitat Hospitality: a VR-biosensing framework for crew interaction, environment design, and guest well-being
   **Rosen College of Hospitality Management · Co-Principal Investigator · Jan 2026 – Sep 2026**
