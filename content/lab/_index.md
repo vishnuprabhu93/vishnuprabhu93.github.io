@@ -1,7 +1,7 @@
 ---
 title: "XR BioSim Lab"
 mission: "At the XR BioSim Lab (Extended Reality, Biosensing, and Simulation Lab), we study how extended reality, multimodal biosensing, computational modeling, and AI driven adaptive systems can be combined to improve training, human performance, and well-being across complex, high-stakes domains. Our work integrates immersive VR/AR environments with physiological signal streams (e.g., EEG, fNIRS, EDA, HRV, pupillometry) using mathematical modeling, simulation, and machine learning to build digital twins that sense, predict, and respond to human state in real time. Much of our applied work focuses on clinical training and healthcare workforce challenges, but the underlying methods extend to any domain where humans must learn, adapt, and perform under pressure."
-currentGraduate:
+currentStudents:
   - name: "Sayed Mohammad (Dariush) Sajjadi"
     role: "Doctoral student · 2025–present"
     photo: "/images/students/dariush-sajjadi.jpg"
@@ -18,6 +18,10 @@ currentGraduate:
     role: "Master's student · 2026–present"
     photo: "/images/students/ishita-pathuri.jpg"
     brief: "Ishita Pathuri is a graduate student in Computer Science at the University of Central Florida and a Research Assistant in the XR BioSim Lab. Her research interests include artificial intelligence, machine learning, augmented reality, computer vision, and healthcare-focused AI applications. She is currently contributing to the SMART project, which explores AI-enhanced adaptive pediatric emergency training using AR, multimodal biosensing, and real-time personalized feedback. Her broader experience includes generative AI, retrieval-augmented generation, deep learning, and medical imaging applications."
+  - name: "Vihaan Gangupanthulu"
+    role: "High school student · 2026–present"
+    photo: "/images/students/vihaan-gangupanthulu.jpg"
+    brief: "Vihaan Gangupanthulu is a rising junior at Orlando Science High School with three years of competitive robotics experience through FTC and FRC, where he serves as the mechanical design lead. His team has competed at State championships and qualified for the FRC World Championship. He joined the XR BioSim Lab in the summer of 2026 to deepen his research experience in robotics and simulation and is excited to contribute to the lab's ongoing projects."
 committeeStudents:
   - name: "Md Zahidul Islam"
     program: "Doctoral student in Industrial Engineering"
