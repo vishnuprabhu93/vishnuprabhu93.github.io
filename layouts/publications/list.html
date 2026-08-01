@@ -9,6 +9,9 @@
       {{ if .Params.hIndex }}
       <div class="stat"><div class="stat-num">{{ .Params.hIndex }}</div><div class="stat-label">h-index</div></div>
       {{ end }}
+      {{ if .Params.i10Index }}
+      <div class="stat"><div class="stat-num">{{ .Params.i10Index }}</div><div class="stat-label">i10-index</div></div>
+      {{ end }}
       {{ if .Params.totalPubs }}
       <div class="stat"><div class="stat-num">{{ .Params.totalPubs }}</div><div class="stat-label">Peer-reviewed publications</div></div>
       {{ end }}
