@@ -56,6 +56,8 @@ nav.wrap { display: flex; align-items: center; justify-content: space-between; h
 
 .hero { padding: 72px 0 48px; display: grid; grid-template-columns: 1fr 200px; gap: 48px; align-items: start; }
 .eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 18px; display: block; }
+.eyebrow a { color: inherit; border-bottom: 1px solid var(--line-strong); }
+.eyebrow a:hover { color: var(--clay-deep); border-color: var(--clay-deep); }
 h1.name { font-family: var(--font-display); font-weight: 500; font-size: 46px; line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 10px; }
 .role { font-size: 17px; color: var(--warm-gray); margin-bottom: 22px; max-width: 560px; }
 .intro { font-size: 16px; max-width: none; color: #2C3335; margin-bottom: 26px; }
