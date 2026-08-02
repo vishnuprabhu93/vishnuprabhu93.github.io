@@ -1,7 +1,7 @@
 ---
 title: "Publications"
-citations: 765
-hIndex: 14
+citations: 757
+hIndex: 15
 i10Index: 20
 totalPubs: 53
 retrieved: "2026-08-01"
