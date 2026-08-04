@@ -24,6 +24,15 @@ active: |
   **Rosen College of Hospitality Management · Co-Principal Investigator · Jan 2026 – Sep 2026**
 
   Developing an integrated VR-biosensing research framework examining how space-habitat design and crew-guest interactions shape psychological, emotional, and physiological well-being during simulated orbital stays, in collaboration with PI Dr. Arthur Huang. The study uses a multi-user VR platform with paired "crew" and "guest" roles alongside HRV, EDA, and pupillometry measures to build a foundational theoretical model of space habitat hospitality, informing next-generation habitat design and crew training protocols for commercial spaceflight.
+
+  ### CyberAI Innovation: Training the Human Firewall Through Generative AI Adversaries and Metacognitive Scaffolding for Cybersecurity Workforce Resilience
+  **National Science Foundation (CyberAICorps SFS) · Principal Investigator · Aug 2026 – Jul 2029**
+
+  NSF Award Number: <a href="https://www.nsf.gov/awardsearch/show-award?AWD_ID=2623070" target="_blank" rel="noopener">2623070</a>
+
+  A multi-agent adaptive intelligent tutoring system that trains cybersecurity professionals to recognize and resist AI-enabled threats, including AI-generated social engineering, prompt injection in AI-assisted workflows, and insider behavioral anomalies. An Adversary Agent generates adaptive, profile-targeted threat scenarios, a Diagnostic Agent classifies individual metacognitive miscalibration profiles from learner decision and confidence data, and a Metacognitive Scaffolding Agent delivers personalized calibration interventions matched to each learner's profile. The three-year mixed-methods evaluation will serve 120 to 200 graduate learners at UCF, a National Center of Academic Excellence in Cybersecurity, with a pilot at a partner institution coordinated through the Florida High Tech Corridor.
+
+  The project addresses a documented gap between the sophistication of AI-driven cyberattacks and the cognitive readiness of the professionals defending against them, closing a metacognitive miscalibration gap left unaddressed by conventional cybersecurity training. Funded through NSF's CyberAICorps Scholarship for Service (SFS) Innovation Track, it will release all training modules, scenario libraries, calibration instruments, and system source code as open educational resources, strengthening national capacity to educate and retain AI and cybersecurity workforce talent.
 completed: |
   ### Epic Games MegaGrant-supported XR research
   **Epic Games · 2020 – 2021**
