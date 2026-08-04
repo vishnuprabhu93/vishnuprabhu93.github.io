@@ -1,10 +1,14 @@
 ---
 title: "Projects"
 active: |
-  ### ED-SHIFT: redesigning emergency department shift scheduling
+  ### Redesigning Emergency Department Clinician Shift Scheduling to Improve Well-being and Patient Outcomes (EDSHIFT)
   **NIOSH / CDC · Co-Investigator · Oct 2024 – Sep 2026**
 
-  Developing optimized shift-scheduling models to improve emergency department clinician well-being and patient outcomes, in collaboration with Clemson University. The work has produced a hybrid agent-based/discrete-event simulation framework linking physician burnout dynamics to ED operational performance.
+  NIH RePORTER: <a href="https://reporter.nih.gov/search/FXlyMYXxg0CSnbyLPFM3pw/projects" target="_blank" rel="noopener">Project record</a>
+
+  A mixed-methods framework for redesigning ED nurse and physician shift schedules that integrates clinician preferences and physiological well-being indicators, including burnout, fatigue, and cortisol markers, alongside operational and patient-safety data. The team analyzes current staffing schedules and clinician-reported preferences, then feeds those relationships into a modeling framework, in collaboration with Clemson University, that generates functional shift schedules benchmarked against a computer-based simulation model of the partner hospital's ED.
+
+  Clinician burnout and chronic stress in Emergency Departments carry real costs for clinician health, patient safety, and care quality, yet most shift-scheduling research focuses on identifying burnout's causes rather than designing system-level interventions to prevent it. EDSHIFT addresses that gap with mathematical modeling that treats clinician well-being as a first-class scheduling constraint alongside patient flow and safety, aiming to reduce workflow imbalance and stress at the planning stage itself.
 
   ### Improving patient experience and access to care
   **Stanford Health Care · Principal Investigator · 2022 – Ongoing**
