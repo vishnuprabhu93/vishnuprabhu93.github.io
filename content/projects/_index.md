@@ -18,6 +18,8 @@ active: |
 
   Hands-on summer programs preparing high school students for AI-enhanced service careers through robotics and entrepreneurial thinking, run through UCF's [AIRE Summer Institute](/news/rosen-summer-institute-2026/) and [Summer Camp at NeoCity Academy](/news/neocity-summer-camp-2026/). Students work in small teams across a range of platforms, including Sphero BOLT+, Lego robotics, robot dogs, drones, Raspberry Pi, and VEX, applying a four-pillar AI competency framework (awareness, interaction, application, and human-AI co-creation) to learn AI and robotics fundamentals, systems design, and entrepreneurial thinking, and culminating in a mock business plan and a UCF completion certificate.
 
+  Evidence-based models for teaching AI and robotics to high school students, especially ones that pair technical skill-building with entrepreneurship and ethical reasoning, remain scarce. The project addresses that gap and advances the national interest in a human-centered AI workforce by expanding access to advanced technology education for students from service-industry communities, while producing open-access instructional materials, professional learning resources for educators, and empirical evidence on integrating AI, robotics, and entrepreneurship education into K-12 STEM learning nationwide.
+
   ### Space Habitat Hospitality: a VR-biosensing framework for crew interaction, environment design, and guest well-being
   **Rosen College of Hospitality Management · Co-Principal Investigator · Jan 2026 – Sep 2026**
 
