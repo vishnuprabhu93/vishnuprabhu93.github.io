@@ -1,6 +1,7 @@
 ---
 title: "Dr. Prabhu Awarded NSF CyberAICorps Grant for AI-Driven Cybersecurity Workforce Training"
 date: 2026-08-01
+category: "Award"
 ---
 
 Dr. Prabhu has received a three-year, $500,000 grant from the National Science Foundation's
