@@ -12,7 +12,7 @@
     </div>
 
     <div id="tab-people">
-      <h2 class="section-title" style="margin-bottom:18px;">Current students</h2>
+      <h2 class="section-title" style="margin-bottom:18px;">Current Students</h2>
 
       <div class="student-grid" style="margin-bottom:28px;">
         {{ range .Params.currentStudents }}
@@ -27,7 +27,7 @@
         {{ end }}
       </div>
 
-      <h2 class="section-title" style="margin:40px 0 18px;">As committee member</h2>
+      <h2 class="section-title" style="margin:40px 0 18px;">As Committee Member</h2>
       <div class="committee-list">
         {{ range .Params.committeeStudents }}
         <div class="committee-item">
@@ -37,9 +37,9 @@
         {{ end }}
       </div>
 
-      <h2 class="section-title" style="margin:40px 0 18px;">Lab alumni</h2>
+      <h2 class="section-title" style="margin:40px 0 18px;">Lab Alumni</h2>
 
-      <div class="group-label">As primary advisor</div>
+      <div class="group-label">As Primary Advisor</div>
       <div class="alumni-list" style="margin-bottom:28px;">
         {{ range .Params.alumniPrimaryAdvisor }}
         <div class="alumni-item">
@@ -49,7 +49,7 @@
         {{ end }}
       </div>
 
-      <div class="group-label">As committee member</div>
+      <div class="group-label">As Committee Member</div>
       <div class="alumni-list" style="margin-bottom:28px;">
         {{ range .Params.alumniCommitteeMember }}
         <div class="alumni-item">
@@ -59,7 +59,7 @@
         {{ end }}
       </div>
 
-      <div class="group-label">M.S. capstone</div>
+      <div class="group-label">M.S. Capstone</div>
       <div class="committee-list">
         {{ range .Params.alumniCapstone }}
         <div class="committee-item">
@@ -70,7 +70,7 @@
     </div>
 
     <div id="tab-facilities" style="display:none;">
-      <h2 class="section-title" style="margin-bottom:8px;">Lab facilities</h2>
+      <h2 class="section-title" style="margin-bottom:8px;">Lab Facilities</h2>
       <p style="font-size:13.5px; color:var(--warm-gray); margin-bottom:12px;">Photos and product links for each device to be added.</p>
       <div class="equip-grid">
         {{ range .Params.equipment }}
