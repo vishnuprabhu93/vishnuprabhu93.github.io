@@ -3,7 +3,7 @@ title: "Publications"
 citations: 757
 hIndex: 15
 i10Index: 20
-totalPubs: 56
+totalPubs: 58
 retrieved: "2026-08-01"
 bookChapters: |
   1. Marston, H.R., **Prabhu, V.G.**, Ivan, L., Freeman, S., & Earle, S. (2025). [The Impact on Psychological Wellbeing and Loneliness on People Who Self-Reported to Self-Isolate, Being Disabled and Vulnerable During the COVID-19 Pandemic: Findings from an International, Multi-Centered Project](https://oro.open.ac.uk/108798/). In H.R. Marston (Ed.), *Society and Technology: Promoting Well-Being in a Digital Age* (Chapter 11). Cognella.
@@ -37,6 +37,8 @@ journals: |
   1. **Prabhu, V.G.**, Stanley, L., & Morgan, R. (2020). [A Biofeedback Enhanced Adaptive Virtual Reality Environment for Managing Surgical Pain and Anxiety](https://doi.org/10.1142/S1793351X20400152). *International Journal of Semantic Computing*.
   1. **Prabhu, V.G.**, Taaffe, K., Pirrallo, R., & Shvorin, D. (2020). [Stress and Burnout among Attendings and Resident Physicians in the ED: A Comparative Study](https://doi.org/10.1080/24725579.2020.1814456). *IISE Transactions on Healthcare Systems Engineering*.
 conferenceProceedings: |
+  1. Abrol, S., Pirrallo, R., Taaffe, K., & **Prabhu, V.G.** (2026). [A Hybrid Simulation Approach to Analyze the Impact of Physician Fatigue and Burnout on Emergency Department Performance](https://www.proquest.com/docview/3374569873?pq-origsite=gscholar&fromopenview=true&sourcetype=Scholarly%20Journals). *IISE Annual Conference & Expo*.
+  1. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). [Agent-Based Modeling of Healthcare Worker Compliance Effects on Surgical Site Infection Prevention in Colorectal Surgery](https://www.proquest.com/docview/3374569912?pq-origsite=gscholar&fromopenview=true&sourcetype=Scholarly%20Journals). *IISE Annual Conference & Expo*.
   1. **Prabhu, V.G.**, Azevedo, R., Soykan, B., & Rabadi, G. (2026). [Scaffolding Graduate Simulation Education Through Structured LLM Integration and Metacognition: A Preliminary Investigation](https://nemo.asee.org/public/conferences/374/papers/51975/view). *ASEE Annual Conference & Exposition*.
   1. **Prabhu, V.G.**, Ramachandran, A., & Alexander, S. (2025). [Hybrid Modeling and Simulation for Enhancing Patient Access, Safety and Experience](https://doi.org/10.1109/WSC68292.2025.11338943). *Proceedings of the Winter Simulation Conference (WSC)*.
   1. Prasad, A., Bidwai, S.L., Zawar, A.J., Ahuja, D.A., Kalatzis, A., & **Prabhu, V.G.** (2025). [Psychological and Neurophysiological Indicators of Stress and Relaxation in Immersive Virtual Reality Environments: A Multimodal Approach](https://doi.org/10.1145/3716553.3750761). *Proceedings of the International Conference on Multimodal Interaction*.
@@ -67,9 +69,7 @@ conferenceProceedings: |
 workingPapers: |
   1. **Prabhu, V.G.**, Soykan, B., Prins, C., Takla, H., Rohatgi, N., Morgan, R., Ramamohan, V., & Taaffe, K. (2026). [An Integrated Surgical Digital Twin for Mitigating Healthcare-Associated Infections: Multi-Agent Reinforcement Learning with Adaptive Intervention Optimization](https://doi.org/10.1142/14374). In *Emerging Trends in Analytics and Data Science in Practice: Healthcare Analytics in Practice*. World Scientific. (In press)
   1. Abrol, S., Pirrallo, R., & **Prabhu, V.G.** (2026). Modeling Emergency Department Physician Burnout and Operational Performance Using Hybrid Simulation. *Annual Modeling and Simulation Conference (ANNSIM)*. (In press)
-  1. Abrol, S., Pirrallo, R., Taaffe, K., & **Prabhu, V.G.** (2026). A Hybrid Simulation Approach to Analyze the Impact of Physician Fatigue and Burnout on Emergency Department Performance. *IISE Annual Conference & Expo*. (In press)
   1. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). An Agent-Based Model for Evaluating Surgical Site Infection Prevention Bundle Policies in Colorectal Surgery. *Annual Modeling and Simulation Conference (ANNSIM)*. (In press)
-  1. Sajjadi, S.M., Takla, H., Rohatgi, N., Morgan, R., & **Prabhu, V.G.** (2026). Agent-Based Modeling of Healthcare Worker Compliance Effects on Surgical Site Infection Prevention in Colorectal Surgery. *IISE Annual Conference & Expo*. (In press)
   1. Marano, C., Brosnihan, A., Abrol, S., **Prabhu, V.G.**, & Azevedo, R. (2026). Modeling Individual Differences Underlying Human Scientific Reasoning Processes in Game-Based Learning Environments. *Annual Modeling and Simulation Conference (ANNSIM)*. (In press)
   1. Abrol, S., Taaffe, K., Pirrallo, R., & **Prabhu, V.G.** (2026). Hybrid Modeling and Simulation for Improving Emergency Physician Recovery and ED Performance. *Winter Simulation Conference (WSC)*. (Under review)
   1. **Prabhu, V.G.**, & Azevedo, R. (2026). Neuroadaptive Systems in Human-AI Collaboration: Physiological Sensing, Metacognitive Modeling, and Bidirectional Learning. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
