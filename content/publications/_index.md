@@ -75,6 +75,7 @@ workingPapers: |
   1. **Prabhu, V.G.**, & Azevedo, R. (2026). Neuroadaptive Systems in Human-AI Collaboration: Physiological Sensing, Metacognitive Modeling, and Bidirectional Learning. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   1. **Prabhu, V.G.**, Takla, H., Kalatzis, A., Basourakos, S.P., & Azevedo, R. (2026). A Detailed Application Focusing on Robotic Surgery as a Practical Implementation of Hybrid Intelligence Principles. In *Handbook of Hybrid Intelligence: Unlocking the Potential of Human-Machine Collaboration*. (Under review)
   1. Foster, S., Hegde, S., Ramsay, M., **Prabhu, V.G.**, Taaffe, K., Hobbs, J., Gaafary, C., Jackson, W., & Pirrallo, R. (2026). A Measure of Emergency Physician Workload: Development and Validation of the Disposition Mapping for Physician Sign-Out (D-MAPS). *Annals of Emergency Medicine*. (Under review)
+  1. **Prabhu, V.G.**, Kalatzis, A., Azevedo, R., Takla, H., Basourakos, S.P., & Rohatgi, N. (2026). From Teleoperation to Autonomous Assistance in Robotic Acute Care Surgery: Levels of Autonomy, the Human Interface, and the Evidence Gap. *Topical Collection on Robotics in ACS and Trauma*. (Under review)
 ---
 
 <!-- Order is fixed: Book Chapters, then Journals, then Conference Proceedings, then Working Papers. Do not reorder. -->
