@@ -1,10 +1,10 @@
 ---
 title: "Publications"
-citations: 757
+citations: 800
 hIndex: 15
-i10Index: 20
+i10Index: 21
 totalPubs: 58
-retrieved: "2026-08-01"
+retrieved: "2026-09-01"
 bookChapters: |
   1. Marston, H.R., **Prabhu, V.G.**, Ivan, L., Freeman, S., & Earle, S. (2025). [The Impact on Psychological Wellbeing and Loneliness on People Who Self-Reported to Self-Isolate, Being Disabled and Vulnerable During the COVID-19 Pandemic: Findings from an International, Multi-Centered Project](https://oro.open.ac.uk/108798/). In H.R. Marston (Ed.), *Society and Technology: Promoting Well-Being in a Digital Age* (Chapter 11). Cognella.
   1. Stanley, L., & **Prabhu, V.G.** (2025). [Human System Interaction — Interface Design](https://doi.org/10.1201/9781003188377-40). In A.P. Ambler & J.W. Sheppard (Eds.), *Realizing Complex System Design* (1st ed., pp. 441–459). CRC Press.
