@@ -1,6 +1,6 @@
 ---
 title: "Publications"
-citations: 840
+citations: 880
 hIndex: 15
 i10Index: 21
 totalPubs: 58
