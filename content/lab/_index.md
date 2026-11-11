@@ -32,7 +32,7 @@ committeeStudents:
 alumniPrimaryAdvisor:
   - name: "Deepa Fernandes Prabhu"
     credit: "Ph.D. Dissertation Advisor, Fall 2026"
-    thesisTitle: "Toward trustworthy digital health: a completeness-aware framework for predictive healthcare AI."
+    thesisTitle: "Toward Trustworthy Digital Health: A Completeness-Aware Framework for Predictive Healthcare AI."
   - name: "Renita Washburn"
     credit: "Ph.D. Dissertation Advisor, Spring 2026"
     thesisTitle: "Dynamics of Household Food Insecurity Vulnerability: Examining Health, Functional Limitations, and Income Stability."
